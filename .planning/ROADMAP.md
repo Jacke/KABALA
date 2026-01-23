@@ -11,7 +11,7 @@ None
 ## Phases
 
 - [x] **Phase 1: Foundation** - Project setup, Next.js, tooling, basic structure
-- [ ] **Phase 2: Data Layer** - JSON/CSV schema, city data models, sample data
+- [x] **Phase 2: Data Layer** - JSON/CSV schema, city data models, sample data
 - [ ] **Phase 3: Map Visualization** - Interactive 2D map with clickable city markers
 - [ ] **Phase 4: City Details** - City data cards with all metrics
 - [ ] **Phase 5: Rankings Table** - Sortable city list with key metrics
@@ -41,8 +41,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 02-01: City data schema and TypeScript types
-- [ ] 02-02: Data loading utilities and sample cities
+- [x] 02-01: City data schema and TypeScript types
+- [x] 02-02: Data loading utilities and sample cities
 
 ### Phase 3: Map Visualization
 **Goal**: Interactive 2D world map with city markers that show basic info on hover/click
@@ -146,7 +146,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-01-23 |
-| 2. Data Layer | 0/2 | Not started | - |
+| 2. Data Layer | 2/2 | Complete | 2026-01-23 |
 | 3. Map Visualization | 0/2 | Not started | - |
 | 4. City Details | 0/2 | Not started | - |
 | 5. Rankings Table | 0/2 | Not started | - |
