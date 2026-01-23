@@ -12,7 +12,7 @@ None
 
 - [x] **Phase 1: Foundation** - Project setup, Next.js, tooling, basic structure
 - [x] **Phase 2: Data Layer** - JSON/CSV schema, city data models, sample data
-- [ ] **Phase 3: Map Visualization** - Interactive 2D map with clickable city markers
+- [x] **Phase 3: Map Visualization** - Interactive 2D map with clickable city markers
 - [ ] **Phase 4: City Details** - City data cards with all metrics
 - [ ] **Phase 5: Rankings Table** - Sortable city list with key metrics
 - [ ] **Phase 6: City Comparison** - Compare cities (2, multiple, vs home base)
@@ -52,8 +52,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 03-01: Map component with city markers
-- [ ] 03-02: City hover tooltips and click interactions
+- [x] 03-01: Map component with city markers
+- [x] 03-02: City hover tooltips and click interactions
 
 ### Phase 4: City Details
 **Goal**: Detailed city cards showing all metrics (salary, rent, property, food, etc.)
@@ -147,7 +147,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-01-23 |
 | 2. Data Layer | 2/2 | Complete | 2026-01-23 |
-| 3. Map Visualization | 0/2 | Not started | - |
+| 3. Map Visualization | 2/2 | Complete | 2026-01-23 |
 | 4. City Details | 0/2 | Not started | - |
 | 5. Rankings Table | 0/2 | Not started | - |
 | 6. City Comparison | 0/2 | Not started | - |
