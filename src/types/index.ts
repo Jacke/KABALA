@@ -1,0 +1,37 @@
+/**
+ * KABALA Type Definitions
+ *
+ * Central export point for all TypeScript types.
+ * Import types from '@/types' for consistent access throughout the application.
+ *
+ * @example
+ * import { City, CityMetrics, MoneyAmount } from '@/types';
+ */
+
+// City types
+export type {
+  Currency,
+  Coordinates,
+  Region,
+  City,
+  CityIndex,
+  CityWithMetrics,
+} from './city';
+
+// Metrics types
+export type {
+  MoneyAmount,
+  RentMetrics,
+  PropertyMetrics,
+  FoodMetrics,
+  TransportMetrics,
+  UtilitiesMetrics,
+  LifestyleMetrics,
+  EducationMetrics,
+  HealthcareMetrics,
+  SalaryMetrics,
+  CityMetrics,
+  HistoricalDataPoint,
+  InflationDataPoint,
+  HistoricalMetrics,
+} from './metrics';
