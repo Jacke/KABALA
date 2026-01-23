@@ -18,6 +18,10 @@ interface CityMarkerProps {
   isSelected?: boolean;
   /** Callback when the marker is clicked */
   onClick?: () => void;
+  /** Callback when mouse enters the marker */
+  onMouseEnter?: (event: React.MouseEvent) => void;
+  /** Callback when mouse leaves the marker */
+  onMouseLeave?: () => void;
 }
 
 /**
@@ -39,7 +43,13 @@ function getRegionColor(region: Region): string {
  * City marker component for the interactive map.
  * Renders a colored circle at the city's coordinates with hover and selection states.
  */
-export function CityMarker({ city, isSelected = false, onClick }: CityMarkerProps) {
+export function CityMarker({
+  city,
+  isSelected = false,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+}: CityMarkerProps) {
   const baseColor = getRegionColor(city.region);
   const radius = isSelected ? 8 : 6;
 
@@ -56,6 +66,8 @@ export function CityMarker({ city, isSelected = false, onClick }: CityMarkerProp
             onClick?.();
           }
         }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         className="cursor-pointer"
         style={{ outline: 'none' }}
       >
