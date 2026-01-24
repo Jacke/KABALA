@@ -6,8 +6,38 @@ import { Navigation } from '@/components/Navigation';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'KABALA - Global Purchasing Power Dashboard',
-  description: 'Compare cost of living and purchasing power across cities worldwide',
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || 'https://kabala.app'
+  ),
+  title: {
+    default: 'KABALA - Global Purchasing Power Dashboard',
+    template: '%s | KABALA',
+  },
+  description:
+    'Compare cost of living and purchasing power across cities worldwide. Explore salaries, rent, food, transport, and more.',
+  keywords: [
+    'cost of living',
+    'purchasing power',
+    'salary comparison',
+    'rent prices',
+    'city comparison',
+    'expat',
+    'relocation',
+  ],
+  openGraph: {
+    title: 'KABALA - Global Purchasing Power Dashboard',
+    description:
+      'Compare cost of living across cities. Explore salaries, rent, and living costs.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'KABALA',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KABALA - Global Purchasing Power Dashboard',
+    description:
+      'Compare cost of living across cities. Explore salaries, rent, and living costs.',
+  },
 };
 
 export default function RootLayout({

@@ -298,5 +298,1055 @@
         { "year": 2025, "rate": 3.0 }
       ]
     }
+  },
+  {
+    "id": "kyiv",
+    "name": "Kyiv",
+    "country": "Ukraine",
+    "countryCode": "UA",
+    "region": "cis",
+    "coordinates": { "lat": 50.4501, "lng": 30.5234 },
+    "currency": { "code": "UAH", "symbol": "₴", "name": "Ukrainian Hryvnia" },
+    "population": 2950000,
+    "timezone": "Europe/Kyiv",
+    "metrics": {
+      "salary": {
+        "average": { "local": 28000, "usd": 760 },
+        "median": { "local": 22000, "usd": 595 },
+        "minimum": { "local": 8000, "usd": 217 }
+      },
+      "rent": {
+        "studio": { "local": 12000, "usd": 325 },
+        "oneBedroom": { "local": 16000, "usd": 435 },
+        "twoBedroom": { "local": 24000, "usd": 650 },
+        "threeBedroom": { "local": 35000, "usd": 950 }
+      },
+      "property": {
+        "cityCenter": { "local": 85000, "usd": 2300 },
+        "outside": { "local": 50000, "usd": 1355 }
+      },
+      "food": {
+        "groceries": { "local": 6000, "usd": 163 },
+        "restaurantMeal": { "local": 350, "usd": 9.5 },
+        "fastFood": { "local": 180, "usd": 5 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 900, "usd": 24 },
+        "taxiPerKm": { "local": 12, "usd": 0.33 },
+        "gasoline": { "local": 52, "usd": 1.41 }
+      },
+      "utilities": {
+        "basic": { "local": 3500, "usd": 95 },
+        "internet": { "local": 300, "usd": 8 },
+        "mobile": { "local": 150, "usd": 4 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 1500, "usd": 41 },
+        "cinema": { "local": 200, "usd": 5 },
+        "cappuccino": { "local": 65, "usd": 1.76 }
+      },
+      "education": {
+        "preschool": { "local": 8000, "usd": 217 },
+        "internationalSchool": { "local": 450000, "usd": 12200 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 800, "usd": 22 },
+        "medicationBasic": { "local": 200, "usd": 5 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 22000, "usd": 595 } },
+        { "year": 2024, "value": { "local": 25000, "usd": 675 } },
+        { "year": 2025, "value": { "local": 28000, "usd": 760 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 12000, "usd": 325 } },
+        { "year": 2024, "value": { "local": 14000, "usd": 380 } },
+        { "year": 2025, "value": { "local": 16000, "usd": 435 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 12.8 },
+        { "year": 2024, "rate": 5.1 },
+        { "year": 2025, "rate": 4.5 }
+      ]
+    }
+  },
+  {
+    "id": "minsk",
+    "name": "Minsk",
+    "country": "Belarus",
+    "countryCode": "BY",
+    "region": "cis",
+    "coordinates": { "lat": 53.9006, "lng": 27.559 },
+    "currency": { "code": "BYN", "symbol": "Br", "name": "Belarusian Ruble" },
+    "population": 1980000,
+    "timezone": "Europe/Minsk",
+    "metrics": {
+      "salary": {
+        "average": { "local": 2200, "usd": 680 },
+        "median": { "local": 1800, "usd": 555 },
+        "minimum": { "local": 626, "usd": 193 }
+      },
+      "rent": {
+        "studio": { "local": 800, "usd": 247 },
+        "oneBedroom": { "local": 1100, "usd": 340 },
+        "twoBedroom": { "local": 1600, "usd": 495 },
+        "threeBedroom": { "local": 2200, "usd": 680 }
+      },
+      "property": {
+        "cityCenter": { "local": 5500, "usd": 1700 },
+        "outside": { "local": 3500, "usd": 1080 }
+      },
+      "food": {
+        "groceries": { "local": 550, "usd": 170 },
+        "restaurantMeal": { "local": 35, "usd": 11 },
+        "fastFood": { "local": 18, "usd": 6 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 75, "usd": 23 },
+        "taxiPerKm": { "local": 1.2, "usd": 0.37 },
+        "gasoline": { "local": 2.5, "usd": 0.77 }
+      },
+      "utilities": {
+        "basic": { "local": 150, "usd": 46 },
+        "internet": { "local": 35, "usd": 11 },
+        "mobile": { "local": 25, "usd": 8 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 100, "usd": 31 },
+        "cinema": { "local": 25, "usd": 8 },
+        "cappuccino": { "local": 8, "usd": 2.47 }
+      },
+      "education": {
+        "preschool": { "local": 400, "usd": 124 },
+        "internationalSchool": { "local": 25000, "usd": 7720 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 80, "usd": 25 },
+        "medicationBasic": { "local": 20, "usd": 6 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 1800, "usd": 555 } },
+        { "year": 2024, "value": { "local": 2000, "usd": 620 } },
+        { "year": 2025, "value": { "local": 2200, "usd": 680 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 900, "usd": 278 } },
+        { "year": 2024, "value": { "local": 1000, "usd": 310 } },
+        { "year": 2025, "value": { "local": 1100, "usd": 340 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 4.6 },
+        { "year": 2024, "rate": 5.8 },
+        { "year": 2025, "rate": 6.2 }
+      ]
+    }
+  },
+  {
+    "id": "almaty",
+    "name": "Almaty",
+    "country": "Kazakhstan",
+    "countryCode": "KZ",
+    "region": "cis",
+    "coordinates": { "lat": 43.2551, "lng": 76.9126 },
+    "currency": { "code": "KZT", "symbol": "₸", "name": "Kazakhstani Tenge" },
+    "population": 2000000,
+    "timezone": "Asia/Almaty",
+    "metrics": {
+      "salary": {
+        "average": { "local": 450000, "usd": 980 },
+        "median": { "local": 350000, "usd": 760 },
+        "minimum": { "local": 85000, "usd": 185 }
+      },
+      "rent": {
+        "studio": { "local": 150000, "usd": 326 },
+        "oneBedroom": { "local": 200000, "usd": 435 },
+        "twoBedroom": { "local": 320000, "usd": 695 },
+        "threeBedroom": { "local": 450000, "usd": 980 }
+      },
+      "property": {
+        "cityCenter": { "local": 850000, "usd": 1850 },
+        "outside": { "local": 500000, "usd": 1090 }
+      },
+      "food": {
+        "groceries": { "local": 80000, "usd": 174 },
+        "restaurantMeal": { "local": 5000, "usd": 11 },
+        "fastFood": { "local": 2500, "usd": 5 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 15000, "usd": 33 },
+        "taxiPerKm": { "local": 150, "usd": 0.33 },
+        "gasoline": { "local": 250, "usd": 0.54 }
+      },
+      "utilities": {
+        "basic": { "local": 25000, "usd": 54 },
+        "internet": { "local": 5000, "usd": 11 },
+        "mobile": { "local": 4000, "usd": 9 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 35000, "usd": 76 },
+        "cinema": { "local": 3000, "usd": 7 },
+        "cappuccino": { "local": 1200, "usd": 2.61 }
+      },
+      "education": {
+        "preschool": { "local": 150000, "usd": 326 },
+        "internationalSchool": { "local": 6000000, "usd": 13050 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 15000, "usd": 33 },
+        "medicationBasic": { "local": 5000, "usd": 11 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 380000, "usd": 826 } },
+        { "year": 2024, "value": { "local": 420000, "usd": 913 } },
+        { "year": 2025, "value": { "local": 450000, "usd": 980 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 160000, "usd": 348 } },
+        { "year": 2024, "value": { "local": 180000, "usd": 391 } },
+        { "year": 2025, "value": { "local": 200000, "usd": 435 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 9.8 },
+        { "year": 2024, "rate": 8.5 },
+        { "year": 2025, "rate": 7.2 }
+      ]
+    }
+  },
+  {
+    "id": "baku",
+    "name": "Baku",
+    "country": "Azerbaijan",
+    "countryCode": "AZ",
+    "region": "cis",
+    "coordinates": { "lat": 40.4093, "lng": 49.8671 },
+    "currency": { "code": "AZN", "symbol": "₼", "name": "Azerbaijani Manat" },
+    "population": 2300000,
+    "timezone": "Asia/Baku",
+    "metrics": {
+      "salary": {
+        "average": { "local": 1200, "usd": 705 },
+        "median": { "local": 900, "usd": 530 },
+        "minimum": { "local": 400, "usd": 235 }
+      },
+      "rent": {
+        "studio": { "local": 500, "usd": 294 },
+        "oneBedroom": { "local": 700, "usd": 412 },
+        "twoBedroom": { "local": 1100, "usd": 647 },
+        "threeBedroom": { "local": 1600, "usd": 941 }
+      },
+      "property": {
+        "cityCenter": { "local": 3000, "usd": 1765 },
+        "outside": { "local": 1800, "usd": 1060 }
+      },
+      "food": {
+        "groceries": { "local": 350, "usd": 206 },
+        "restaurantMeal": { "local": 20, "usd": 12 },
+        "fastFood": { "local": 12, "usd": 7 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 40, "usd": 24 },
+        "taxiPerKm": { "local": 0.8, "usd": 0.47 },
+        "gasoline": { "local": 1.0, "usd": 0.59 }
+      },
+      "utilities": {
+        "basic": { "local": 80, "usd": 47 },
+        "internet": { "local": 30, "usd": 18 },
+        "mobile": { "local": 20, "usd": 12 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 80, "usd": 47 },
+        "cinema": { "local": 15, "usd": 9 },
+        "cappuccino": { "local": 5, "usd": 2.94 }
+      },
+      "education": {
+        "preschool": { "local": 400, "usd": 235 },
+        "internationalSchool": { "local": 20000, "usd": 11765 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 50, "usd": 29 },
+        "medicationBasic": { "local": 15, "usd": 9 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 1000, "usd": 588 } },
+        { "year": 2024, "value": { "local": 1100, "usd": 647 } },
+        { "year": 2025, "value": { "local": 1200, "usd": 705 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 550, "usd": 324 } },
+        { "year": 2024, "value": { "local": 620, "usd": 365 } },
+        { "year": 2025, "value": { "local": 700, "usd": 412 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 8.8 },
+        { "year": 2024, "rate": 4.5 },
+        { "year": 2025, "rate": 3.8 }
+      ]
+    }
+  },
+  {
+    "id": "yerevan",
+    "name": "Yerevan",
+    "country": "Armenia",
+    "countryCode": "AM",
+    "region": "cis",
+    "coordinates": { "lat": 40.1792, "lng": 44.4991 },
+    "currency": { "code": "AMD", "symbol": "֏", "name": "Armenian Dram" },
+    "population": 1080000,
+    "timezone": "Asia/Yerevan",
+    "metrics": {
+      "salary": {
+        "average": { "local": 350000, "usd": 870 },
+        "median": { "local": 280000, "usd": 695 },
+        "minimum": { "local": 75000, "usd": 186 }
+      },
+      "rent": {
+        "studio": { "local": 140000, "usd": 348 },
+        "oneBedroom": { "local": 180000, "usd": 447 },
+        "twoBedroom": { "local": 280000, "usd": 695 },
+        "threeBedroom": { "local": 400000, "usd": 994 }
+      },
+      "property": {
+        "cityCenter": { "local": 700000, "usd": 1739 },
+        "outside": { "local": 450000, "usd": 1118 }
+      },
+      "food": {
+        "groceries": { "local": 80000, "usd": 199 },
+        "restaurantMeal": { "local": 5000, "usd": 12 },
+        "fastFood": { "local": 3000, "usd": 7 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 6000, "usd": 15 },
+        "taxiPerKm": { "local": 150, "usd": 0.37 },
+        "gasoline": { "local": 500, "usd": 1.24 }
+      },
+      "utilities": {
+        "basic": { "local": 30000, "usd": 75 },
+        "internet": { "local": 6000, "usd": 15 },
+        "mobile": { "local": 4000, "usd": 10 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 25000, "usd": 62 },
+        "cinema": { "local": 3000, "usd": 7 },
+        "cappuccino": { "local": 1200, "usd": 2.98 }
+      },
+      "education": {
+        "preschool": { "local": 100000, "usd": 249 },
+        "internationalSchool": { "local": 4000000, "usd": 9940 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 10000, "usd": 25 },
+        "medicationBasic": { "local": 3000, "usd": 7 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 280000, "usd": 695 } },
+        { "year": 2024, "value": { "local": 320000, "usd": 795 } },
+        { "year": 2025, "value": { "local": 350000, "usd": 870 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 140000, "usd": 348 } },
+        { "year": 2024, "value": { "local": 160000, "usd": 397 } },
+        { "year": 2025, "value": { "local": 180000, "usd": 447 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 2.0 },
+        { "year": 2024, "rate": 1.5 },
+        { "year": 2025, "rate": 2.8 }
+      ]
+    }
+  },
+  {
+    "id": "tashkent",
+    "name": "Tashkent",
+    "country": "Uzbekistan",
+    "countryCode": "UZ",
+    "region": "cis",
+    "coordinates": { "lat": 41.2995, "lng": 69.2401 },
+    "currency": { "code": "UZS", "symbol": "soʻm", "name": "Uzbekistani Som" },
+    "population": 2860000,
+    "timezone": "Asia/Tashkent",
+    "metrics": {
+      "salary": {
+        "average": { "local": 6500000, "usd": 520 },
+        "median": { "local": 5000000, "usd": 400 },
+        "minimum": { "local": 1050000, "usd": 84 }
+      },
+      "rent": {
+        "studio": { "local": 3500000, "usd": 280 },
+        "oneBedroom": { "local": 5000000, "usd": 400 },
+        "twoBedroom": { "local": 7500000, "usd": 600 },
+        "threeBedroom": { "local": 10000000, "usd": 800 }
+      },
+      "property": {
+        "cityCenter": { "local": 18000000, "usd": 1440 },
+        "outside": { "local": 11000000, "usd": 880 }
+      },
+      "food": {
+        "groceries": { "local": 1800000, "usd": 144 },
+        "restaurantMeal": { "local": 100000, "usd": 8 },
+        "fastFood": { "local": 60000, "usd": 5 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 200000, "usd": 16 },
+        "taxiPerKm": { "local": 3500, "usd": 0.28 },
+        "gasoline": { "local": 12500, "usd": 1.0 }
+      },
+      "utilities": {
+        "basic": { "local": 500000, "usd": 40 },
+        "internet": { "local": 150000, "usd": 12 },
+        "mobile": { "local": 100000, "usd": 8 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 500000, "usd": 40 },
+        "cinema": { "local": 75000, "usd": 6 },
+        "cappuccino": { "local": 30000, "usd": 2.4 }
+      },
+      "education": {
+        "preschool": { "local": 2500000, "usd": 200 },
+        "internationalSchool": { "local": 150000000, "usd": 12000 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 250000, "usd": 20 },
+        "medicationBasic": { "local": 75000, "usd": 6 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 5000000, "usd": 400 } },
+        { "year": 2024, "value": { "local": 5800000, "usd": 464 } },
+        { "year": 2025, "value": { "local": 6500000, "usd": 520 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 3800000, "usd": 304 } },
+        { "year": 2024, "value": { "local": 4400000, "usd": 352 } },
+        { "year": 2025, "value": { "local": 5000000, "usd": 400 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 10.0 },
+        { "year": 2024, "rate": 9.2 },
+        { "year": 2025, "rate": 8.5 }
+      ]
+    }
+  },
+  {
+    "id": "paris",
+    "name": "Paris",
+    "country": "France",
+    "countryCode": "FR",
+    "region": "eu",
+    "coordinates": { "lat": 48.8566, "lng": 2.3522 },
+    "currency": { "code": "EUR", "symbol": "€", "name": "Euro" },
+    "population": 2161000,
+    "timezone": "Europe/Paris",
+    "metrics": {
+      "salary": {
+        "average": { "local": 4200, "usd": 4570 },
+        "median": { "local": 3800, "usd": 4135 },
+        "minimum": { "local": 1766, "usd": 1920 }
+      },
+      "rent": {
+        "studio": { "local": 1100, "usd": 1200 },
+        "oneBedroom": { "local": 1500, "usd": 1630 },
+        "twoBedroom": { "local": 2200, "usd": 2395 },
+        "threeBedroom": { "local": 3200, "usd": 3480 }
+      },
+      "property": {
+        "cityCenter": { "local": 12500, "usd": 13600 },
+        "outside": { "local": 7500, "usd": 8160 }
+      },
+      "food": {
+        "groceries": { "local": 400, "usd": 435 },
+        "restaurantMeal": { "local": 18, "usd": 20 },
+        "fastFood": { "local": 12, "usd": 13 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 84, "usd": 91 },
+        "taxiPerKm": { "local": 1.9, "usd": 2.07 },
+        "gasoline": { "local": 1.85, "usd": 2.01 }
+      },
+      "utilities": {
+        "basic": { "local": 180, "usd": 196 },
+        "internet": { "local": 30, "usd": 33 },
+        "mobile": { "local": 20, "usd": 22 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 45, "usd": 49 },
+        "cinema": { "local": 14, "usd": 15 },
+        "cappuccino": { "local": 4.5, "usd": 4.9 }
+      },
+      "education": {
+        "preschool": { "local": 600, "usd": 653 },
+        "internationalSchool": { "local": 25000, "usd": 27200 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 25, "usd": 27 },
+        "medicationBasic": { "local": 12, "usd": 13 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 3800, "usd": 4135 } },
+        { "year": 2024, "value": { "local": 4000, "usd": 4350 } },
+        { "year": 2025, "value": { "local": 4200, "usd": 4570 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 1350, "usd": 1470 } },
+        { "year": 2024, "value": { "local": 1420, "usd": 1545 } },
+        { "year": 2025, "value": { "local": 1500, "usd": 1630 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 4.9 },
+        { "year": 2024, "rate": 2.3 },
+        { "year": 2025, "rate": 1.8 }
+      ]
+    }
+  },
+  {
+    "id": "madrid",
+    "name": "Madrid",
+    "country": "Spain",
+    "countryCode": "ES",
+    "region": "eu",
+    "coordinates": { "lat": 40.4168, "lng": -3.7038 },
+    "currency": { "code": "EUR", "symbol": "€", "name": "Euro" },
+    "population": 3280000,
+    "timezone": "Europe/Madrid",
+    "metrics": {
+      "salary": {
+        "average": { "local": 2600, "usd": 2830 },
+        "median": { "local": 2200, "usd": 2395 },
+        "minimum": { "local": 1260, "usd": 1370 }
+      },
+      "rent": {
+        "studio": { "local": 850, "usd": 925 },
+        "oneBedroom": { "local": 1100, "usd": 1200 },
+        "twoBedroom": { "local": 1600, "usd": 1740 },
+        "threeBedroom": { "local": 2200, "usd": 2395 }
+      },
+      "property": {
+        "cityCenter": { "local": 5500, "usd": 5985 },
+        "outside": { "local": 3200, "usd": 3480 }
+      },
+      "food": {
+        "groceries": { "local": 300, "usd": 327 },
+        "restaurantMeal": { "local": 14, "usd": 15 },
+        "fastFood": { "local": 9, "usd": 10 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 55, "usd": 60 },
+        "taxiPerKm": { "local": 1.2, "usd": 1.31 },
+        "gasoline": { "local": 1.65, "usd": 1.8 }
+      },
+      "utilities": {
+        "basic": { "local": 140, "usd": 152 },
+        "internet": { "local": 35, "usd": 38 },
+        "mobile": { "local": 18, "usd": 20 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 40, "usd": 44 },
+        "cinema": { "local": 10, "usd": 11 },
+        "cappuccino": { "local": 2.2, "usd": 2.4 }
+      },
+      "education": {
+        "preschool": { "local": 450, "usd": 490 },
+        "internationalSchool": { "local": 15000, "usd": 16300 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 40, "usd": 44 },
+        "medicationBasic": { "local": 10, "usd": 11 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 2300, "usd": 2505 } },
+        { "year": 2024, "value": { "local": 2450, "usd": 2665 } },
+        { "year": 2025, "value": { "local": 2600, "usd": 2830 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 950, "usd": 1035 } },
+        { "year": 2024, "value": { "local": 1020, "usd": 1110 } },
+        { "year": 2025, "value": { "local": 1100, "usd": 1200 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 3.5 },
+        { "year": 2024, "rate": 2.8 },
+        { "year": 2025, "rate": 2.4 }
+      ]
+    }
+  },
+  {
+    "id": "amsterdam",
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "countryCode": "NL",
+    "region": "eu",
+    "coordinates": { "lat": 52.3676, "lng": 4.9041 },
+    "currency": { "code": "EUR", "symbol": "€", "name": "Euro" },
+    "population": 873000,
+    "timezone": "Europe/Amsterdam",
+    "metrics": {
+      "salary": {
+        "average": { "local": 4500, "usd": 4900 },
+        "median": { "local": 4000, "usd": 4350 },
+        "minimum": { "local": 1995, "usd": 2170 }
+      },
+      "rent": {
+        "studio": { "local": 1400, "usd": 1520 },
+        "oneBedroom": { "local": 1850, "usd": 2015 },
+        "twoBedroom": { "local": 2600, "usd": 2830 },
+        "threeBedroom": { "local": 3500, "usd": 3810 }
+      },
+      "property": {
+        "cityCenter": { "local": 9500, "usd": 10340 },
+        "outside": { "local": 6000, "usd": 6530 }
+      },
+      "food": {
+        "groceries": { "local": 350, "usd": 380 },
+        "restaurantMeal": { "local": 20, "usd": 22 },
+        "fastFood": { "local": 12, "usd": 13 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 100, "usd": 109 },
+        "taxiPerKm": { "local": 2.4, "usd": 2.6 },
+        "gasoline": { "local": 2.1, "usd": 2.29 }
+      },
+      "utilities": {
+        "basic": { "local": 200, "usd": 218 },
+        "internet": { "local": 45, "usd": 49 },
+        "mobile": { "local": 25, "usd": 27 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 40, "usd": 44 },
+        "cinema": { "local": 14, "usd": 15 },
+        "cappuccino": { "local": 3.8, "usd": 4.1 }
+      },
+      "education": {
+        "preschool": { "local": 1200, "usd": 1305 },
+        "internationalSchool": { "local": 22000, "usd": 23940 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 35, "usd": 38 },
+        "medicationBasic": { "local": 12, "usd": 13 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 4100, "usd": 4465 } },
+        { "year": 2024, "value": { "local": 4300, "usd": 4680 } },
+        { "year": 2025, "value": { "local": 4500, "usd": 4900 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 1650, "usd": 1795 } },
+        { "year": 2024, "value": { "local": 1750, "usd": 1905 } },
+        { "year": 2025, "value": { "local": 1850, "usd": 2015 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 4.1 },
+        { "year": 2024, "rate": 2.9 },
+        { "year": 2025, "rate": 2.2 }
+      ]
+    }
+  },
+  {
+    "id": "vienna",
+    "name": "Vienna",
+    "country": "Austria",
+    "countryCode": "AT",
+    "region": "eu",
+    "coordinates": { "lat": 48.2082, "lng": 16.3738 },
+    "currency": { "code": "EUR", "symbol": "€", "name": "Euro" },
+    "population": 1920000,
+    "timezone": "Europe/Vienna",
+    "metrics": {
+      "salary": {
+        "average": { "local": 3800, "usd": 4135 },
+        "median": { "local": 3400, "usd": 3700 },
+        "minimum": { "local": 1740, "usd": 1895 }
+      },
+      "rent": {
+        "studio": { "local": 750, "usd": 815 },
+        "oneBedroom": { "local": 1000, "usd": 1090 },
+        "twoBedroom": { "local": 1450, "usd": 1580 },
+        "threeBedroom": { "local": 2000, "usd": 2175 }
+      },
+      "property": {
+        "cityCenter": { "local": 7500, "usd": 8160 },
+        "outside": { "local": 4800, "usd": 5225 }
+      },
+      "food": {
+        "groceries": { "local": 320, "usd": 348 },
+        "restaurantMeal": { "local": 16, "usd": 17 },
+        "fastFood": { "local": 10, "usd": 11 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 51, "usd": 56 },
+        "taxiPerKm": { "local": 1.8, "usd": 1.96 },
+        "gasoline": { "local": 1.75, "usd": 1.9 }
+      },
+      "utilities": {
+        "basic": { "local": 200, "usd": 218 },
+        "internet": { "local": 30, "usd": 33 },
+        "mobile": { "local": 20, "usd": 22 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 35, "usd": 38 },
+        "cinema": { "local": 13, "usd": 14 },
+        "cappuccino": { "local": 4.0, "usd": 4.35 }
+      },
+      "education": {
+        "preschool": { "local": 300, "usd": 327 },
+        "internationalSchool": { "local": 18000, "usd": 19580 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 20, "usd": 22 },
+        "medicationBasic": { "local": 10, "usd": 11 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 3500, "usd": 3810 } },
+        { "year": 2024, "value": { "local": 3650, "usd": 3970 } },
+        { "year": 2025, "value": { "local": 3800, "usd": 4135 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 900, "usd": 980 } },
+        { "year": 2024, "value": { "local": 950, "usd": 1035 } },
+        { "year": 2025, "value": { "local": 1000, "usd": 1090 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 7.7 },
+        { "year": 2024, "rate": 4.0 },
+        { "year": 2025, "rate": 2.8 }
+      ]
+    }
+  },
+  {
+    "id": "prague",
+    "name": "Prague",
+    "country": "Czech Republic",
+    "countryCode": "CZ",
+    "region": "eu",
+    "coordinates": { "lat": 50.0755, "lng": 14.4378 },
+    "currency": { "code": "CZK", "symbol": "Kč", "name": "Czech Koruna" },
+    "population": 1310000,
+    "timezone": "Europe/Prague",
+    "metrics": {
+      "salary": {
+        "average": { "local": 55000, "usd": 2370 },
+        "median": { "local": 45000, "usd": 1940 },
+        "minimum": { "local": 18900, "usd": 815 }
+      },
+      "rent": {
+        "studio": { "local": 18000, "usd": 775 },
+        "oneBedroom": { "local": 24000, "usd": 1035 },
+        "twoBedroom": { "local": 35000, "usd": 1510 },
+        "threeBedroom": { "local": 48000, "usd": 2070 }
+      },
+      "property": {
+        "cityCenter": { "local": 150000, "usd": 6470 },
+        "outside": { "local": 95000, "usd": 4095 }
+      },
+      "food": {
+        "groceries": { "local": 6500, "usd": 280 },
+        "restaurantMeal": { "local": 300, "usd": 13 },
+        "fastFood": { "local": 200, "usd": 9 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 550, "usd": 24 },
+        "taxiPerKm": { "local": 36, "usd": 1.55 },
+        "gasoline": { "local": 38, "usd": 1.64 }
+      },
+      "utilities": {
+        "basic": { "local": 4500, "usd": 194 },
+        "internet": { "local": 500, "usd": 22 },
+        "mobile": { "local": 500, "usd": 22 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 1000, "usd": 43 },
+        "cinema": { "local": 250, "usd": 11 },
+        "cappuccino": { "local": 75, "usd": 3.23 }
+      },
+      "education": {
+        "preschool": { "local": 8000, "usd": 345 },
+        "internationalSchool": { "local": 450000, "usd": 19400 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 800, "usd": 35 },
+        "medicationBasic": { "local": 200, "usd": 9 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 48000, "usd": 2070 } },
+        { "year": 2024, "value": { "local": 52000, "usd": 2240 } },
+        { "year": 2025, "value": { "local": 55000, "usd": 2370 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 20000, "usd": 862 } },
+        { "year": 2024, "value": { "local": 22000, "usd": 948 } },
+        { "year": 2025, "value": { "local": 24000, "usd": 1035 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 10.7 },
+        { "year": 2024, "rate": 3.2 },
+        { "year": 2025, "rate": 2.5 }
+      ]
+    }
+  },
+  {
+    "id": "warsaw",
+    "name": "Warsaw",
+    "country": "Poland",
+    "countryCode": "PL",
+    "region": "eu",
+    "coordinates": { "lat": 52.2297, "lng": 21.0122 },
+    "currency": { "code": "PLN", "symbol": "zł", "name": "Polish Zloty" },
+    "population": 1790000,
+    "timezone": "Europe/Warsaw",
+    "metrics": {
+      "salary": {
+        "average": { "local": 10500, "usd": 2625 },
+        "median": { "local": 8500, "usd": 2125 },
+        "minimum": { "local": 4300, "usd": 1075 }
+      },
+      "rent": {
+        "studio": { "local": 2800, "usd": 700 },
+        "oneBedroom": { "local": 3800, "usd": 950 },
+        "twoBedroom": { "local": 5500, "usd": 1375 },
+        "threeBedroom": { "local": 7500, "usd": 1875 }
+      },
+      "property": {
+        "cityCenter": { "local": 18000, "usd": 4500 },
+        "outside": { "local": 12000, "usd": 3000 }
+      },
+      "food": {
+        "groceries": { "local": 1200, "usd": 300 },
+        "restaurantMeal": { "local": 60, "usd": 15 },
+        "fastFood": { "local": 35, "usd": 9 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 140, "usd": 35 },
+        "taxiPerKm": { "local": 4, "usd": 1 },
+        "gasoline": { "local": 6.5, "usd": 1.63 }
+      },
+      "utilities": {
+        "basic": { "local": 700, "usd": 175 },
+        "internet": { "local": 60, "usd": 15 },
+        "mobile": { "local": 40, "usd": 10 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 150, "usd": 38 },
+        "cinema": { "local": 35, "usd": 9 },
+        "cappuccino": { "local": 15, "usd": 3.75 }
+      },
+      "education": {
+        "preschool": { "local": 2000, "usd": 500 },
+        "internationalSchool": { "local": 70000, "usd": 17500 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 200, "usd": 50 },
+        "medicationBasic": { "local": 40, "usd": 10 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 9000, "usd": 2250 } },
+        { "year": 2024, "value": { "local": 9800, "usd": 2450 } },
+        { "year": 2025, "value": { "local": 10500, "usd": 2625 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 3200, "usd": 800 } },
+        { "year": 2024, "value": { "local": 3500, "usd": 875 } },
+        { "year": 2025, "value": { "local": 3800, "usd": 950 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 11.4 },
+        { "year": 2024, "rate": 4.0 },
+        { "year": 2025, "rate": 3.2 }
+      ]
+    }
+  },
+  {
+    "id": "budapest",
+    "name": "Budapest",
+    "country": "Hungary",
+    "countryCode": "HU",
+    "region": "eu",
+    "coordinates": { "lat": 47.4979, "lng": 19.0402 },
+    "currency": { "code": "HUF", "symbol": "Ft", "name": "Hungarian Forint" },
+    "population": 1750000,
+    "timezone": "Europe/Budapest",
+    "metrics": {
+      "salary": {
+        "average": { "local": 700000, "usd": 1945 },
+        "median": { "local": 550000, "usd": 1530 },
+        "minimum": { "local": 266800, "usd": 740 }
+      },
+      "rent": {
+        "studio": { "local": 200000, "usd": 555 },
+        "oneBedroom": { "local": 280000, "usd": 778 },
+        "twoBedroom": { "local": 400000, "usd": 1110 },
+        "threeBedroom": { "local": 550000, "usd": 1530 }
+      },
+      "property": {
+        "cityCenter": { "local": 1500000, "usd": 4170 },
+        "outside": { "local": 900000, "usd": 2500 }
+      },
+      "food": {
+        "groceries": { "local": 90000, "usd": 250 },
+        "restaurantMeal": { "local": 5000, "usd": 14 },
+        "fastFood": { "local": 3000, "usd": 8 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 12500, "usd": 35 },
+        "taxiPerKm": { "local": 500, "usd": 1.39 },
+        "gasoline": { "local": 620, "usd": 1.72 }
+      },
+      "utilities": {
+        "basic": { "local": 55000, "usd": 153 },
+        "internet": { "local": 6000, "usd": 17 },
+        "mobile": { "local": 5000, "usd": 14 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 18000, "usd": 50 },
+        "cinema": { "local": 2500, "usd": 7 },
+        "cappuccino": { "local": 800, "usd": 2.22 }
+      },
+      "education": {
+        "preschool": { "local": 100000, "usd": 278 },
+        "internationalSchool": { "local": 6000000, "usd": 16670 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 18000, "usd": 50 },
+        "medicationBasic": { "local": 3000, "usd": 8 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 580000, "usd": 1610 } },
+        { "year": 2024, "value": { "local": 640000, "usd": 1778 } },
+        { "year": 2025, "value": { "local": 700000, "usd": 1945 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 220000, "usd": 610 } },
+        { "year": 2024, "value": { "local": 250000, "usd": 695 } },
+        { "year": 2025, "value": { "local": 280000, "usd": 778 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 17.1 },
+        { "year": 2024, "rate": 4.5 },
+        { "year": 2025, "rate": 3.8 }
+      ]
+    }
+  },
+  {
+    "id": "rome",
+    "name": "Rome",
+    "country": "Italy",
+    "countryCode": "IT",
+    "region": "eu",
+    "coordinates": { "lat": 41.9028, "lng": 12.4964 },
+    "currency": { "code": "EUR", "symbol": "€", "name": "Euro" },
+    "population": 2870000,
+    "timezone": "Europe/Rome",
+    "metrics": {
+      "salary": {
+        "average": { "local": 2400, "usd": 2610 },
+        "median": { "local": 2000, "usd": 2175 },
+        "minimum": { "local": 1200, "usd": 1305 }
+      },
+      "rent": {
+        "studio": { "local": 800, "usd": 870 },
+        "oneBedroom": { "local": 1050, "usd": 1145 },
+        "twoBedroom": { "local": 1500, "usd": 1630 },
+        "threeBedroom": { "local": 2100, "usd": 2285 }
+      },
+      "property": {
+        "cityCenter": { "local": 6500, "usd": 7070 },
+        "outside": { "local": 3800, "usd": 4135 }
+      },
+      "food": {
+        "groceries": { "local": 300, "usd": 327 },
+        "restaurantMeal": { "local": 15, "usd": 16 },
+        "fastFood": { "local": 9, "usd": 10 }
+      },
+      "transport": {
+        "monthlyPass": { "local": 35, "usd": 38 },
+        "taxiPerKm": { "local": 1.1, "usd": 1.2 },
+        "gasoline": { "local": 1.8, "usd": 1.96 }
+      },
+      "utilities": {
+        "basic": { "local": 170, "usd": 185 },
+        "internet": { "local": 30, "usd": 33 },
+        "mobile": { "local": 15, "usd": 16 }
+      },
+      "lifestyle": {
+        "gymMembership": { "local": 45, "usd": 49 },
+        "cinema": { "local": 10, "usd": 11 },
+        "cappuccino": { "local": 1.5, "usd": 1.63 }
+      },
+      "education": {
+        "preschool": { "local": 500, "usd": 545 },
+        "internationalSchool": { "local": 16000, "usd": 17400 }
+      },
+      "healthcare": {
+        "doctorVisit": { "local": 80, "usd": 87 },
+        "medicationBasic": { "local": 8, "usd": 9 }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics", "Expatistan"]
+    },
+    "historical": {
+      "averageSalary": [
+        { "year": 2023, "value": { "local": 2200, "usd": 2395 } },
+        { "year": 2024, "value": { "local": 2300, "usd": 2505 } },
+        { "year": 2025, "value": { "local": 2400, "usd": 2610 } }
+      ],
+      "rentOneBedroom": [
+        { "year": 2023, "value": { "local": 950, "usd": 1035 } },
+        { "year": 2024, "value": { "local": 1000, "usd": 1090 } },
+        { "year": 2025, "value": { "local": 1050, "usd": 1145 } }
+      ],
+      "inflation": [
+        { "year": 2023, "rate": 5.7 },
+        { "year": 2024, "rate": 2.1 },
+        { "year": 2025, "rate": 1.5 }
+      ]
+    }
   }
 ]

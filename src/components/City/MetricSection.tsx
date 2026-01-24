@@ -20,7 +20,7 @@ export interface MetricSectionProps {
  */
 export function MetricSection({ title, icon, children }: MetricSectionProps) {
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 transition-shadow hover:shadow-md">
       <div className="flex items-center gap-2 pb-3 border-b border-gray-200">
         {icon && <span className="text-gray-500">{icon}</span>}
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
