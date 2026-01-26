@@ -31,7 +31,7 @@ export function getCityById(id: string): CityWithMetrics | undefined {
 
 /**
  * Get a lightweight index of all cities for navigation and maps.
- * Contains only essential display data: id, name, country, region, coordinates.
+ * Contains only essential display data: id, name, country, countryCode, region, coordinates.
  * @returns Array of city index entries
  */
 export function getCityIndex(): CityIndex[] {
@@ -39,6 +39,7 @@ export function getCityIndex(): CityIndex[] {
     id: city.id,
     name: city.name,
     country: city.country,
+    countryCode: city.countryCode,
     region: city.region,
     coordinates: city.coordinates,
   }));

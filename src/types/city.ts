@@ -68,6 +68,8 @@ export interface CityIndex {
   name: string;
   /** Country name */
   country: string;
+  /** ISO 3166-1 alpha-2 country code (e.g., "DE", "RU") */
+  countryCode: string;
   /** Geographic region for filtering */
   region: Region;
   /** Geographic coordinates for map positioning */

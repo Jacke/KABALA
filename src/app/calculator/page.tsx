@@ -64,8 +64,10 @@ function CalculatorContent() {
   const targetCity = targetCityId ? getCityById(targetCityId) : null;
   const totalExpenses = useMemo(() => calculateTotal(expenses), [expenses]);
 
-  // Initialize from URL on mount
+  // Initialize from URL on mount only
   useEffect(() => {
+    if (isInitialized) return;
+
     const from = searchParams.get('from');
     const to = searchParams.get('to');
 
@@ -80,7 +82,8 @@ function CalculatorContent() {
       setTargetCityId(to);
     }
     setIsInitialized(true);
-  }, [searchParams, validCityIds]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Update URL when cities change
   useEffect(() => {

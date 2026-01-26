@@ -16,6 +16,8 @@ interface CityMarkerProps {
   city: CityIndex;
   /** Whether this marker is currently selected */
   isSelected?: boolean;
+  /** Whether this marker is being hovered (from sidebar) */
+  isHovered?: boolean;
   /** Callback when the marker is clicked */
   onClick?: () => void;
   /** Callback when mouse enters the marker */
@@ -46,12 +48,14 @@ function getRegionColor(region: Region): string {
 export function CityMarker({
   city,
   isSelected = false,
+  isHovered = false,
   onClick,
   onMouseEnter,
   onMouseLeave,
 }: CityMarkerProps) {
   const baseColor = getRegionColor(city.region);
-  const radius = isSelected ? 8 : 6;
+  const isHighlighted = isSelected || isHovered;
+  const radius = isHighlighted ? 8 : 6;
 
   return (
     <Marker coordinates={[city.coordinates.lng, city.coordinates.lat]}>
@@ -71,8 +75,8 @@ export function CityMarker({
         className="cursor-pointer"
         style={{ outline: 'none' }}
       >
-        {/* Selection ring (shown when selected) */}
-        {isSelected && (
+        {/* Selection/hover ring */}
+        {isHighlighted && (
           <circle
             r={radius + 4}
             fill="none"

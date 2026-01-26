@@ -3,6 +3,8 @@
  * These types define all the metric categories used to measure living costs.
  */
 
+import type { TaxMetrics } from './tax';
+
 /**
  * Monetary amount with dual currency representation.
  * Allows displaying values in both local currency and USD for comparison.
@@ -30,13 +32,29 @@ export interface RentMetrics {
 }
 
 /**
- * Real estate purchase prices per square meter.
+ * Apartment purchase prices by bedroom count.
+ */
+export interface ApartmentPrices {
+  /** 1-bedroom apartment price */
+  oneBedroom: MoneyAmount;
+  /** 2-bedroom apartment price */
+  twoBedroom: MoneyAmount;
+  /** 3-bedroom apartment price */
+  threeBedroom: MoneyAmount;
+}
+
+/**
+ * Real estate purchase prices.
  */
 export interface PropertyMetrics {
   /** Price per sqm in city center */
   cityCenter: MoneyAmount;
   /** Price per sqm outside city center */
   outside: MoneyAmount;
+  /** Apartment prices in city center (optional) */
+  buyCityCenter?: ApartmentPrices;
+  /** Apartment prices outside city center (optional) */
+  buyOutside?: ApartmentPrices;
 }
 
 /**
@@ -143,6 +161,8 @@ export interface CityMetrics {
   education?: EducationMetrics;
   /** Healthcare costs */
   healthcare: HealthcareMetrics;
+  /** Tax information (optional) */
+  tax?: TaxMetrics;
   /** ISO date string when data was last updated */
   updatedAt: string;
   /** Data source attributions (optional) */

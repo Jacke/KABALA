@@ -5,7 +5,7 @@
  * Uses react-simple-maps for SVG-based rendering.
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   ComposableMap,
@@ -43,7 +43,16 @@ interface WorldMapProps {
   cities: CityIndex[];
   /** ID of the currently selected city (for highlighting) */
   selectedCityId?: string;
+  /** ID of the externally hovered city (from table, etc.) */
+  hoveredCityId?: string | null;
+  /** Map height */
+  height?: number;
 }
+
+/** Default map center and zoom */
+const DEFAULT_CENTER: [number, number] = [20, 45];
+const DEFAULT_ZOOM = 1;
+const HOVER_ZOOM = 3;
 
 /**
  * Interactive world map component with city markers.
@@ -53,13 +62,34 @@ interface WorldMapProps {
 export function WorldMap({
   cities,
   selectedCityId,
+  hoveredCityId: externalHoveredCityId,
+  height = 280,
 }: WorldMapProps) {
   const router = useRouter();
   const [hoveredCity, setHoveredCity] = useState<HoveredCity | null>(null);
+  const [internalHoveredCityId, setInternalHoveredCityId] = useState<string | null>(null);
+  const [mapCenter, setMapCenter] = useState<[number, number]>(DEFAULT_CENTER);
+  const [mapZoom, setMapZoom] = useState(DEFAULT_ZOOM);
+
+  // Use external hover if provided, otherwise use internal
+  const hoveredCityId = externalHoveredCityId ?? internalHoveredCityId;
+
+  // React to external hover changes - zoom to city
+  useEffect(() => {
+    if (externalHoveredCityId) {
+      const city = cities.find((c) => c.id === externalHoveredCityId);
+      if (city) {
+        setMapCenter([city.coordinates.lng, city.coordinates.lat]);
+        setMapZoom(HOVER_ZOOM);
+      }
+    } else if (externalHoveredCityId === null) {
+      setMapCenter(DEFAULT_CENTER);
+      setMapZoom(DEFAULT_ZOOM);
+    }
+  }, [externalHoveredCityId, cities]);
 
   /**
    * Handle mouse entering a city marker.
-   * Fetches full city data and captures mouse position for tooltip.
    */
   const handleCityMouseEnter = useCallback(
     (cityId: string, event: React.MouseEvent) => {
@@ -70,21 +100,21 @@ export function WorldMap({
           position: { x: event.clientX, y: event.clientY },
         });
       }
+      setInternalHoveredCityId(cityId);
     },
     []
   );
 
   /**
    * Handle mouse leaving a city marker.
-   * Clears the tooltip.
    */
   const handleCityMouseLeave = useCallback(() => {
     setHoveredCity(null);
+    setInternalHoveredCityId(null);
   }, []);
 
   /**
    * Handle clicking a city marker.
-   * Navigates to the city detail page.
    */
   const handleCityClick = useCallback(
     (cityId: string) => {
@@ -94,15 +124,24 @@ export function WorldMap({
   );
 
   return (
-    <div className="relative w-full bg-blue-50 rounded-lg overflow-hidden aspect-[2/1]">
+    <div className="relative w-full bg-blue-50 rounded-lg overflow-hidden" style={{ height }}>
       <ComposableMap
         projectionConfig={{
-          center: [10, 50],
-          scale: 150,
+          center: [20, 45],
+          scale: 220,
         }}
         className="w-full h-full"
       >
-        <ZoomableGroup minZoom={1} maxZoom={8}>
+        <ZoomableGroup
+          center={mapCenter}
+          zoom={mapZoom}
+          minZoom={1}
+          maxZoom={8}
+          onMoveEnd={({ coordinates, zoom }) => {
+            setMapCenter(coordinates);
+            setMapZoom(zoom);
+          }}
+        >
           <Geographies geography={WORLD_GEO_URL}>
             {({ geographies }) =>
               geographies.map((geo) => (
@@ -127,6 +166,7 @@ export function WorldMap({
               key={city.id}
               city={city}
               isSelected={city.id === selectedCityId}
+              isHovered={city.id === hoveredCityId}
               onClick={() => handleCityClick(city.id)}
               onMouseEnter={(e) => handleCityMouseEnter(city.id, e)}
               onMouseLeave={handleCityMouseLeave}

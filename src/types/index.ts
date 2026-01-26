@@ -22,6 +22,7 @@ export type {
 export type {
   MoneyAmount,
   RentMetrics,
+  ApartmentPrices,
   PropertyMetrics,
   FoodMetrics,
   TransportMetrics,
@@ -35,3 +36,14 @@ export type {
   InflationDataPoint,
   HistoricalMetrics,
 } from './metrics';
+
+// Tax types
+export type {
+  TaxBracket,
+  IncomeTaxConfig,
+  SocialContributionsConfig,
+  VatConfig,
+  PropertyTaxConfig,
+  TaxMetrics,
+  TaxCalculationResult,
+} from './tax';
