@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+/* Time to Home page dark background override */
+html:has(.time-to-home-page) {
+  background: black;
+}
+
+html:has(.time-to-home-page) body {
+  background: black;
+}
+
+html:has(.time-to-home-page) main {
+  background: black;
+}

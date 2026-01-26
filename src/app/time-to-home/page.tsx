@@ -37,7 +37,8 @@ export default function TimeToHomePage() {
 
   return (
     // Break out of the layout container with negative margins
-    <div className="-mx-4 sm:-mx-6 lg:-mx-8 -my-8 min-h-screen bg-black">
+    // time-to-home-page class triggers dark background in globals.css
+    <div className="time-to-home-page -mx-4 sm:-mx-6 lg:-mx-8 -my-8 min-h-screen bg-black">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         {/* Darker, more ominous gradient */}

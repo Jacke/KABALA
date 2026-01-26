@@ -16,11 +16,14 @@ export function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
+  // Dark theme for time-to-home page
+  const isDark = pathname === '/time-to-home';
+
   return (
-    <nav className="border-b bg-white">
+    <nav className={isDark ? 'border-b border-gray-800 bg-black' : 'border-b bg-white'}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="text-xl font-bold">
+          <Link href="/" className={`text-xl font-bold ${isDark ? 'text-white' : ''}`}>
             KABALA
           </Link>
 
@@ -32,8 +35,12 @@ export function Navigation() {
                 href={item.href}
                 className={`px-3 py-2 text-sm font-medium rounded-md ${
                   pathname === item.href
-                    ? 'bg-gray-100 text-gray-900'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? isDark
+                      ? 'bg-gray-800 text-white'
+                      : 'bg-gray-100 text-gray-900'
+                    : isDark
+                      ? 'text-gray-400 hover:text-white hover:bg-gray-800'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 {item.label}
@@ -44,7 +51,11 @@ export function Navigation() {
           {/* Mobile hamburger button */}
           <button
             type="button"
-            className="sm:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            className={`sm:hidden p-2 rounded-md ${
+              isDark
+                ? 'text-gray-400 hover:text-white hover:bg-gray-800'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-label="Toggle navigation"
@@ -75,7 +86,7 @@ export function Navigation() {
 
         {/* Mobile navigation menu */}
         {isOpen && (
-          <div className="sm:hidden pb-4 space-y-1">
+          <div className={`sm:hidden pb-4 space-y-1 ${isDark ? 'bg-black' : ''}`}>
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -83,8 +94,12 @@ export function Navigation() {
                 onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 text-base font-medium rounded-md ${
                   pathname === item.href
-                    ? 'bg-gray-100 text-gray-900'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? isDark
+                      ? 'bg-gray-800 text-white'
+                      : 'bg-gray-100 text-gray-900'
+                    : isDark
+                      ? 'text-gray-400 hover:text-white hover:bg-gray-800'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 {item.label}
