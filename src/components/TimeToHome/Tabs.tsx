@@ -20,23 +20,25 @@ export function Tabs({ tabs, defaultTab }: TabsProps) {
   const currentTab = tabs.find(t => t.id === activeTab);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {/* Tab Navigation */}
-      <div className="flex flex-wrap gap-2 border-b border-gray-800 pb-4">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-              activeTab === tab.id
-                ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-lg shadow-red-900/30'
-                : 'bg-gray-900 text-gray-400 hover:bg-gray-800 hover:text-gray-300'
-            }`}
-          >
-            <span className="mr-2">{tab.icon}</span>
-            {tab.label}
-          </button>
-        ))}
+      <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-xl p-4 border border-gray-700">
+        <div className="flex flex-wrap gap-2 justify-center">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-5 py-3 rounded-xl text-sm font-bold transition-all ${
+                activeTab === tab.id
+                  ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-lg shadow-red-900/50 scale-105'
+                  : 'bg-gray-800/80 text-gray-300 hover:bg-gray-700 hover:text-white hover:scale-102 border border-gray-600'
+              }`}
+            >
+              <span className="mr-2 text-lg">{tab.icon}</span>
+              {tab.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Tab Content */}

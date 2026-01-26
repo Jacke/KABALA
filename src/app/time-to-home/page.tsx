@@ -228,6 +228,17 @@ export default function TimeToHomePage() {
       {/* Results Section with Tabs */}
       {results && selectedCity && tabs.length > 0 && (
         <div className="max-w-5xl mx-auto px-4 pb-16">
+          {/* Section Header */}
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-bold text-white mb-2">
+              {locale === 'ru' ? '📊 Анализ и инструменты' : '📊 Analysis & Tools'}
+            </h2>
+            <p className="text-gray-400 text-sm">
+              {locale === 'ru'
+                ? '8 инструментов для анализа твоей ситуации'
+                : '8 tools to analyze your situation'}
+            </p>
+          </div>
           <div className="bg-gradient-to-br from-gray-950 to-black border border-red-900/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
             <Tabs tabs={tabs} defaultTab="results" />
           </div>
