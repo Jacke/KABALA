@@ -75,8 +75,9 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
     );
   };
 
-  const worstResult = Math.max(...results.map(r => r.yearsWithInflation));
-  const isHopeless = worstResult > 100;
+  // Only show "hopeless" banner if 1-bedroom (first result) is unreachable
+  const firstResult = results[0]?.yearsWithInflation || 0;
+  const isHopeless = firstResult > 100;
 
   // Property type labels
   const propertyLabels: Record<string, string> = locale === 'ru' ? {
@@ -106,7 +107,7 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
             <div>
               <p className="text-red-400 font-bold text-lg">{t.timeToHome.results.realityCheck}</p>
               <p className="text-red-300/80 text-sm">
-                {t.timeToHome.results.realityCheckText.replace('{years}', Math.round(worstResult).toString())}
+                {t.timeToHome.results.realityCheckText.replace('{years}', Math.round(firstResult).toString())}
               </p>
             </div>
           </div>
