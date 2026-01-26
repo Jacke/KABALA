@@ -17,17 +17,16 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
 
   const formatYears = (years: number): string => {
     if (years < 1) return t.timeToHome.results.alreadyAffordable;
-    const cappedYears = Math.min(years, 999);
-    const y = Math.floor(cappedYears);
-    if (y >= 100) return `${y} ${t.timeToHome.results.years}`;
-    const m = Math.round((cappedYears - y) * 12);
+    if (years >= 100) return locale === 'ru' ? '∞ лет' : '∞ years';
+    const y = Math.floor(years);
+    const m = Math.round((years - y) * 12);
     if (m === 0) return `${y} ${y === 1 ? t.timeToHome.results.year_singular : t.timeToHome.results.years}`;
     return locale === 'ru' ? `${y}г ${m}м` : `${y}y ${m}m`;
   };
 
   const formatAge = (ageVal: number): string => {
-    if (ageVal === Infinity) return '999+';
-    return Math.round(Math.min(ageVal, 999)).toString();
+    if (ageVal === Infinity || ageVal > 150) return '∞';
+    return Math.round(ageVal).toString();
   };
 
   const getStatusColor = (years: number): string => {
@@ -41,9 +40,8 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
   };
 
   const getLifetimeMessage = (years: number, currentAge: number): string | null => {
+    if (years >= 100) return null; // Already showing ∞
     const ageAtPurchase = currentAge + years;
-    if (ageAtPurchase > 200) return `💀 ${t.timeToHome.results.multipleLifetimes}`;
-    if (ageAtPurchase > 120) return `⚰️ ${t.timeToHome.results.wontLive}`;
     if (ageAtPurchase > 90) return `👴 ${t.timeToHome.results.liveVeryLong}`;
     if (ageAtPurchase > 70) return `🧓 ${t.timeToHome.results.retirementAge}`;
     return null;
@@ -51,23 +49,18 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
 
   const getExtremeExplanation = (years: number, inflationRate: number, propertyGrowthRate: number): string | null => {
     if (years < 100) return null;
-
-    if (years >= 500) {
-      return t.timeToHome.results.grandchildren;
-    }
-    if (years >= 200) {
-      return t.timeToHome.results.mathematicallyImpossible;
-    }
-    return t.timeToHome.results.chasingTarget
-      .replace('{growth}', propertyGrowthRate.toFixed(1))
-      .replace('{inflation}', inflationRate.toFixed(1));
+    return locale === 'ru'
+      ? `Цены растут на ${propertyGrowthRate.toFixed(1)}% в год — быстрее, чем твои накопления. Математически недостижимо.`
+      : `Prices grow ${propertyGrowthRate.toFixed(1)}%/year — faster than your savings. Mathematically unreachable.`;
   };
 
   const getDifferenceIndicator = (noInflation: number, withInflation: number) => {
-    if (noInflation === Infinity || withInflation === Infinity) return null;
+    // Don't show for extreme cases
+    if (noInflation === Infinity || withInflation === Infinity || withInflation >= 100) return null;
     const diff = withInflation - noInflation;
-    const pct = noInflation > 0 ? ((diff / noInflation) * 100).toFixed(0) : 0;
-    if (diff <= 0) return null;
+    if (diff <= 0.5) return null;
+    const pct = noInflation > 0 ? Math.round((diff / noInflation) * 100) : 0;
+    if (pct > 500) return null; // Don't show ridiculous percentages
     return (
       <span className="text-orange-400 text-sm">
         +{diff.toFixed(1)}{locale === 'ru' ? 'г' : 'y'} ({pct}% {t.timeToHome.results.longer})
