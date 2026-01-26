@@ -5,13 +5,17 @@
  * Supports 2+ cities with optional home base for relative comparisons.
  */
 
-import { useState, useEffect, useMemo, Suspense } from 'react';
+import { useState, useEffect, useMemo, Suspense, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { getCityById, getCityIndex } from '@/lib/data';
 import { CitySelector, ComparisonTable } from '@/components/Compare';
 import type { CityWithMetrics } from '@/types';
 
 const MAX_CITIES = 5;
+
+// Get city index once at module level to avoid re-creating on each render
+const cityIndex = getCityIndex();
+const validCityIds = new Set(cityIndex.map((c) => c.id));
 
 /**
  * City chip component for displaying selected cities.
@@ -65,56 +69,68 @@ function CityChip({
 }
 
 /**
+ * Parse URL params to get initial city IDs
+ */
+function parseInitialCities(searchParams: URLSearchParams): string[] {
+  const citiesParam = searchParams.get('cities');
+  if (!citiesParam) return [];
+  return citiesParam
+    .split(',')
+    .filter((id) => validCityIds.has(id))
+    .slice(0, MAX_CITIES);
+}
+
+/**
+ * Parse URL params to get initial home base
+ */
+function parseInitialHome(searchParams: URLSearchParams, cityIds: string[]): string | null {
+  const homeParam = searchParams.get('home');
+  if (homeParam && cityIds.includes(homeParam)) {
+    return homeParam;
+  }
+  return null;
+}
+
+/**
  * Inner component that uses useSearchParams.
  */
 function ComparePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [selectedCityIds, setSelectedCityIds] = useState<string[]>([]);
-  const [homeBaseId, setHomeBaseId] = useState<string | null>(null);
-  const [isInitialized, setIsInitialized] = useState(false);
+  // Initialize state from URL params immediately
+  const initialCities = useMemo(() => parseInitialCities(searchParams), [searchParams]);
+  const initialHome = useMemo(() => parseInitialHome(searchParams, initialCities), [searchParams, initialCities]);
 
-  const cityIndex = getCityIndex();
-  const validCityIds = useMemo(
-    () => new Set(cityIndex.map((c) => c.id)),
-    [cityIndex]
-  );
+  const [selectedCityIds, setSelectedCityIds] = useState<string[]>(initialCities);
+  const [homeBaseId, setHomeBaseId] = useState<string | null>(initialHome);
 
-  // Initialize from URL on mount
+  // Sync state when URL changes (e.g., browser back/forward)
   useEffect(() => {
-    const citiesParam = searchParams.get('cities');
-    const homeParam = searchParams.get('home');
+    const newCities = parseInitialCities(searchParams);
+    const newHome = parseInitialHome(searchParams, newCities);
 
-    if (citiesParam) {
-      const ids = citiesParam
-        .split(',')
-        .filter((id) => validCityIds.has(id))
-        .slice(0, MAX_CITIES);
-      setSelectedCityIds(ids);
-
-      if (homeParam && ids.includes(homeParam)) {
-        setHomeBaseId(homeParam);
-      }
+    // Only update if actually different to avoid infinite loops
+    if (JSON.stringify(newCities) !== JSON.stringify(selectedCityIds)) {
+      setSelectedCityIds(newCities);
     }
-    setIsInitialized(true);
-  }, [searchParams, validCityIds]);
+    if (newHome !== homeBaseId) {
+      setHomeBaseId(newHome);
+    }
+  }, [searchParams]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Update URL when state changes
-  useEffect(() => {
-    if (!isInitialized) return;
-
+  const updateUrl = useCallback((cities: string[], home: string | null) => {
     const params = new URLSearchParams();
-    if (selectedCityIds.length > 0) {
-      params.set('cities', selectedCityIds.join(','));
+    if (cities.length > 0) {
+      params.set('cities', cities.join(','));
     }
-    if (homeBaseId && selectedCityIds.includes(homeBaseId)) {
-      params.set('home', homeBaseId);
+    if (home && cities.includes(home)) {
+      params.set('home', home);
     }
-
-    const newUrl = selectedCityIds.length > 0 ? `/compare?${params.toString()}` : '/compare';
+    const newUrl = cities.length > 0 ? `/compare?${params.toString()}` : '/compare';
     router.replace(newUrl, { scroll: false });
-  }, [selectedCityIds, homeBaseId, isInitialized, router]);
+  }, [router]);
 
   // Get full city data for selected cities
   const selectedCities = useMemo(() => {
@@ -123,26 +139,36 @@ function ComparePageContent() {
       .filter((city): city is CityWithMetrics => city !== undefined);
   }, [selectedCityIds]);
 
-  const addCity = (cityId: string) => {
+  const addCity = useCallback((cityId: string) => {
     if (cityId && !selectedCityIds.includes(cityId) && selectedCityIds.length < MAX_CITIES) {
-      setSelectedCityIds([...selectedCityIds, cityId]);
+      const newCities = [...selectedCityIds, cityId];
+      setSelectedCityIds(newCities);
+      updateUrl(newCities, homeBaseId);
     }
-  };
+  }, [selectedCityIds, homeBaseId, updateUrl]);
 
-  const removeCity = (cityId: string) => {
-    setSelectedCityIds(selectedCityIds.filter((id) => id !== cityId));
-    if (homeBaseId === cityId) {
-      setHomeBaseId(null);
-    }
-  };
+  const removeCity = useCallback((cityId: string) => {
+    const newCities = selectedCityIds.filter((id) => id !== cityId);
+    const newHome = homeBaseId === cityId ? null : homeBaseId;
+    setSelectedCityIds(newCities);
+    setHomeBaseId(newHome);
+    updateUrl(newCities, newHome);
+  }, [selectedCityIds, homeBaseId, updateUrl]);
 
-  const clearAll = () => {
+  const setHome = useCallback((cityId: string) => {
+    setHomeBaseId(cityId);
+    updateUrl(selectedCityIds, cityId);
+  }, [selectedCityIds, updateUrl]);
+
+  const clearAll = useCallback(() => {
     setSelectedCityIds([]);
     setHomeBaseId(null);
-  };
+    updateUrl([], null);
+  }, [updateUrl]);
 
-  const availableCities = cityIndex.filter(
-    (city) => !selectedCityIds.includes(city.id)
+  const availableCities = useMemo(() =>
+    cityIndex.filter((city) => !selectedCityIds.includes(city.id)),
+    [selectedCityIds]
   );
 
   return (
@@ -164,7 +190,7 @@ function ComparePageContent() {
               city={city}
               isHomeBase={city.id === homeBaseId}
               onRemove={() => removeCity(city.id)}
-              onSetHome={() => setHomeBaseId(city.id)}
+              onSetHome={() => setHome(city.id)}
             />
           ))}
           {selectedCities.length > 1 && (
