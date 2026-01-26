@@ -7,10 +7,7 @@ import {
   Tabs,
   LifeTimeline,
   AffordabilityMap,
-  MortgageMode,
-  RentVsBuy,
   WhatIfScenarios,
-  CityRecommendations,
   CoupleMode,
 } from '@/components/TimeToHome';
 import { calculateTimeToHome, convertToUsd, getInflationSource } from '@/lib/inflation';
@@ -67,31 +64,22 @@ export default function TimeToHomePage() {
 
   // Tab labels
   const tabLabels = locale === 'ru' ? {
-    results: 'Результаты',
-    timeline: 'Линия жизни',
-    map: 'Карта городов',
-    mortgage: 'Ипотека',
-    rentVsBuy: 'Аренда vs Покупка',
-    whatIf: 'Что если...',
-    recommend: 'Рекомендации',
-    couple: 'Для пары',
+    results: 'Расчёт',
+    timeline: 'Жизнь',
+    map: 'Города',
+    whatIf: 'Сценарии',
+    couple: 'Вдвоём',
   } : {
     results: 'Results',
-    timeline: 'Life Timeline',
-    map: 'City Map',
-    mortgage: 'Mortgage',
-    rentVsBuy: 'Rent vs Buy',
-    whatIf: 'What if...',
-    recommend: 'Recommendations',
-    couple: 'Couple Mode',
+    timeline: 'Timeline',
+    map: 'Cities',
+    whatIf: 'Scenarios',
+    couple: 'Couple',
   };
 
   // Build tabs array when we have results
   const tabs = useMemo(() => {
     if (!results || !selectedCity) return [];
-
-    const savingsUsd = convertToUsd(userSavings, userCurrency);
-    const contributionUsd = convertToUsd(userMonthly, userCurrency);
 
     return [
       {
@@ -121,28 +109,6 @@ export default function TimeToHomePage() {
         ),
       },
       {
-        id: 'mortgage',
-        label: tabLabels.mortgage,
-        icon: '🏦',
-        content: (
-          <MortgageMode
-            savings={userSavings}
-            savingsUsd={savingsUsd}
-            monthlyContribution={userMonthly}
-            monthlyContributionUsd={contributionUsd}
-            currency={userCurrency}
-            age={userAge}
-            city={selectedCity}
-          />
-        ),
-      },
-      {
-        id: 'rent-vs-buy',
-        label: tabLabels.rentVsBuy,
-        icon: '🔥',
-        content: <RentVsBuy results={results} city={selectedCity} age={userAge} />,
-      },
-      {
         id: 'what-if',
         label: tabLabels.whatIf,
         icon: '🔮',
@@ -154,20 +120,6 @@ export default function TimeToHomePage() {
             age={userAge}
             city={selectedCity}
             baseResults={results}
-          />
-        ),
-      },
-      {
-        id: 'recommend',
-        label: tabLabels.recommend,
-        icon: '🎯',
-        content: (
-          <CityRecommendations
-            savings={userSavings}
-            currency={userCurrency}
-            monthlyContribution={userMonthly}
-            age={userAge}
-            currentCityId={selectedCity.id}
           />
         ),
       },
@@ -228,17 +180,6 @@ export default function TimeToHomePage() {
       {/* Results Section with Tabs */}
       {results && selectedCity && tabs.length > 0 && (
         <div className="max-w-5xl mx-auto px-4 pb-16">
-          {/* Section Header */}
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-white mb-2">
-              {locale === 'ru' ? '📊 Анализ и инструменты' : '📊 Analysis & Tools'}
-            </h2>
-            <p className="text-gray-400 text-sm">
-              {locale === 'ru'
-                ? '8 инструментов для анализа твоей ситуации'
-                : '8 tools to analyze your situation'}
-            </p>
-          </div>
           <div className="bg-gradient-to-br from-gray-950 to-black border border-red-900/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
             <Tabs tabs={tabs} defaultTab="results" />
           </div>
