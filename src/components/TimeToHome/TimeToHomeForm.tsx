@@ -21,7 +21,7 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
   const currencies = getSupportedCurrencies();
   const { t, locale } = useLanguage();
 
-  const [age, setAge] = useState(30);
+  const [age, setAge] = useState(25);
   const [savings, setSavings] = useState(50000);
   const [currency, setCurrency] = useState('USD');
   const [monthlyContribution, setMonthlyContribution] = useState(3000);
