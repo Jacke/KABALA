@@ -257,6 +257,22 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
             <span className="text-purple-500">👨‍👩‍👧‍👦</span>
             <span>{t.timeToHome.tips.inheritance}</span>
           </li>
+          <li className="flex items-start gap-2">
+            <span className="text-red-600">🔪</span>
+            <span>{t.timeToHome.tips.crime}</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-pink-500">💍</span>
+            <span>{t.timeToHome.tips.marryRich}</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-blue-400">📸</span>
+            <span>{t.timeToHome.tips.mediaPersonality}</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-gray-500">🤷</span>
+            <span>{t.timeToHome.tips.conspiracy}</span>
+          </li>
         </ul>
       </div>
     </div>

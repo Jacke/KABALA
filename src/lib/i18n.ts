@@ -15,7 +15,7 @@ export const translations = {
     timeToHome: {
       title: 'TIME TO YOUR HOME',
       subtitle: 'Face the brutal reality. See how long it really takes to buy property, with inflation destroying your dreams every year.',
-      warning: 'Warning: Results may cause existential dread',
+      warning: 'Warning: Results may cause existential dread, depression, apathy, bed-rot, and various addictions',
       calculateButton: 'Calculate My Doom',
 
       // Form
@@ -70,6 +70,10 @@ export const translations = {
         housingCrash: 'Wait for a housing crash — but don\'t hold your breath',
         lottery: 'Win the lottery — statistically more likely than some of these timelines',
         inheritance: 'Rich parents? Inheritance? That\'s how most people do it anyway',
+        crime: 'A little bit of crime — morality is flexible when rent is not',
+        marryRich: 'Marry an oligarch/Abramovich — love is temporary, real estate is forever',
+        mediaPersonality: 'Become a media personality — sell your soul, buy an apartment',
+        conspiracy: 'Why were we even born if we live like this? It\'s all a conspiracy.',
       },
 
       // How it works
@@ -156,7 +160,7 @@ export const translations = {
     timeToHome: {
       title: 'ВРЕМЯ ДО ТВОЕГО ЖИЛЬЯ',
       subtitle: 'Взгляни правде в глаза. Узнай, сколько реально нужно времени на покупку недвижимости, пока инфляция уничтожает твои мечты.',
-      warning: 'Осторожно: результаты могут вызвать экзистенциальный кризис',
+      warning: 'Осторожно: результаты могут вызвать экзистенциальный кризис, депрессию, апатию, bed-rot и различные зависимости',
       calculateButton: 'Рассчитать мою судьбу',
 
       // Form
@@ -211,6 +215,10 @@ export const translations = {
         housingCrash: 'Жди обвала рынка недвижимости — но не затаивай дыхание',
         lottery: 'Выиграй в лотерею — статистически вероятнее, чем некоторые из этих сроков',
         inheritance: 'Богатые родители? Наследство? Так большинство и делает',
+        crime: 'Немного криминала — мораль гибкая, когда аренда нет',
+        marryRich: 'Выйти замуж за бандита/олигарха/Абрамовича — любовь временна, недвижимость вечна',
+        mediaPersonality: 'Стать медийной сучкой — продай душу, купи квартиру',
+        conspiracy: 'Зачем нас рожали если мы так живём? Это всё заговор.',
       },
 
       // How it works
@@ -302,7 +310,7 @@ export type TranslationKeys = {
       year_singular: string; chasingTarget: string; grandchildren: string;
       mathematicallyImpossible: string; pricesDouble: string; runningBackwards: string;
     };
-    tips: { title: string; doubleIncome: string; cheaperCity: string; housingCrash: string; lottery: string; inheritance: string };
+    tips: { title: string; doubleIncome: string; cheaperCity: string; housingCrash: string; lottery: string; inheritance: string; crime: string; marryRich: string; mediaPersonality: string; conspiracy: string };
     howItWorks: {
       title: string; step1Title: string; step1Text: string; step2Title: string; step2Text: string;
       step3Title: string; step3Text: string; dataSource: string; lastUpdated: string; disclaimer: string;
