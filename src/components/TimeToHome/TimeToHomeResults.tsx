@@ -155,10 +155,16 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
                   {isExtreme && '💸 '}{label}
                 </h4>
                 <p className="text-gray-400 text-sm">
-                  {city.currency.symbol}
-                  {result.priceLocal.toLocaleString()} ({' '}
-                  <span className="text-gray-500">${result.priceUsd.toLocaleString()}</span>)
+                  {locale === 'ru' ? 'Сейчас' : 'Now'}: ${result.priceUsd.toLocaleString()}
                 </p>
+                {result.yearsWithInflation > 1 && (
+                  <p className="text-red-400 text-sm font-medium">
+                    {locale === 'ru' ? 'Через' : 'In'} {Math.round(result.yearsWithInflation)} {locale === 'ru' ? 'лет' : 'years'}: <span className="text-red-500">${result.priceWithInflationUsd.toLocaleString()}</span>
+                    <span className="text-red-400/60 text-xs ml-1">
+                      (+{Math.round((result.priceWithInflationUsd / result.priceUsd - 1) * 100)}%)
+                    </span>
+                  </p>
+                )}
               </div>
 
               {/* Time Scenarios */}

@@ -36,41 +36,42 @@ interface CalculationParams {
 }
 
 function calculateYearsToProperty(params: CalculationParams, withInflation: boolean): number {
-  const { currentSavings, monthlyContribution, propertyPrice, annualInflationRate, annualPropertyGrowth } = params;
+  const { currentSavings, monthlyContribution, propertyPrice, annualPropertyGrowth } = params;
 
   if (currentSavings >= propertyPrice) return 0;
   if (monthlyContribution <= 0) return Infinity;
 
-  const monthlyInflation = withInflation ? annualInflationRate / 100 / 12 : 0;
-  const monthlyPropertyGrowth = withInflation ? annualPropertyGrowth / 100 / 12 : 0;
+  // Without inflation: simple linear calculation
+  if (!withInflation) {
+    const needed = propertyPrice - currentSavings;
+    return needed / (monthlyContribution * 12);
+  }
+
+  // With inflation: iterative calculation with property price growth
+  // Assume savings earn ~4% annually (index funds/bonds)
+  const annualSavingsGrowth = 0.04;
+  const monthlyPropertyGrowthRate = annualPropertyGrowth / 100 / 12;
+  const monthlySavingsGrowthRate = annualSavingsGrowth / 12;
 
   let savings = currentSavings;
   let price = propertyPrice;
   let months = 0;
-  const maxMonths = 100 * 12; // 100 years max
+  const maxMonths = 200 * 12; // 200 years max for display
 
   while (savings < price && months < maxMonths) {
-    // Savings grow by monthly contribution
-    // With inflation scenario: savings lose value relative to property
+    // Add monthly contribution
     savings += monthlyContribution;
 
-    // Property price grows
-    price *= (1 + monthlyPropertyGrowth);
+    // Savings grow with investment returns
+    savings *= (1 + monthlySavingsGrowthRate);
 
-    // Adjust savings for real purchasing power loss (inflation > savings interest assumed)
-    if (withInflation && monthlyInflation > 0) {
-      // Assume savings earn ~2% annually (below inflation in most cases)
-      const savingsGrowth = 0.02 / 12;
-      const realLoss = monthlyInflation - savingsGrowth;
-      if (realLoss > 0) {
-        savings *= (1 - realLoss);
-      }
-    }
+    // Property price grows
+    price *= (1 + monthlyPropertyGrowthRate);
 
     months++;
   }
 
-  if (months >= maxMonths) return Infinity;
+  if (months >= maxMonths) return 999;
   return months / 12;
 }
 
@@ -137,6 +138,11 @@ export function calculateTimeToHome(
     const yearsNoInflation = calculateYearsToProperty(params, false);
     const yearsWithInflation = calculateYearsToProperty(params, true);
 
+    // Calculate inflated price at time of purchase
+    const priceWithInflationUsd = Math.round(
+      priceUsd * Math.pow(1 + propertyGrowthRate / 100, yearsWithInflation)
+    );
+
     const affordable = yearsWithInflation < 50;
 
     return {
@@ -144,6 +150,7 @@ export function calculateTimeToHome(
       propertyLabel: prop.label,
       priceLocal,
       priceUsd,
+      priceWithInflationUsd,
       yearsWithoutInflation: Math.round(yearsNoInflation * 10) / 10,
       yearsWithInflation: Math.round(yearsWithInflation * 10) / 10,
       ageAtPurchaseNoInflation: Math.round((age + yearsNoInflation) * 10) / 10,

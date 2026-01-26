@@ -27,6 +27,7 @@ export interface TimeToHomeResult {
   propertyLabel: string;
   priceLocal: number;
   priceUsd: number;
+  priceWithInflationUsd: number; // Price after years of inflation
   yearsWithoutInflation: number;
   yearsWithInflation: number;
   ageAtPurchaseNoInflation: number;
