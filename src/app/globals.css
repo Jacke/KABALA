@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
-/* Time to Home page dark background override */
-html:has(.time-to-home-page) {
-  background: black;
-}
-
-html:has(.time-to-home-page) body {
-  background: black;
-}
-
+/* Time to Home page dark background override - full coverage */
+html:has(.time-to-home-page),
+html:has(.time-to-home-page) body,
 html:has(.time-to-home-page) main {
-  background: black;
+  background: black !important;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Ensure main doesn't clip content */
+html:has(.time-to-home-page) main {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }

@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { getAllCities } from '@/lib/data';
 import { getSupportedCurrencies, convertToUsd, getAverageInflation, getPropertyGrowth, calculateMinimumMonthlySavings } from '@/lib/inflation';
+import { useLanguage } from '@/contexts/LanguageContext';
 import type { CityWithMetrics } from '@/types/city';
 
 interface TimeToHomeFormProps {
@@ -18,6 +19,7 @@ interface TimeToHomeFormProps {
 export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
   const cities = getAllCities();
   const currencies = getSupportedCurrencies();
+  const { t, locale } = useLanguage();
 
   const [age, setAge] = useState(30);
   const [savings, setSavings] = useState(50000);
@@ -27,6 +29,24 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
 
   // Calculate minimum required savings for selected city
   const selectedCity = useMemo(() => cities.find((c) => c.id === selectedCityId), [cities, selectedCityId]);
+
+  // Get city's monthly expenses for zone calculation
+  const cityMonthlyExpenses = useMemo(() => {
+    if (!selectedCity) return { min: 1000, comfortable: 2000, good: 4000 };
+
+    const rent = selectedCity.metrics.rent.oneBedroom.usd;
+    const food = selectedCity.metrics.food.groceries.usd; // monthly groceries
+    const transport = selectedCity.metrics.transport.monthlyPass.usd;
+    const utilities = selectedCity.metrics.utilities.basic.usd + selectedCity.metrics.utilities.internet.usd;
+
+    const baseExpenses = rent + food + transport + utilities;
+
+    return {
+      min: Math.round(baseExpenses * 0.3), // 30% of expenses = barely saving
+      comfortable: Math.round(baseExpenses * 0.5), // 50% = decent savings
+      good: Math.round(baseExpenses * 1.0), // 100% = aggressive saving
+    };
+  }, [selectedCity]);
 
   const minimumMonthlySavings = useMemo(() => {
     if (!selectedCity) return 0;
@@ -41,21 +61,34 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
     return calculateMinimumMonthlySavings(oneBedPrice, savingsUsd, propertyGrowth, inflation);
   }, [selectedCity, savings, currency]);
 
-  const isBelowMinimum = convertToUsd(monthlyContribution, currency) < minimumMonthlySavings;
+  const contributionUsd = convertToUsd(monthlyContribution, currency);
+  const isBelowMinimum = contributionUsd < minimumMonthlySavings;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const city = cities.find((c) => c.id === selectedCityId);
-    if (!city) return;
+  // Calculate slider zone (red/yellow/green)
+  const sliderZone = useMemo(() => {
+    if (contributionUsd < minimumMonthlySavings) return 'red';
+    if (contributionUsd < cityMonthlyExpenses.comfortable) return 'red';
+    if (contributionUsd < cityMonthlyExpenses.good) return 'yellow';
+    return 'green';
+  }, [contributionUsd, minimumMonthlySavings, cityMonthlyExpenses]);
+
+  // Auto-calculate on any change
+  const triggerCalculation = useCallback(() => {
+    if (!selectedCity) return;
 
     onCalculate({
       age,
       savings,
       currency,
       monthlyContribution,
-      city,
+      city: selectedCity,
     });
-  };
+  }, [age, savings, currency, monthlyContribution, selectedCity, onCalculate]);
+
+  // Auto-trigger calculation when values change
+  useEffect(() => {
+    triggerCalculation();
+  }, [triggerCalculation]);
 
   const groupedCities = cities.reduce(
     (acc, city) => {
@@ -68,18 +101,33 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
   );
 
   const regionLabels: Record<string, string> = {
-    eu: 'Europe',
-    cis: 'CIS Countries',
-    other: 'Asia & Americas',
+    eu: t.regions.eu,
+    cis: t.regions.cis,
+    other: t.regions.other,
   };
 
+  // Slider gradient based on zones
+  const sliderBackground = useMemo(() => {
+    const max = 20000;
+    const redEnd = Math.min((minimumMonthlySavings / max) * 100, 100);
+    const yellowEnd = Math.min((cityMonthlyExpenses.good / max) * 100, 100);
+
+    return `linear-gradient(to right,
+      #dc2626 0%,
+      #dc2626 ${redEnd}%,
+      #eab308 ${redEnd}%,
+      #eab308 ${yellowEnd}%,
+      #22c55e ${yellowEnd}%,
+      #22c55e 100%)`;
+  }, [minimumMonthlySavings, cityMonthlyExpenses.good]);
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Age */}
         <div>
           <label htmlFor="age" className="block text-sm font-medium text-gray-300 mb-2">
-            Your Age
+            {t.timeToHome.form.yourAge}
           </label>
           <input
             type="number"
@@ -95,7 +143,7 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
         {/* Target City */}
         <div>
           <label htmlFor="city" className="block text-sm font-medium text-gray-300 mb-2">
-            Target City
+            {t.timeToHome.form.targetCity}
           </label>
           <select
             id="city"
@@ -118,7 +166,7 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
         {/* Current Savings */}
         <div>
           <label htmlFor="savings" className="block text-sm font-medium text-gray-300 mb-2">
-            Current Savings
+            {t.timeToHome.form.currentSavings}
           </label>
           <div className="flex gap-2">
             <input
@@ -144,10 +192,10 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
           </div>
         </div>
 
-        {/* Monthly Contribution with Slider */}
+        {/* Monthly Contribution with Dynamic Slider */}
         <div className="md:col-span-2">
           <label htmlFor="contribution" className="block text-sm font-medium text-gray-300 mb-2">
-            Monthly Savings ({currency})
+            {t.timeToHome.form.monthlySavings} ({currency})
           </label>
 
           <div className="flex items-center gap-4 mb-3">
@@ -158,46 +206,64 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
               onChange={(e) => setMonthlyContribution(Number(e.target.value))}
               min={100}
               step={100}
-              className={`w-32 px-4 py-3 bg-gray-950 border rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                isBelowMinimum ? 'border-red-600' : 'border-gray-800'
+              className={`w-32 px-4 py-3 bg-gray-950 border rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent font-bold text-lg ${
+                sliderZone === 'red' ? 'border-red-600 text-red-400' :
+                sliderZone === 'yellow' ? 'border-yellow-600 text-yellow-400' :
+                'border-green-600 text-green-400'
               }`}
             />
-            <input
-              type="range"
-              min={100}
-              max={20000}
-              step={100}
-              value={monthlyContribution}
-              onChange={(e) => setMonthlyContribution(Number(e.target.value))}
-              className="flex-1 h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-red-500"
-            />
+            <div className="flex-1 relative">
+              <input
+                type="range"
+                min={100}
+                max={20000}
+                step={100}
+                value={monthlyContribution}
+                onChange={(e) => setMonthlyContribution(Number(e.target.value))}
+                className="w-full h-3 rounded-lg appearance-none cursor-pointer"
+                style={{ background: sliderBackground }}
+              />
+              {/* Zone markers */}
+              <div className="flex justify-between text-xs mt-1 text-gray-500">
+                <span className="text-red-500">$100</span>
+                <span className="text-yellow-500">${cityMonthlyExpenses.comfortable.toLocaleString()}</span>
+                <span className="text-green-500">${cityMonthlyExpenses.good.toLocaleString()}+</span>
+              </div>
+            </div>
           </div>
 
-          {/* Minimum savings warning */}
-          {isBelowMinimum && (
-            <div className="p-3 bg-red-950/50 border border-red-800/50 rounded-lg mb-2">
-              <p className="text-red-400 text-sm flex items-center gap-2">
-                <span>⚠️</span>
-                <span>
-                  Minimum ~<strong>${minimumMonthlySavings.toLocaleString()}</strong>/month needed to keep up with property price growth in this city.
-                  Below this, you&apos;ll never catch up.
-                </span>
-              </p>
-            </div>
-          )}
+          {/* Zone indicator */}
+          <div className={`p-3 rounded-lg mb-2 ${
+            sliderZone === 'red' ? 'bg-red-950/50 border border-red-800/50' :
+            sliderZone === 'yellow' ? 'bg-yellow-950/50 border border-yellow-800/50' :
+            'bg-green-950/50 border border-green-800/50'
+          }`}>
+            <p className={`text-sm flex items-center gap-2 ${
+              sliderZone === 'red' ? 'text-red-400' :
+              sliderZone === 'yellow' ? 'text-yellow-400' :
+              'text-green-400'
+            }`}>
+              <span>{sliderZone === 'red' ? '🔴' : sliderZone === 'yellow' ? '🟡' : '🟢'}</span>
+              <span>
+                {sliderZone === 'red' && (
+                  <>
+                    {isBelowMinimum
+                      ? `⚠️ ${locale === 'ru' ? 'Минимум' : 'Minimum'} ~$${minimumMonthlySavings.toLocaleString()}/мес ${locale === 'ru' ? 'нужно чтобы угнаться за ростом цен' : 'needed to keep up with price growth'}`
+                      : locale === 'ru' ? 'Низкие сбережения — копить придётся очень долго' : 'Low savings — will take a very long time'
+                    }
+                  </>
+                )}
+                {sliderZone === 'yellow' && (locale === 'ru' ? 'Умеренные сбережения — реалистичный срок' : 'Moderate savings — realistic timeline')}
+                {sliderZone === 'green' && (locale === 'ru' ? 'Агрессивные сбережения — отличный темп!' : 'Aggressive savings — great pace!')}
+              </span>
+            </p>
+          </div>
 
           <p className="text-xs text-gray-500">
-            Drag the slider to see how savings amount affects your timeline
+            {t.timeToHome.form.monthlySavingsHint}
           </p>
         </div>
       </div>
-
-      <button
-        type="submit"
-        className="w-full py-4 px-6 bg-gradient-to-r from-red-700 to-orange-600 hover:from-red-800 hover:to-orange-700 text-white font-bold rounded-lg transition-all transform hover:scale-[1.02] focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-950 shadow-lg shadow-red-900/30"
-      >
-        ⚡ Calculate My Doom
-      </button>
-    </form>
+    </div>
   );
 }
