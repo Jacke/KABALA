@@ -45,11 +45,13 @@ export default function TimeToHomePage() {
     monthlyContribution: number;
     city: CityWithMetrics;
   }) => {
+    console.log('[Page] handleCalculate called with:', data.city.name);
     try {
       setCalcError(null);
       const savingsUsd = convertToUsd(data.savings, data.currency);
       const contributionUsd = convertToUsd(data.monthlyContribution, data.currency);
 
+      console.log('[Page] Calculating time to home...');
       const calculationResults = calculateTimeToHome(
         data.city,
         savingsUsd,
@@ -57,15 +59,17 @@ export default function TimeToHomePage() {
         data.age
       );
 
+      console.log('[Page] Calculation results:', calculationResults.length, 'properties');
       setResults(calculationResults);
       setSelectedCity(data.city);
       setUserAge(data.age);
       setUserSavings(data.savings);
       setUserCurrency(data.currency);
       setUserMonthly(data.monthlyContribution);
+      console.log('[Page] State updated successfully');
     } catch (err) {
       setCalcError(err instanceof Error ? err.message : 'Unknown error');
-      console.error('Calculation error:', err);
+      console.error('[Page] Calculation error:', err);
     }
   }, []);
 
