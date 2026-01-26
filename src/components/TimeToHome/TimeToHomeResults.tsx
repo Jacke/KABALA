@@ -237,47 +237,47 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
         })}
       </div>
 
-      {/* Harsh Reality Tips */}
+      {/* Practical Tips */}
       <div className="p-5 bg-gradient-to-br from-gray-900 to-black border border-gray-700 rounded-lg">
-        <h4 className="text-gray-300 font-bold mb-3 flex items-center gap-2">
-          <span>🔥</span> {t.timeToHome.tips.title}
+        <h4 className="text-gray-300 font-bold mb-4 flex items-center gap-2">
+          <span>💡</span> {t.timeToHome.tips.title}
         </h4>
-        <ul className="text-gray-400 text-sm space-y-2">
-          <li className="flex items-start gap-2">
-            <span className="text-green-500">💰</span>
-            <span>{t.timeToHome.tips.doubleIncome}</span>
+        <ul className="text-gray-400 text-sm space-y-3">
+          <li className="flex items-start gap-3">
+            <span className="text-green-500 text-lg">📈</span>
+            <span>{t.timeToHome.tips.tip1}</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-yellow-500">🏃</span>
-            <span>{t.timeToHome.tips.cheaperCity}</span>
+          <li className="flex items-start gap-3">
+            <span className="text-blue-500 text-lg">🌍</span>
+            <span>{t.timeToHome.tips.tip2}</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-orange-500">📉</span>
-            <span>{t.timeToHome.tips.housingCrash}</span>
+          <li className="flex items-start gap-3">
+            <span className="text-pink-500 text-lg">👫</span>
+            <span>{t.timeToHome.tips.tip3}</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-red-500">🎰</span>
-            <span>{t.timeToHome.tips.lottery}</span>
+          <li className="flex items-start gap-3">
+            <span className="text-yellow-500 text-lg">📊</span>
+            <span>{t.timeToHome.tips.tip4}</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-purple-500">👨‍👩‍👧‍👦</span>
-            <span>{t.timeToHome.tips.inheritance}</span>
+          <li className="flex items-start gap-3">
+            <span className="text-purple-500 text-lg">🏛️</span>
+            <span>{t.timeToHome.tips.tip5}</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-red-600">🔪</span>
-            <span>{t.timeToHome.tips.crime}</span>
+          <li className="flex items-start gap-3">
+            <span className="text-orange-500 text-lg">🏠</span>
+            <span>{t.timeToHome.tips.tip6}</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-pink-500">💍</span>
-            <span>{t.timeToHome.tips.marryRich}</span>
+          <li className="flex items-start gap-3">
+            <span className="text-cyan-500 text-lg">💻</span>
+            <span>{t.timeToHome.tips.tip7}</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-blue-400">📸</span>
-            <span>{t.timeToHome.tips.mediaPersonality}</span>
+          <li className="flex items-start gap-3">
+            <span className="text-red-400 text-lg">👨‍👩‍👧</span>
+            <span>{t.timeToHome.tips.tip8}</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-gray-500">🤷</span>
-            <span>{t.timeToHome.tips.conspiracy}</span>
+          <li className="flex items-start gap-3">
+            <span className="text-emerald-500 text-lg">⏰</span>
+            <span>{t.timeToHome.tips.tip9}</span>
           </li>
         </ul>
       </div>

@@ -64,16 +64,16 @@ export const translations = {
 
       // Tips
       tips: {
-        title: 'Escape routes from this nightmare',
-        doubleIncome: 'Double your income — cutting years in half sounds better than it looks',
-        cheaperCity: 'Move to a cheaper city — some places have 5x lower prices',
-        housingCrash: 'Wait for a housing crash — but don\'t hold your breath',
-        lottery: 'Win the lottery — statistically more likely than some of these timelines',
-        inheritance: 'Rich parents? Inheritance? That\'s how most people do it anyway',
-        crime: 'A little bit of crime — morality is flexible when rent is not',
-        marryRich: 'Marry an oligarch/Abramovich — love is temporary, real estate is forever',
-        mediaPersonality: 'Become a media personality — sell your soul, buy an apartment',
-        conspiracy: 'Why were we even born if we live like this? It\'s all a conspiracy.',
+        title: 'How to actually afford this',
+        tip1: 'Increase income 2-3x through career growth, side business, or switching to high-paying industry',
+        tip2: 'Consider cities with similar quality of life but 3-5x lower property prices',
+        tip3: 'Buy with a partner — two incomes cut the timeline dramatically',
+        tip4: 'Start investing early — compound growth at 7-10% beats savings accounts',
+        tip5: 'Look into government programs, subsidized mortgages, or first-time buyer benefits',
+        tip6: 'Consider smaller property first as investment, then upgrade later',
+        tip7: 'Remote work allows earning big-city salary while living in affordable area',
+        tip8: 'Family help remains the #1 way people afford first homes in expensive cities',
+        tip9: 'Market timing: crashes happen every 10-15 years, be ready with savings',
       },
 
       // How it works
@@ -209,16 +209,16 @@ export const translations = {
 
       // Tips
       tips: {
-        title: 'Пути выхода из этого кошмара',
-        doubleIncome: 'Удвой доход — сократить годы вдвое звучит лучше, чем кажется',
-        cheaperCity: 'Переезжай в более дешёвый город — где-то цены в 5 раз ниже',
-        housingCrash: 'Жди обвала рынка недвижимости — но не затаивай дыхание',
-        lottery: 'Выиграй в лотерею — статистически вероятнее, чем некоторые из этих сроков',
-        inheritance: 'Богатые родители? Наследство? Так большинство и делает',
-        crime: 'Немного криминала — мораль гибкая, когда аренда нет',
-        marryRich: 'Выйти замуж за бандита/олигарха/Абрамовича — любовь временна, недвижимость вечна',
-        mediaPersonality: 'Стать медийной сучкой — продай душу, купи квартиру',
-        conspiracy: 'Зачем нас рожали если мы так живём? Это всё заговор.',
+        title: 'Как реально это себе позволить',
+        tip1: 'Увеличь доход в 2-3 раза через карьерный рост, свой бизнес или переход в высокооплачиваемую сферу',
+        tip2: 'Рассмотри города с похожим качеством жизни, но ценами в 3-5 раз ниже',
+        tip3: 'Покупай с партнёром — два дохода кардинально сокращают срок',
+        tip4: 'Начни инвестировать рано — сложный процент 7-10% годовых бьёт банковский вклад',
+        tip5: 'Изучи госпрограммы, льготную ипотеку и программы для первого жилья',
+        tip6: 'Рассмотри меньшую квартиру как инвестицию, потом обменяй на большую',
+        tip7: 'Удалёнка позволяет получать столичную зарплату, живя в доступном регионе',
+        tip8: 'Помощь семьи — способ №1, как люди покупают первое жильё в дорогих городах',
+        tip9: 'Тайминг рынка: кризисы случаются каждые 10-15 лет, будь готов с накоплениями',
       },
 
       // How it works
@@ -310,7 +310,7 @@ export type TranslationKeys = {
       year_singular: string; chasingTarget: string; grandchildren: string;
       mathematicallyImpossible: string; pricesDouble: string; runningBackwards: string;
     };
-    tips: { title: string; doubleIncome: string; cheaperCity: string; housingCrash: string; lottery: string; inheritance: string; crime: string; marryRich: string; mediaPersonality: string; conspiracy: string };
+    tips: { title: string; tip1: string; tip2: string; tip3: string; tip4: string; tip5: string; tip6: string; tip7: string; tip8: string; tip9: string };
     howItWorks: {
       title: string; step1Title: string; step1Text: string; step2Title: string; step2Text: string;
       step3Title: string; step3Text: string; dataSource: string; lastUpdated: string; disclaimer: string;

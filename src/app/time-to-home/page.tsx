@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { TimeToHomeForm, TimeToHomeResults } from '@/components/TimeToHome';
 import { calculateTimeToHome, convertToUsd, getInflationSource } from '@/lib/inflation';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -76,7 +76,9 @@ export default function TimeToHomePage() {
 
           {/* Calculator Card */}
           <div className="bg-gray-950/80 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-red-900/10">
-            <TimeToHomeForm onCalculate={handleCalculate} />
+            <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-500">Loading...</div>}>
+              <TimeToHomeForm onCalculate={handleCalculate} />
+            </Suspense>
           </div>
         </div>
       </div>

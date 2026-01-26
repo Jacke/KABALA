@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { getAllCities } from '@/lib/data';
 import { getSupportedCurrencies, convertToUsd, getAverageInflation, getPropertyGrowth, calculateMinimumMonthlySavings } from '@/lib/inflation';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -20,12 +21,50 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
   const cities = getAllCities();
   const currencies = getSupportedCurrencies();
   const { t, locale } = useLanguage();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const isInitialized = useRef(false);
 
-  const [age, setAge] = useState(25);
-  const [savings, setSavings] = useState(50000);
-  const [currency, setCurrency] = useState('USD');
-  const [monthlyContribution, setMonthlyContribution] = useState(3000);
-  const [selectedCityId, setSelectedCityId] = useState('berlin');
+  // Parse URL params or use defaults
+  const getInitialValue = <T,>(param: string, defaultValue: T, parser: (val: string) => T): T => {
+    const value = searchParams.get(param);
+    if (value === null) return defaultValue;
+    try {
+      return parser(value);
+    } catch {
+      return defaultValue;
+    }
+  };
+
+  const [age, setAge] = useState(() => getInitialValue('age', 25, Number));
+  const [savings, setSavings] = useState(() => getInitialValue('savings', 50000, Number));
+  const [currency, setCurrency] = useState(() => getInitialValue('currency', 'USD', String));
+  const [monthlyContribution, setMonthlyContribution] = useState(() => getInitialValue('monthly', 3000, Number));
+  const [selectedCityId, setSelectedCityId] = useState(() => getInitialValue('city', 'berlin', String));
+
+  // Update URL when values change
+  const updateUrl = useCallback(() => {
+    if (!isInitialized.current) return;
+
+    const params = new URLSearchParams();
+    params.set('city', selectedCityId);
+    params.set('age', age.toString());
+    params.set('savings', savings.toString());
+    params.set('currency', currency);
+    params.set('monthly', monthlyContribution.toString());
+
+    router.replace(`/time-to-home?${params.toString()}`, { scroll: false });
+  }, [selectedCityId, age, savings, currency, monthlyContribution, router]);
+
+  // Mark as initialized after first render
+  useEffect(() => {
+    isInitialized.current = true;
+  }, []);
+
+  // Update URL when any value changes
+  useEffect(() => {
+    updateUrl();
+  }, [updateUrl]);
 
   // Calculate minimum required savings for selected city
   const selectedCity = useMemo(() => cities.find((c) => c.id === selectedCityId), [cities, selectedCityId]);
@@ -263,6 +302,27 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
             {t.timeToHome.form.monthlySavingsHint}
           </p>
         </div>
+      </div>
+
+      {/* Share Button */}
+      <div className="flex justify-end">
+        <button
+          type="button"
+          onClick={() => {
+            navigator.clipboard.writeText(window.location.href);
+            const btn = document.getElementById('share-btn');
+            if (btn) {
+              btn.textContent = locale === 'ru' ? '✓ Скопировано!' : '✓ Copied!';
+              setTimeout(() => {
+                btn.textContent = locale === 'ru' ? '🔗 Поделиться' : '🔗 Share';
+              }, 2000);
+            }
+          }}
+          id="share-btn"
+          className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg text-gray-300 text-sm transition-colors"
+        >
+          {locale === 'ru' ? '🔗 Поделиться' : '🔗 Share'}
+        </button>
       </div>
     </div>
   );
