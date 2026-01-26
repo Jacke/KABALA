@@ -70,7 +70,7 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
             onChange={(e) => setAge(Number(e.target.value))}
             min={18}
             max={80}
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
@@ -83,7 +83,7 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
             id="city"
             value={selectedCityId}
             onChange={(e) => setSelectedCityId(e.target.value)}
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             {Object.entries(groupedCities).map(([region, regionCities]) => (
               <optgroup key={region} label={regionLabels[region] || region}>
@@ -110,12 +110,12 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
               onChange={(e) => setSavings(Number(e.target.value))}
               min={0}
               step={1000}
-              className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="flex-1 px-4 py-3 bg-gray-950 border border-gray-800 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="w-24 px-2 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-24 px-2 py-3 bg-gray-950 border border-gray-800 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {currencies.map((c) => (
                 <option key={c.code} value={c.code}>
@@ -138,7 +138,7 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
             onChange={(e) => setMonthlyContribution(Number(e.target.value))}
             min={0}
             step={100}
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-gray-950 border border-gray-800 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
           <p className="mt-1 text-xs text-gray-500">How much you can save each month</p>
         </div>
@@ -146,9 +146,9 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
 
       <button
         type="submit"
-        className="w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all transform hover:scale-[1.02] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+        className="w-full py-4 px-6 bg-gradient-to-r from-red-700 to-orange-600 hover:from-red-800 hover:to-orange-700 text-white font-bold rounded-lg transition-all transform hover:scale-[1.02] focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-950 shadow-lg shadow-red-900/30"
       >
-        Calculate Time to Home
+        ⚡ Calculate My Doom
       </button>
     </form>
   );

@@ -14,25 +14,39 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
   const source = getInflationSource();
 
   const formatYears = (years: number): string => {
-    if (years === Infinity || years > 99) return 'Never';
     if (years < 1) return 'Already affordable!';
-    const y = Math.floor(years);
-    const m = Math.round((years - y) * 12);
+    // Cap at 999 years for display but always show actual number
+    const cappedYears = Math.min(years, 999);
+    const y = Math.floor(cappedYears);
+    if (y >= 100) return `${y} years`;
+    const m = Math.round((cappedYears - y) * 12);
     if (m === 0) return `${y} year${y !== 1 ? 's' : ''}`;
     return `${y}y ${m}m`;
   };
 
   const formatAge = (ageVal: number): string => {
-    if (ageVal === Infinity || ageVal > 150) return '-';
-    return Math.round(ageVal).toString();
+    // Show actual age even if > 150 to be dramatic
+    if (ageVal === Infinity) return '999+';
+    return Math.round(Math.min(ageVal, 999)).toString();
   };
 
   const getStatusColor = (years: number): string => {
-    if (years === Infinity || years > 99) return 'text-red-400';
+    if (years >= 200) return 'text-red-600 animate-pulse';
+    if (years >= 100) return 'text-red-500';
+    if (years >= 50) return 'text-red-400';
     if (years > 30) return 'text-orange-400';
     if (years > 15) return 'text-yellow-400';
     if (years > 5) return 'text-green-400';
     return 'text-emerald-400';
+  };
+
+  const getLifetimeMessage = (years: number, currentAge: number): string | null => {
+    const ageAtPurchase = currentAge + years;
+    if (ageAtPurchase > 200) return '💀 Multiple lifetimes required';
+    if (ageAtPurchase > 120) return '⚰️ You won\'t live to see this';
+    if (ageAtPurchase > 90) return '👴 Only if you live very long';
+    if (ageAtPurchase > 70) return '🧓 Retirement age purchase';
+    return null;
   };
 
   const getDifferenceIndicator = (noInflation: number, withInflation: number) => {
@@ -47,26 +61,45 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
     );
   };
 
+  const worstResult = Math.max(...results.map(r => r.yearsWithInflation));
+  const isHopeless = worstResult > 100;
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h3 className="text-xl font-bold text-white">
-          Results for {city.name}, {city.country}
+          {isHopeless ? '💀 ' : ''}Results for {city.name}, {city.country}
         </h3>
         <span className="text-sm text-gray-400">Your age: {age}</span>
       </div>
 
+      {/* Warning Banner for extreme cases */}
+      {isHopeless && (
+        <div className="p-4 bg-gradient-to-r from-red-950 to-black border-2 border-red-700 rounded-lg animate-pulse">
+          <div className="flex items-center gap-3">
+            <div className="text-3xl">☠️</div>
+            <div>
+              <p className="text-red-400 font-bold text-lg">REALITY CHECK</p>
+              <p className="text-red-300/80 text-sm">
+                At your current savings rate, you would need {Math.round(worstResult)} years to afford property here.
+                That&apos;s beyond a human lifetime. Consider different cities or drastically increasing income.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Inflation Info Banner */}
-      <div className="p-4 bg-gradient-to-r from-amber-900/30 to-orange-900/30 border border-amber-700/50 rounded-lg">
+      <div className="p-4 bg-gradient-to-r from-red-950/50 to-orange-950/50 border border-red-800/50 rounded-lg">
         <div className="flex items-start gap-3">
-          <div className="text-amber-400 text-xl">⚠️</div>
+          <div className="text-red-400 text-xl">⚠️</div>
           <div>
-            <p className="text-amber-200 font-medium">Real-world inflation impact</p>
-            <p className="text-amber-200/70 text-sm mt-1">
-              Inflation: <strong>{results[0]?.inflationRate.toFixed(1)}%</strong>/year |
-              Property growth: <strong>{results[0]?.propertyGrowthRate.toFixed(1)}%</strong>/year
+            <p className="text-red-300 font-medium">The cruel reality of inflation</p>
+            <p className="text-red-200/70 text-sm mt-1">
+              Inflation: <strong className="text-red-400">{results[0]?.inflationRate.toFixed(1)}%</strong>/year |
+              Property growth: <strong className="text-red-400">{results[0]?.propertyGrowthRate.toFixed(1)}%</strong>/year
             </p>
-            <p className="text-amber-200/50 text-xs mt-1">
+            <p className="text-red-200/40 text-xs mt-1">
               Source: {source.source} (Updated: {source.lastUpdated})
             </p>
           </div>
@@ -75,19 +108,27 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
 
       {/* Results Cards */}
       <div className="grid grid-cols-1 gap-4">
-        {results.map((result) => (
+        {results.map((result) => {
+          const isExtreme = result.yearsWithInflation > 100;
+          const lifetimeMsg = getLifetimeMessage(result.yearsWithInflation, age);
+
+          return (
           <div
             key={result.propertyType}
             className={`p-6 rounded-xl border ${
-              result.affordable
-                ? 'bg-gray-800/50 border-gray-700'
-                : 'bg-red-900/20 border-red-800/50'
+              isExtreme
+                ? 'bg-gradient-to-br from-red-950/80 to-black border-red-700'
+                : result.affordable
+                ? 'bg-gray-900/70 border-gray-700'
+                : 'bg-red-950/40 border-red-800/50'
             }`}
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               {/* Property Info */}
               <div className="flex-1">
-                <h4 className="text-lg font-semibold text-white">{result.propertyLabel}</h4>
+                <h4 className="text-lg font-semibold text-white">
+                  {isExtreme && '💸 '}{result.propertyLabel}
+                </h4>
                 <p className="text-gray-400 text-sm">
                   {city.currency.symbol}
                   {result.priceLocal.toLocaleString()} ({' '}
@@ -99,7 +140,7 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
               <div className="flex gap-6 md:gap-10">
                 {/* Without Inflation */}
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">If prices freeze</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Dream scenario</p>
                   <p className={`text-2xl font-bold ${getStatusColor(result.yearsWithoutInflation)}`}>
                     {formatYears(result.yearsWithoutInflation)}
                   </p>
@@ -108,40 +149,68 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
                   </p>
                 </div>
 
-                {/* With Inflation */}
+                {/* With Inflation - THE REALITY */}
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">With inflation</p>
-                  <p className={`text-2xl font-bold ${getStatusColor(result.yearsWithInflation)}`}>
+                  <p className="text-xs text-red-400 uppercase tracking-wide mb-1 font-semibold">⚡ REALITY</p>
+                  <p className={`text-3xl font-black ${getStatusColor(result.yearsWithInflation)}`}>
                     {formatYears(result.yearsWithInflation)}
                   </p>
-                  <p className="text-xs text-gray-500">
-                    Age: {formatAge(result.ageAtPurchaseWithInflation)}
+                  <p className="text-xs text-gray-400">
+                    Age: <span className={isExtreme ? 'text-red-400 font-bold' : ''}>{formatAge(result.ageAtPurchaseWithInflation)}</span>
                   </p>
                   {getDifferenceIndicator(result.yearsWithoutInflation, result.yearsWithInflation)}
                 </div>
               </div>
             </div>
 
+            {/* Lifetime warning */}
+            {lifetimeMsg && (
+              <div className="mt-4 pt-4 border-t border-red-800/50">
+                <p className="text-red-400 font-medium">
+                  {lifetimeMsg}
+                </p>
+              </div>
+            )}
+
             {/* Warning for unaffordable */}
-            {!result.affordable && (
+            {!result.affordable && !lifetimeMsg && (
               <div className="mt-4 pt-4 border-t border-red-800/50">
                 <p className="text-red-400 text-sm">
-                  At current savings rate, this property may never be affordable due to price growth outpacing savings.
+                  Property prices are growing faster than your savings. You&apos;re running backwards on a treadmill.
                 </p>
               </div>
             )}
           </div>
-        ))}
+        );
+        })}
       </div>
 
-      {/* Tips */}
-      <div className="p-4 bg-blue-900/20 border border-blue-800/50 rounded-lg">
-        <h4 className="text-blue-300 font-medium mb-2">How to reach your goal faster</h4>
-        <ul className="text-blue-200/70 text-sm space-y-1">
-          <li>• Increase monthly savings by 20% to cut years significantly</li>
-          <li>• Consider suburbs — prices can be 30-40% lower</li>
-          <li>• Look at cities with lower property growth rates</li>
-          <li>• Invest savings to beat inflation (stocks, bonds, index funds)</li>
+      {/* Harsh Reality Tips */}
+      <div className="p-5 bg-gradient-to-br from-gray-900 to-black border border-gray-700 rounded-lg">
+        <h4 className="text-gray-300 font-bold mb-3 flex items-center gap-2">
+          <span>🔥</span> Escape routes from this nightmare
+        </h4>
+        <ul className="text-gray-400 text-sm space-y-2">
+          <li className="flex items-start gap-2">
+            <span className="text-green-500">💰</span>
+            <span>Double your income — cutting years in half sounds better than it looks</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-yellow-500">🏃</span>
+            <span>Move to a cheaper city — some places have 5x lower prices</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-orange-500">📉</span>
+            <span>Wait for a housing crash — but don&apos;t hold your breath</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-red-500">🎰</span>
+            <span>Win the lottery — statistically more likely than some of these timelines</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-purple-500">👨‍👩‍👧‍👦</span>
+            <span>Rich parents? Inheritance? That&apos;s how most people do it anyway</span>
+          </li>
         </ul>
       </div>
     </div>
