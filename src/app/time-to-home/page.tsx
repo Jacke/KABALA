@@ -22,6 +22,7 @@ export default function TimeToHomePage() {
   const [userSavings, setUserSavings] = useState<number>(50000);
   const [userCurrency, setUserCurrency] = useState<string>('USD');
   const [userMonthly, setUserMonthly] = useState<number>(3000);
+  const [calcError, setCalcError] = useState<string | null>(null);
   const { t, locale } = useLanguage();
 
   const source = getInflationSource();
@@ -44,22 +45,28 @@ export default function TimeToHomePage() {
     monthlyContribution: number;
     city: CityWithMetrics;
   }) => {
-    const savingsUsd = convertToUsd(data.savings, data.currency);
-    const contributionUsd = convertToUsd(data.monthlyContribution, data.currency);
+    try {
+      setCalcError(null);
+      const savingsUsd = convertToUsd(data.savings, data.currency);
+      const contributionUsd = convertToUsd(data.monthlyContribution, data.currency);
 
-    const calculationResults = calculateTimeToHome(
-      data.city,
-      savingsUsd,
-      contributionUsd,
-      data.age
-    );
+      const calculationResults = calculateTimeToHome(
+        data.city,
+        savingsUsd,
+        contributionUsd,
+        data.age
+      );
 
-    setResults(calculationResults);
-    setSelectedCity(data.city);
-    setUserAge(data.age);
-    setUserSavings(data.savings);
-    setUserCurrency(data.currency);
-    setUserMonthly(data.monthlyContribution);
+      setResults(calculationResults);
+      setSelectedCity(data.city);
+      setUserAge(data.age);
+      setUserSavings(data.savings);
+      setUserCurrency(data.currency);
+      setUserMonthly(data.monthlyContribution);
+    } catch (err) {
+      setCalcError(err instanceof Error ? err.message : 'Unknown error');
+      console.error('Calculation error:', err);
+    }
   }, []);
 
   // Tab labels
@@ -177,9 +184,10 @@ export default function TimeToHomePage() {
         </div>
       </div>
 
-      {/* Debug: State visibility */}
-      <div className="max-w-5xl mx-auto px-4 py-4 text-xs text-gray-500">
-        DEBUG: results={results ? 'yes' : 'no'}, selectedCity={selectedCity?.name || 'none'}, tabs={tabs.length}
+      {/* Debug: State visibility - v3 */}
+      <div className="max-w-5xl mx-auto px-4 py-4 text-sm bg-yellow-500 text-black font-bold">
+        🔧 DEBUG-V3: results={results ? `yes(${results.length})` : 'no'}, city={selectedCity?.name || 'none'}, tabs={tabs.length}
+        {calcError && <span className="text-red-600 ml-2">ERROR: {calcError}</span>}
       </div>
 
       {/* Results Section with Tabs */}
