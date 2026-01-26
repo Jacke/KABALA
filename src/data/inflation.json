@@ -265,6 +265,86 @@
       "inflation2027": 2.0,
       "propertyGrowth2026": 8.0,
       "notes": "Dubai premium market"
+    },
+    "UY": {
+      "name": "Uruguay",
+      "inflation2025": 5.5,
+      "inflation2026": 5.0,
+      "inflation2027": 4.5,
+      "propertyGrowth2026": 4.0,
+      "notes": "BCU target, stable economy"
+    },
+    "AR": {
+      "name": "Argentina",
+      "inflation2025": 60.0,
+      "inflation2026": 40.0,
+      "inflation2027": 25.0,
+      "propertyGrowth2026": 15.0,
+      "notes": "High inflation, dollarized property market"
+    },
+    "BR": {
+      "name": "Brazil",
+      "inflation2025": 4.5,
+      "inflation2026": 4.0,
+      "inflation2027": 3.5,
+      "propertyGrowth2026": 5.0,
+      "notes": "BCB target range"
+    },
+    "CL": {
+      "name": "Chile",
+      "inflation2025": 4.0,
+      "inflation2026": 3.0,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "Central Bank of Chile forecast"
+    },
+    "PE": {
+      "name": "Peru",
+      "inflation2025": 2.5,
+      "inflation2026": 2.5,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 4.0,
+      "notes": "BCRP target range"
+    },
+    "CO": {
+      "name": "Colombia",
+      "inflation2025": 5.5,
+      "inflation2026": 4.0,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 5.0,
+      "notes": "Banco de la República forecast"
+    },
+    "MX": {
+      "name": "Mexico",
+      "inflation2025": 4.0,
+      "inflation2026": 3.5,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 6.0,
+      "notes": "Banxico target, nearshoring boom"
+    },
+    "EC": {
+      "name": "Ecuador",
+      "inflation2025": 2.0,
+      "inflation2026": 2.0,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "Dollarized economy"
+    },
+    "PA": {
+      "name": "Panama",
+      "inflation2025": 2.0,
+      "inflation2026": 2.0,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 4.0,
+      "notes": "Dollarized economy, hub status"
+    },
+    "CR": {
+      "name": "Costa Rica",
+      "inflation2025": 3.0,
+      "inflation2026": 3.0,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 4.0,
+      "notes": "BCCR forecast"
     }
   }
 }

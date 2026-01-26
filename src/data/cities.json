@@ -12988,5 +12988,1875 @@
         "Expatistan"
       ]
     }
+  },
+  {
+    "id": "montevideo",
+    "name": "Montevideo",
+    "country": "Uruguay",
+    "countryCode": "UY",
+    "region": "other",
+    "coordinates": {
+      "lat": -34.9011,
+      "lng": -56.1645
+    },
+    "currency": {
+      "code": "UYU",
+      "symbol": "$U",
+      "name": "Uruguayan Peso"
+    },
+    "population": 1800000,
+    "timezone": "America/Montevideo",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 65000,
+          "usd": 1550
+        },
+        "median": {
+          "local": 50000,
+          "usd": 1190
+        },
+        "minimum": {
+          "local": 22268,
+          "usd": 530
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 25000,
+          "usd": 595
+        },
+        "oneBedroom": {
+          "local": 35000,
+          "usd": 835
+        },
+        "twoBedroom": {
+          "local": 50000,
+          "usd": 1190
+        },
+        "threeBedroom": {
+          "local": 70000,
+          "usd": 1670
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 105000,
+          "usd": 2500
+        },
+        "outside": {
+          "local": 75000,
+          "usd": 1785
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 5250000,
+            "usd": 125000
+          },
+          "twoBedroom": {
+            "local": 7875000,
+            "usd": 187500
+          },
+          "threeBedroom": {
+            "local": 11550000,
+            "usd": 275000
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 3750000,
+            "usd": 89300
+          },
+          "twoBedroom": {
+            "local": 5625000,
+            "usd": 134000
+          },
+          "threeBedroom": {
+            "local": 8250000,
+            "usd": 196500
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 15000,
+          "usd": 357
+        },
+        "restaurantMeal": {
+          "local": 800,
+          "usd": 19
+        },
+        "fastFood": {
+          "local": 450,
+          "usd": 11
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 2100,
+          "usd": 50
+        },
+        "taxiPerKm": {
+          "local": 50,
+          "usd": 1.2
+        },
+        "gasoline": {
+          "local": 75,
+          "usd": 1.8
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 6000,
+          "usd": 143
+        },
+        "internet": {
+          "local": 2000,
+          "usd": 48
+        },
+        "mobile": {
+          "local": 1000,
+          "usd": 24
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 2500,
+          "usd": 60
+        },
+        "cinema": {
+          "local": 400,
+          "usd": 10
+        },
+        "cappuccino": {
+          "local": 200,
+          "usd": 4.8
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 25000,
+          "usd": 595
+        },
+        "internationalSchool": {
+          "local": 60000,
+          "usd": 1430
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2000,
+          "usd": 48
+        },
+        "dentistVisit": {
+          "local": 2500,
+          "usd": 60
+        },
+        "privateInsurance": {
+          "local": 5000,
+          "usd": 119
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 36,
+          "brackets": [0, 10, 15, 24, 25, 27, 31, 36],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 18.1,
+          "employerRate": 12.6,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 22
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "buenos-aires",
+    "name": "Buenos Aires",
+    "country": "Argentina",
+    "countryCode": "AR",
+    "region": "other",
+    "coordinates": {
+      "lat": -34.6037,
+      "lng": -58.3816
+    },
+    "currency": {
+      "code": "ARS",
+      "symbol": "$",
+      "name": "Argentine Peso"
+    },
+    "population": 15000000,
+    "timezone": "America/Argentina/Buenos_Aires",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 800000,
+          "usd": 800
+        },
+        "median": {
+          "local": 600000,
+          "usd": 600
+        },
+        "minimum": {
+          "local": 234315,
+          "usd": 234
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 250000,
+          "usd": 250
+        },
+        "oneBedroom": {
+          "local": 350000,
+          "usd": 350
+        },
+        "twoBedroom": {
+          "local": 500000,
+          "usd": 500
+        },
+        "threeBedroom": {
+          "local": 700000,
+          "usd": 700
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 2800000,
+          "usd": 2800
+        },
+        "outside": {
+          "local": 1800000,
+          "usd": 1800
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 140000000,
+            "usd": 140000
+          },
+          "twoBedroom": {
+            "local": 210000000,
+            "usd": 210000
+          },
+          "threeBedroom": {
+            "local": 308000000,
+            "usd": 308000
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 90000000,
+            "usd": 90000
+          },
+          "twoBedroom": {
+            "local": 135000000,
+            "usd": 135000
+          },
+          "threeBedroom": {
+            "local": 198000000,
+            "usd": 198000
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 150000,
+          "usd": 150
+        },
+        "restaurantMeal": {
+          "local": 12000,
+          "usd": 12
+        },
+        "fastFood": {
+          "local": 8000,
+          "usd": 8
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 15000,
+          "usd": 15
+        },
+        "taxiPerKm": {
+          "local": 500,
+          "usd": 0.5
+        },
+        "gasoline": {
+          "local": 900,
+          "usd": 0.9
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 50000,
+          "usd": 50
+        },
+        "internet": {
+          "local": 20000,
+          "usd": 20
+        },
+        "mobile": {
+          "local": 10000,
+          "usd": 10
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 30000,
+          "usd": 30
+        },
+        "cinema": {
+          "local": 5000,
+          "usd": 5
+        },
+        "cappuccino": {
+          "local": 2500,
+          "usd": 2.5
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 200000,
+          "usd": 200
+        },
+        "internationalSchool": {
+          "local": 1500000,
+          "usd": 1500
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 20000,
+          "usd": 20
+        },
+        "dentistVisit": {
+          "local": 25000,
+          "usd": 25
+        },
+        "privateInsurance": {
+          "local": 80000,
+          "usd": 80
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 35,
+          "brackets": [5, 9, 12, 15, 19, 23, 27, 31, 35],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 17,
+          "employerRate": 26.4,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 21
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "sao-paulo",
+    "name": "São Paulo",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "region": "other",
+    "coordinates": {
+      "lat": -23.5505,
+      "lng": -46.6333
+    },
+    "currency": {
+      "code": "BRL",
+      "symbol": "R$",
+      "name": "Brazilian Real"
+    },
+    "population": 22000000,
+    "timezone": "America/Sao_Paulo",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 6500,
+          "usd": 1300
+        },
+        "median": {
+          "local": 4500,
+          "usd": 900
+        },
+        "minimum": {
+          "local": 1412,
+          "usd": 282
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 2000,
+          "usd": 400
+        },
+        "oneBedroom": {
+          "local": 3000,
+          "usd": 600
+        },
+        "twoBedroom": {
+          "local": 4500,
+          "usd": 900
+        },
+        "threeBedroom": {
+          "local": 6500,
+          "usd": 1300
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 55000,
+          "usd": 11000
+        },
+        "outside": {
+          "local": 35000,
+          "usd": 7000
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 2750000,
+            "usd": 550000
+          },
+          "twoBedroom": {
+            "local": 4125000,
+            "usd": 825000
+          },
+          "threeBedroom": {
+            "local": 6050000,
+            "usd": 1210000
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 1750000,
+            "usd": 350000
+          },
+          "twoBedroom": {
+            "local": 2625000,
+            "usd": 525000
+          },
+          "threeBedroom": {
+            "local": 3850000,
+            "usd": 770000
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 1200,
+          "usd": 240
+        },
+        "restaurantMeal": {
+          "local": 60,
+          "usd": 12
+        },
+        "fastFood": {
+          "local": 40,
+          "usd": 8
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 250,
+          "usd": 50
+        },
+        "taxiPerKm": {
+          "local": 5,
+          "usd": 1
+        },
+        "gasoline": {
+          "local": 6,
+          "usd": 1.2
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 500,
+          "usd": 100
+        },
+        "internet": {
+          "local": 120,
+          "usd": 24
+        },
+        "mobile": {
+          "local": 60,
+          "usd": 12
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 150,
+          "usd": 30
+        },
+        "cinema": {
+          "local": 40,
+          "usd": 8
+        },
+        "cappuccino": {
+          "local": 12,
+          "usd": 2.4
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 3000,
+          "usd": 600
+        },
+        "internationalSchool": {
+          "local": 8000,
+          "usd": 1600
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 250,
+          "usd": 50
+        },
+        "dentistVisit": {
+          "local": 200,
+          "usd": 40
+        },
+        "privateInsurance": {
+          "local": 600,
+          "usd": 120
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 27.5,
+          "brackets": [0, 7.5, 15, 22.5, 27.5],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 11,
+          "employerRate": 28.8,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 18
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "santiago",
+    "name": "Santiago",
+    "country": "Chile",
+    "countryCode": "CL",
+    "region": "other",
+    "coordinates": {
+      "lat": -33.4489,
+      "lng": -70.6693
+    },
+    "currency": {
+      "code": "CLP",
+      "symbol": "$",
+      "name": "Chilean Peso"
+    },
+    "population": 7000000,
+    "timezone": "America/Santiago",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 1200000,
+          "usd": 1300
+        },
+        "median": {
+          "local": 800000,
+          "usd": 870
+        },
+        "minimum": {
+          "local": 460000,
+          "usd": 500
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 400000,
+          "usd": 435
+        },
+        "oneBedroom": {
+          "local": 550000,
+          "usd": 600
+        },
+        "twoBedroom": {
+          "local": 800000,
+          "usd": 870
+        },
+        "threeBedroom": {
+          "local": 1100000,
+          "usd": 1200
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 3500000,
+          "usd": 3800
+        },
+        "outside": {
+          "local": 2200000,
+          "usd": 2390
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 175000000,
+            "usd": 190000
+          },
+          "twoBedroom": {
+            "local": 262500000,
+            "usd": 285000
+          },
+          "threeBedroom": {
+            "local": 385000000,
+            "usd": 418000
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 110000000,
+            "usd": 120000
+          },
+          "twoBedroom": {
+            "local": 165000000,
+            "usd": 179000
+          },
+          "threeBedroom": {
+            "local": 242000000,
+            "usd": 263000
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 250000,
+          "usd": 272
+        },
+        "restaurantMeal": {
+          "local": 12000,
+          "usd": 13
+        },
+        "fastFood": {
+          "local": 7000,
+          "usd": 7.6
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 45000,
+          "usd": 49
+        },
+        "taxiPerKm": {
+          "local": 800,
+          "usd": 0.87
+        },
+        "gasoline": {
+          "local": 1200,
+          "usd": 1.3
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 100000,
+          "usd": 109
+        },
+        "internet": {
+          "local": 30000,
+          "usd": 33
+        },
+        "mobile": {
+          "local": 15000,
+          "usd": 16
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 40000,
+          "usd": 43
+        },
+        "cinema": {
+          "local": 7000,
+          "usd": 7.6
+        },
+        "cappuccino": {
+          "local": 3000,
+          "usd": 3.3
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 400000,
+          "usd": 435
+        },
+        "internationalSchool": {
+          "local": 1200000,
+          "usd": 1300
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 40000,
+          "usd": 43
+        },
+        "dentistVisit": {
+          "local": 35000,
+          "usd": 38
+        },
+        "privateInsurance": {
+          "local": 150000,
+          "usd": 163
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 40,
+          "brackets": [0, 4, 8, 13.5, 23, 30.4, 35, 40],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 20,
+          "employerRate": 0,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 19
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "lima",
+    "name": "Lima",
+    "country": "Peru",
+    "countryCode": "PE",
+    "region": "other",
+    "coordinates": {
+      "lat": -12.0464,
+      "lng": -77.0428
+    },
+    "currency": {
+      "code": "PEN",
+      "symbol": "S/",
+      "name": "Peruvian Sol"
+    },
+    "population": 10000000,
+    "timezone": "America/Lima",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 4000,
+          "usd": 1070
+        },
+        "median": {
+          "local": 2800,
+          "usd": 750
+        },
+        "minimum": {
+          "local": 1025,
+          "usd": 275
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 1200,
+          "usd": 320
+        },
+        "oneBedroom": {
+          "local": 1800,
+          "usd": 480
+        },
+        "twoBedroom": {
+          "local": 2800,
+          "usd": 750
+        },
+        "threeBedroom": {
+          "local": 4000,
+          "usd": 1070
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 8000,
+          "usd": 2140
+        },
+        "outside": {
+          "local": 5000,
+          "usd": 1340
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 400000,
+            "usd": 107000
+          },
+          "twoBedroom": {
+            "local": 600000,
+            "usd": 160500
+          },
+          "threeBedroom": {
+            "local": 880000,
+            "usd": 235400
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 250000,
+            "usd": 66900
+          },
+          "twoBedroom": {
+            "local": 375000,
+            "usd": 100300
+          },
+          "threeBedroom": {
+            "local": 550000,
+            "usd": 147200
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 800,
+          "usd": 214
+        },
+        "restaurantMeal": {
+          "local": 30,
+          "usd": 8
+        },
+        "fastFood": {
+          "local": 22,
+          "usd": 6
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 150,
+          "usd": 40
+        },
+        "taxiPerKm": {
+          "local": 4,
+          "usd": 1.1
+        },
+        "gasoline": {
+          "local": 5,
+          "usd": 1.34
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 300,
+          "usd": 80
+        },
+        "internet": {
+          "local": 100,
+          "usd": 27
+        },
+        "mobile": {
+          "local": 50,
+          "usd": 13
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 150,
+          "usd": 40
+        },
+        "cinema": {
+          "local": 20,
+          "usd": 5
+        },
+        "cappuccino": {
+          "local": 12,
+          "usd": 3.2
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1500,
+          "usd": 401
+        },
+        "internationalSchool": {
+          "local": 4000,
+          "usd": 1070
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 150,
+          "usd": 40
+        },
+        "dentistVisit": {
+          "local": 120,
+          "usd": 32
+        },
+        "privateInsurance": {
+          "local": 400,
+          "usd": 107
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 30,
+          "brackets": [8, 14, 17, 20, 30],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 13,
+          "employerRate": 9,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 18
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "bogota",
+    "name": "Bogotá",
+    "country": "Colombia",
+    "countryCode": "CO",
+    "region": "other",
+    "coordinates": {
+      "lat": 4.711,
+      "lng": -74.0721
+    },
+    "currency": {
+      "code": "COP",
+      "symbol": "$",
+      "name": "Colombian Peso"
+    },
+    "population": 11000000,
+    "timezone": "America/Bogota",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 4500000,
+          "usd": 1100
+        },
+        "median": {
+          "local": 3000000,
+          "usd": 730
+        },
+        "minimum": {
+          "local": 1300000,
+          "usd": 317
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 1500000,
+          "usd": 365
+        },
+        "oneBedroom": {
+          "local": 2200000,
+          "usd": 537
+        },
+        "twoBedroom": {
+          "local": 3500000,
+          "usd": 854
+        },
+        "threeBedroom": {
+          "local": 5000000,
+          "usd": 1220
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 8000000,
+          "usd": 1950
+        },
+        "outside": {
+          "local": 5000000,
+          "usd": 1220
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 400000000,
+            "usd": 97500
+          },
+          "twoBedroom": {
+            "local": 600000000,
+            "usd": 146300
+          },
+          "threeBedroom": {
+            "local": 880000000,
+            "usd": 214600
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 250000000,
+            "usd": 61000
+          },
+          "twoBedroom": {
+            "local": 375000000,
+            "usd": 91400
+          },
+          "threeBedroom": {
+            "local": 550000000,
+            "usd": 134100
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 800000,
+          "usd": 195
+        },
+        "restaurantMeal": {
+          "local": 30000,
+          "usd": 7
+        },
+        "fastFood": {
+          "local": 22000,
+          "usd": 5
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 180000,
+          "usd": 44
+        },
+        "taxiPerKm": {
+          "local": 3500,
+          "usd": 0.85
+        },
+        "gasoline": {
+          "local": 12000,
+          "usd": 2.9
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 350000,
+          "usd": 85
+        },
+        "internet": {
+          "local": 80000,
+          "usd": 20
+        },
+        "mobile": {
+          "local": 40000,
+          "usd": 10
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 150000,
+          "usd": 37
+        },
+        "cinema": {
+          "local": 18000,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 8000,
+          "usd": 2
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1500000,
+          "usd": 366
+        },
+        "internationalSchool": {
+          "local": 5000000,
+          "usd": 1220
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 150000,
+          "usd": 37
+        },
+        "dentistVisit": {
+          "local": 120000,
+          "usd": 29
+        },
+        "privateInsurance": {
+          "local": 400000,
+          "usd": 98
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 39,
+          "brackets": [0, 19, 28, 33, 35, 37, 39],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 8,
+          "employerRate": 20.5,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 19
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "medellin",
+    "name": "Medellín",
+    "country": "Colombia",
+    "countryCode": "CO",
+    "region": "other",
+    "coordinates": {
+      "lat": 6.2476,
+      "lng": -75.5658
+    },
+    "currency": {
+      "code": "COP",
+      "symbol": "$",
+      "name": "Colombian Peso"
+    },
+    "population": 4000000,
+    "timezone": "America/Bogota",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3800000,
+          "usd": 926
+        },
+        "median": {
+          "local": 2500000,
+          "usd": 610
+        },
+        "minimum": {
+          "local": 1300000,
+          "usd": 317
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 1200000,
+          "usd": 293
+        },
+        "oneBedroom": {
+          "local": 1800000,
+          "usd": 439
+        },
+        "twoBedroom": {
+          "local": 2800000,
+          "usd": 683
+        },
+        "threeBedroom": {
+          "local": 4000000,
+          "usd": 976
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 6000000,
+          "usd": 1463
+        },
+        "outside": {
+          "local": 3800000,
+          "usd": 926
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 300000000,
+            "usd": 73200
+          },
+          "twoBedroom": {
+            "local": 450000000,
+            "usd": 109700
+          },
+          "threeBedroom": {
+            "local": 660000000,
+            "usd": 160900
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 190000000,
+            "usd": 46300
+          },
+          "twoBedroom": {
+            "local": 285000000,
+            "usd": 69500
+          },
+          "threeBedroom": {
+            "local": 418000000,
+            "usd": 101900
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 700000,
+          "usd": 171
+        },
+        "restaurantMeal": {
+          "local": 25000,
+          "usd": 6
+        },
+        "fastFood": {
+          "local": 18000,
+          "usd": 4
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 140000,
+          "usd": 34
+        },
+        "taxiPerKm": {
+          "local": 3000,
+          "usd": 0.73
+        },
+        "gasoline": {
+          "local": 12000,
+          "usd": 2.9
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 280000,
+          "usd": 68
+        },
+        "internet": {
+          "local": 70000,
+          "usd": 17
+        },
+        "mobile": {
+          "local": 35000,
+          "usd": 9
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 120000,
+          "usd": 29
+        },
+        "cinema": {
+          "local": 16000,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 7000,
+          "usd": 1.7
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1200000,
+          "usd": 293
+        },
+        "internationalSchool": {
+          "local": 4000000,
+          "usd": 976
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 120000,
+          "usd": 29
+        },
+        "dentistVisit": {
+          "local": 100000,
+          "usd": 24
+        },
+        "privateInsurance": {
+          "local": 350000,
+          "usd": 85
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 39,
+          "brackets": [0, 19, 28, 33, 35, 37, 39],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 8,
+          "employerRate": 20.5,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 19
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "mexico-city",
+    "name": "Mexico City",
+    "country": "Mexico",
+    "countryCode": "MX",
+    "region": "other",
+    "coordinates": {
+      "lat": 19.4326,
+      "lng": -99.1332
+    },
+    "currency": {
+      "code": "MXN",
+      "symbol": "$",
+      "name": "Mexican Peso"
+    },
+    "population": 21000000,
+    "timezone": "America/Mexico_City",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 25000,
+          "usd": 1470
+        },
+        "median": {
+          "local": 18000,
+          "usd": 1060
+        },
+        "minimum": {
+          "local": 6223,
+          "usd": 366
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 10000,
+          "usd": 588
+        },
+        "oneBedroom": {
+          "local": 15000,
+          "usd": 880
+        },
+        "twoBedroom": {
+          "local": 22000,
+          "usd": 1290
+        },
+        "threeBedroom": {
+          "local": 32000,
+          "usd": 1880
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 60000,
+          "usd": 3530
+        },
+        "outside": {
+          "local": 35000,
+          "usd": 2060
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 3000000,
+            "usd": 176500
+          },
+          "twoBedroom": {
+            "local": 4500000,
+            "usd": 264700
+          },
+          "threeBedroom": {
+            "local": 6600000,
+            "usd": 388200
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 1750000,
+            "usd": 102900
+          },
+          "twoBedroom": {
+            "local": 2625000,
+            "usd": 154400
+          },
+          "threeBedroom": {
+            "local": 3850000,
+            "usd": 226400
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 4000,
+          "usd": 235
+        },
+        "restaurantMeal": {
+          "local": 250,
+          "usd": 15
+        },
+        "fastFood": {
+          "local": 150,
+          "usd": 9
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 500,
+          "usd": 29
+        },
+        "taxiPerKm": {
+          "local": 15,
+          "usd": 0.88
+        },
+        "gasoline": {
+          "local": 24,
+          "usd": 1.4
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 1500,
+          "usd": 88
+        },
+        "internet": {
+          "local": 600,
+          "usd": 35
+        },
+        "mobile": {
+          "local": 300,
+          "usd": 18
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 700,
+          "usd": 41
+        },
+        "cinema": {
+          "local": 100,
+          "usd": 6
+        },
+        "cappuccino": {
+          "local": 70,
+          "usd": 4
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 8000,
+          "usd": 470
+        },
+        "internationalSchool": {
+          "local": 25000,
+          "usd": 1470
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 800,
+          "usd": 47
+        },
+        "dentistVisit": {
+          "local": 600,
+          "usd": 35
+        },
+        "privateInsurance": {
+          "local": 3000,
+          "usd": 176
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 35,
+          "brackets": [1.92, 6.4, 10.88, 16, 17.92, 21.36, 23.52, 30, 32, 34, 35],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 2.8,
+          "employerRate": 26.5,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 16
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "panama-city",
+    "name": "Panama City",
+    "country": "Panama",
+    "countryCode": "PA",
+    "region": "other",
+    "coordinates": {
+      "lat": 8.9824,
+      "lng": -79.5199
+    },
+    "currency": {
+      "code": "USD",
+      "symbol": "$",
+      "name": "US Dollar"
+    },
+    "population": 1500000,
+    "timezone": "America/Panama",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 1800,
+          "usd": 1800
+        },
+        "median": {
+          "local": 1200,
+          "usd": 1200
+        },
+        "minimum": {
+          "local": 600,
+          "usd": 600
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 700,
+          "usd": 700
+        },
+        "oneBedroom": {
+          "local": 1000,
+          "usd": 1000
+        },
+        "twoBedroom": {
+          "local": 1500,
+          "usd": 1500
+        },
+        "threeBedroom": {
+          "local": 2200,
+          "usd": 2200
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 2500,
+          "usd": 2500
+        },
+        "outside": {
+          "local": 1500,
+          "usd": 1500
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 125000,
+            "usd": 125000
+          },
+          "twoBedroom": {
+            "local": 187500,
+            "usd": 187500
+          },
+          "threeBedroom": {
+            "local": 275000,
+            "usd": 275000
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 75000,
+            "usd": 75000
+          },
+          "twoBedroom": {
+            "local": 112500,
+            "usd": 112500
+          },
+          "threeBedroom": {
+            "local": 165000,
+            "usd": 165000
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 350,
+          "usd": 350
+        },
+        "restaurantMeal": {
+          "local": 12,
+          "usd": 12
+        },
+        "fastFood": {
+          "local": 8,
+          "usd": 8
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 50,
+          "usd": 50
+        },
+        "taxiPerKm": {
+          "local": 1.5,
+          "usd": 1.5
+        },
+        "gasoline": {
+          "local": 1,
+          "usd": 1
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 120,
+          "usd": 120
+        },
+        "internet": {
+          "local": 50,
+          "usd": 50
+        },
+        "mobile": {
+          "local": 25,
+          "usd": 25
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 50,
+          "usd": 50
+        },
+        "cinema": {
+          "local": 8,
+          "usd": 8
+        },
+        "cappuccino": {
+          "local": 4,
+          "usd": 4
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 600,
+          "usd": 600
+        },
+        "internationalSchool": {
+          "local": 1500,
+          "usd": 1500
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 50,
+          "usd": 50
+        },
+        "dentistVisit": {
+          "local": 40,
+          "usd": 40
+        },
+        "privateInsurance": {
+          "local": 150,
+          "usd": 150
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 25,
+          "brackets": [0, 15, 25],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 9.75,
+          "employerRate": 12.25,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 7
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
+  },
+  {
+    "id": "san-jose",
+    "name": "San José",
+    "country": "Costa Rica",
+    "countryCode": "CR",
+    "region": "other",
+    "coordinates": {
+      "lat": 9.9281,
+      "lng": -84.0907
+    },
+    "currency": {
+      "code": "CRC",
+      "symbol": "₡",
+      "name": "Costa Rican Colón"
+    },
+    "population": 1400000,
+    "timezone": "America/Costa_Rica",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 900000,
+          "usd": 1760
+        },
+        "median": {
+          "local": 600000,
+          "usd": 1175
+        },
+        "minimum": {
+          "local": 354742,
+          "usd": 694
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 300000,
+          "usd": 587
+        },
+        "oneBedroom": {
+          "local": 450000,
+          "usd": 880
+        },
+        "twoBedroom": {
+          "local": 650000,
+          "usd": 1270
+        },
+        "threeBedroom": {
+          "local": 900000,
+          "usd": 1760
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 1500000,
+          "usd": 2935
+        },
+        "outside": {
+          "local": 1000000,
+          "usd": 1960
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 75000000,
+            "usd": 146800
+          },
+          "twoBedroom": {
+            "local": 112500000,
+            "usd": 220000
+          },
+          "threeBedroom": {
+            "local": 165000000,
+            "usd": 323000
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 50000000,
+            "usd": 97800
+          },
+          "twoBedroom": {
+            "local": 75000000,
+            "usd": 146800
+          },
+          "threeBedroom": {
+            "local": 110000000,
+            "usd": 215300
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 200000,
+          "usd": 391
+        },
+        "restaurantMeal": {
+          "local": 8000,
+          "usd": 16
+        },
+        "fastFood": {
+          "local": 5000,
+          "usd": 10
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 30000,
+          "usd": 59
+        },
+        "taxiPerKm": {
+          "local": 700,
+          "usd": 1.4
+        },
+        "gasoline": {
+          "local": 800,
+          "usd": 1.6
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 60000,
+          "usd": 117
+        },
+        "internet": {
+          "local": 25000,
+          "usd": 49
+        },
+        "mobile": {
+          "local": 10000,
+          "usd": 20
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 30000,
+          "usd": 59
+        },
+        "cinema": {
+          "local": 5000,
+          "usd": 10
+        },
+        "cappuccino": {
+          "local": 2500,
+          "usd": 4.9
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 250000,
+          "usd": 489
+        },
+        "internationalSchool": {
+          "local": 700000,
+          "usd": 1370
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 40000,
+          "usd": 78
+        },
+        "dentistVisit": {
+          "local": 30000,
+          "usd": 59
+        },
+        "privateInsurance": {
+          "local": 100000,
+          "usd": 196
+        }
+      },
+      "taxes": {
+        "incomeTax": {
+          "topRate": 25,
+          "brackets": [0, 10, 15, 20, 25],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 10.5,
+          "employerRate": 26.3,
+          "cap": 0
+        },
+        "vat": {
+          "standard": 13
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo", "Local statistics"]
+    }
   }
 ]

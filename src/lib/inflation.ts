@@ -193,6 +193,15 @@ export const currencyRates: Record<string, number> = {
   IDR: 0.000063,
   PHP: 0.017,
   AED: 0.27,
+  // Latin America
+  UYU: 0.024,
+  ARS: 0.001,
+  BRL: 0.20,
+  CLP: 0.00109,
+  PEN: 0.27,
+  COP: 0.000244,
+  MXN: 0.059,
+  CRC: 0.00196,
 };
 
 export function convertToUsd(amount: number, currency: string): number {
@@ -226,6 +235,15 @@ export function getSupportedCurrencies(): { code: string; name: string }[] {
     { code: 'IDR', name: 'Indonesian Rupiah' },
     { code: 'PHP', name: 'Philippine Peso' },
     { code: 'AED', name: 'UAE Dirham' },
+    // Latin America
+    { code: 'UYU', name: 'Uruguayan Peso' },
+    { code: 'ARS', name: 'Argentine Peso' },
+    { code: 'BRL', name: 'Brazilian Real' },
+    { code: 'CLP', name: 'Chilean Peso' },
+    { code: 'PEN', name: 'Peruvian Sol' },
+    { code: 'COP', name: 'Colombian Peso' },
+    { code: 'MXN', name: 'Mexican Peso' },
+    { code: 'CRC', name: 'Costa Rican Colón' },
   ];
 }
 
