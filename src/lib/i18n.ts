@@ -13,9 +13,9 @@ export const translations = {
 
     // Time to Home page
     timeToHome: {
-      title: 'TIME TO YOUR HOME',
-      subtitle: 'Face the brutal reality. See how long it really takes to buy property, with inflation destroying your dreams every year.',
-      warning: 'Warning: Results may cause existential dread, depression, apathy, bed-rot, and various addictions',
+      title: 'YOU WILL NEVER OWN A HOME',
+      subtitle: 'Think you\'re saving enough? Think again. Watch inflation laugh at your pathetic savings while property prices run away from you forever.',
+      warning: 'Warning: Results may cause existential crisis, depression, rage at boomers, and urge to move to the woods',
       calculateButton: 'Calculate My Doom',
 
       // Form
@@ -158,9 +158,9 @@ export const translations = {
 
     // Time to Home page
     timeToHome: {
-      title: 'ВРЕМЯ ДО ТВОЕГО ЖИЛЬЯ',
-      subtitle: 'Взгляни правде в глаза. Узнай, сколько реально нужно времени на покупку недвижимости, пока инфляция уничтожает твои мечты.',
-      warning: 'Осторожно: результаты могут вызвать экзистенциальный кризис, депрессию, апатию, bed-rot и различные зависимости',
+      title: 'ТЫ НИКОГДА НЕ КУПИШЬ КВАРТИРУ',
+      subtitle: 'Думаешь, копишь достаточно? Подумай ещё раз. Смотри, как инфляция смеётся над твоими жалкими накоплениями, пока цены на жильё убегают от тебя навсегда.',
+      warning: 'Осторожно: результаты могут вызвать экзистенциальный кризис, депрессию, ненависть к бумерам и желание уехать в лес',
       calculateButton: 'Рассчитать мою судьбу',
 
       // Form

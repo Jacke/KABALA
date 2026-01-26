@@ -1,2 +1,10 @@
 export { TimeToHomeForm } from './TimeToHomeForm';
 export { TimeToHomeResults } from './TimeToHomeResults';
+export { Tabs } from './Tabs';
+export { LifeTimeline } from './LifeTimeline';
+export { AffordabilityMap } from './AffordabilityMap';
+export { MortgageMode } from './MortgageMode';
+export { RentVsBuy } from './RentVsBuy';
+export { WhatIfScenarios } from './WhatIfScenarios';
+export { CityRecommendations } from './CityRecommendations';
+export { CoupleMode } from './CoupleMode';

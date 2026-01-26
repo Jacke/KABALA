@@ -1,7 +1,18 @@
 'use client';
 
-import { useState, useEffect, useCallback, Suspense } from 'react';
-import { TimeToHomeForm, TimeToHomeResults } from '@/components/TimeToHome';
+import { useState, useEffect, useCallback, Suspense, useMemo } from 'react';
+import {
+  TimeToHomeForm,
+  TimeToHomeResults,
+  Tabs,
+  LifeTimeline,
+  AffordabilityMap,
+  MortgageMode,
+  RentVsBuy,
+  WhatIfScenarios,
+  CityRecommendations,
+  CoupleMode,
+} from '@/components/TimeToHome';
 import { calculateTimeToHome, convertToUsd, getInflationSource } from '@/lib/inflation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { TimeToHomeResult } from '@/types/inflation';
@@ -10,8 +21,11 @@ import type { CityWithMetrics } from '@/types/city';
 export default function TimeToHomePage() {
   const [results, setResults] = useState<TimeToHomeResult[] | null>(null);
   const [selectedCity, setSelectedCity] = useState<CityWithMetrics | null>(null);
-  const [userAge, setUserAge] = useState<number>(30);
-  const { t } = useLanguage();
+  const [userAge, setUserAge] = useState<number>(25);
+  const [userSavings, setUserSavings] = useState<number>(50000);
+  const [userCurrency, setUserCurrency] = useState<string>('USD');
+  const [userMonthly, setUserMonthly] = useState<number>(3000);
+  const { t, locale } = useLanguage();
 
   const source = getInflationSource();
 
@@ -46,7 +60,135 @@ export default function TimeToHomePage() {
     setResults(calculationResults);
     setSelectedCity(data.city);
     setUserAge(data.age);
+    setUserSavings(data.savings);
+    setUserCurrency(data.currency);
+    setUserMonthly(data.monthlyContribution);
   }, []);
+
+  // Tab labels
+  const tabLabels = locale === 'ru' ? {
+    results: 'Результаты',
+    timeline: 'Линия жизни',
+    map: 'Карта городов',
+    mortgage: 'Ипотека',
+    rentVsBuy: 'Аренда vs Покупка',
+    whatIf: 'Что если...',
+    recommend: 'Рекомендации',
+    couple: 'Для пары',
+  } : {
+    results: 'Results',
+    timeline: 'Life Timeline',
+    map: 'City Map',
+    mortgage: 'Mortgage',
+    rentVsBuy: 'Rent vs Buy',
+    whatIf: 'What if...',
+    recommend: 'Recommendations',
+    couple: 'Couple Mode',
+  };
+
+  // Build tabs array when we have results
+  const tabs = useMemo(() => {
+    if (!results || !selectedCity) return [];
+
+    const savingsUsd = convertToUsd(userSavings, userCurrency);
+    const contributionUsd = convertToUsd(userMonthly, userCurrency);
+
+    return [
+      {
+        id: 'results',
+        label: tabLabels.results,
+        icon: '📊',
+        content: <TimeToHomeResults results={results} city={selectedCity} age={userAge} />,
+      },
+      {
+        id: 'timeline',
+        label: tabLabels.timeline,
+        icon: '⏳',
+        content: <LifeTimeline age={userAge} results={results} cityName={selectedCity.name} />,
+      },
+      {
+        id: 'map',
+        label: tabLabels.map,
+        icon: '🗺️',
+        content: (
+          <AffordabilityMap
+            savings={userSavings}
+            currency={userCurrency}
+            monthlyContribution={userMonthly}
+            age={userAge}
+            currentCityId={selectedCity.id}
+          />
+        ),
+      },
+      {
+        id: 'mortgage',
+        label: tabLabels.mortgage,
+        icon: '🏦',
+        content: (
+          <MortgageMode
+            savings={userSavings}
+            savingsUsd={savingsUsd}
+            monthlyContribution={userMonthly}
+            monthlyContributionUsd={contributionUsd}
+            currency={userCurrency}
+            age={userAge}
+            city={selectedCity}
+          />
+        ),
+      },
+      {
+        id: 'rent-vs-buy',
+        label: tabLabels.rentVsBuy,
+        icon: '🔥',
+        content: <RentVsBuy results={results} city={selectedCity} age={userAge} />,
+      },
+      {
+        id: 'what-if',
+        label: tabLabels.whatIf,
+        icon: '🔮',
+        content: (
+          <WhatIfScenarios
+            savings={userSavings}
+            currency={userCurrency}
+            monthlyContribution={userMonthly}
+            age={userAge}
+            city={selectedCity}
+            baseResults={results}
+          />
+        ),
+      },
+      {
+        id: 'recommend',
+        label: tabLabels.recommend,
+        icon: '🎯',
+        content: (
+          <CityRecommendations
+            savings={userSavings}
+            currency={userCurrency}
+            monthlyContribution={userMonthly}
+            age={userAge}
+            currentCityId={selectedCity.id}
+          />
+        ),
+      },
+      {
+        id: 'couple',
+        label: tabLabels.couple,
+        icon: '💕',
+        content: (
+          <CoupleMode
+            savings={userSavings}
+            currency={userCurrency}
+            monthlyContribution={userMonthly}
+            age={userAge}
+            city={selectedCity}
+            baseResults={results}
+          />
+        ),
+        bgClass: 'bg-transparent',
+      },
+    ];
+  }, [results, selectedCity, userAge, userSavings, userCurrency, userMonthly, tabLabels]);
 
   return (
     <div className="time-to-home-page min-h-screen bg-black">
@@ -83,11 +225,11 @@ export default function TimeToHomePage() {
         </div>
       </div>
 
-      {/* Results Section */}
-      {results && selectedCity && (
+      {/* Results Section with Tabs */}
+      {results && selectedCity && tabs.length > 0 && (
         <div className="max-w-5xl mx-auto px-4 pb-16">
           <div className="bg-gradient-to-br from-gray-950 to-black border border-red-900/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
-            <TimeToHomeResults results={results} city={selectedCity} age={userAge} />
+            <Tabs tabs={tabs} defaultTab="results" />
           </div>
         </div>
       )}
