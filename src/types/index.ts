@@ -47,3 +47,11 @@ export type {
   TaxMetrics,
   TaxCalculationResult,
 } from './tax';
+
+// Inflation types
+export type {
+  CountryInflation,
+  InflationData,
+  TimeToHomeInput,
+  TimeToHomeResult,
+} from './inflation';

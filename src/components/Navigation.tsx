@@ -9,6 +9,7 @@ const navItems = [
   { href: '/rankings', label: 'Rankings' },
   { href: '/compare', label: 'Compare' },
   { href: '/calculator', label: 'Calculator' },
+  { href: '/time-to-home', label: 'Time to Home' },
 ];
 
 export function Navigation() {

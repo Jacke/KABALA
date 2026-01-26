@@ -1,0 +1,270 @@
+{
+  "lastUpdated": "2026-01-26",
+  "source": "IMF World Economic Outlook, World Bank, Central Banks",
+  "countries": {
+    "DE": {
+      "name": "Germany",
+      "inflation2025": 2.1,
+      "inflation2026": 1.9,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "Euro area forecast"
+    },
+    "PT": {
+      "name": "Portugal",
+      "inflation2025": 2.3,
+      "inflation2026": 2.0,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 5.0,
+      "notes": "Strong property demand continues"
+    },
+    "RU": {
+      "name": "Russia",
+      "inflation2025": 6.6,
+      "inflation2026": 4.5,
+      "inflation2027": 4.0,
+      "propertyGrowth2026": 8.0,
+      "notes": "Central Bank of Russia forecast"
+    },
+    "GE": {
+      "name": "Georgia",
+      "inflation2025": 3.5,
+      "inflation2026": 3.0,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 9.0,
+      "notes": "Tbilisi emerging market premium"
+    },
+    "UA": {
+      "name": "Ukraine",
+      "inflation2025": 8.0,
+      "inflation2026": 5.0,
+      "inflation2027": 5.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "NBU forecast, war impact"
+    },
+    "BY": {
+      "name": "Belarus",
+      "inflation2025": 5.5,
+      "inflation2026": 5.0,
+      "inflation2027": 5.0,
+      "propertyGrowth2026": 4.0,
+      "notes": "Regional estimate"
+    },
+    "KZ": {
+      "name": "Kazakhstan",
+      "inflation2025": 8.5,
+      "inflation2026": 6.0,
+      "inflation2027": 5.0,
+      "propertyGrowth2026": 7.0,
+      "notes": "National Bank of Kazakhstan target"
+    },
+    "AZ": {
+      "name": "Azerbaijan",
+      "inflation2025": 4.0,
+      "inflation2026": 4.0,
+      "inflation2027": 4.0,
+      "propertyGrowth2026": 5.0,
+      "notes": "Central bank forecast"
+    },
+    "AM": {
+      "name": "Armenia",
+      "inflation2025": 2.5,
+      "inflation2026": 3.0,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 6.0,
+      "notes": "CBA target range"
+    },
+    "UZ": {
+      "name": "Uzbekistan",
+      "inflation2025": 10.0,
+      "inflation2026": 8.0,
+      "inflation2027": 6.0,
+      "propertyGrowth2026": 10.0,
+      "notes": "Central Bank target, high growth market"
+    },
+    "FR": {
+      "name": "France",
+      "inflation2025": 1.1,
+      "inflation2026": 1.8,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 2.0,
+      "notes": "Euro area, Paris premium market"
+    },
+    "ES": {
+      "name": "Spain",
+      "inflation2025": 2.9,
+      "inflation2026": 2.0,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 5.0,
+      "notes": "Strong tourism demand"
+    },
+    "NL": {
+      "name": "Netherlands",
+      "inflation2025": 2.5,
+      "inflation2026": 2.0,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 4.0,
+      "notes": "Euro area forecast"
+    },
+    "AT": {
+      "name": "Austria",
+      "inflation2025": 2.3,
+      "inflation2026": 2.0,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "Euro area forecast"
+    },
+    "CZ": {
+      "name": "Czech Republic",
+      "inflation2025": 2.5,
+      "inflation2026": 2.3,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 4.0,
+      "notes": "CNB forecast"
+    },
+    "PL": {
+      "name": "Poland",
+      "inflation2025": 4.5,
+      "inflation2026": 3.5,
+      "inflation2027": 2.5,
+      "propertyGrowth2026": 5.0,
+      "notes": "NBP forecast"
+    },
+    "HU": {
+      "name": "Hungary",
+      "inflation2025": 4.0,
+      "inflation2026": 3.5,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 6.0,
+      "notes": "MNB forecast"
+    },
+    "IT": {
+      "name": "Italy",
+      "inflation2025": 1.7,
+      "inflation2026": 1.8,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "Euro area forecast"
+    },
+    "TH": {
+      "name": "Thailand",
+      "inflation2025": 0.5,
+      "inflation2026": 0.7,
+      "inflation2027": 1.5,
+      "propertyGrowth2026": 3.0,
+      "notes": "Deflationary pressures"
+    },
+    "GB": {
+      "name": "United Kingdom",
+      "inflation2025": 2.5,
+      "inflation2026": 2.3,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 2.5,
+      "notes": "Bank of England forecast"
+    },
+    "US": {
+      "name": "United States",
+      "inflation2025": 2.7,
+      "inflation2026": 2.4,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "Fed forecast, gradual decline"
+    },
+    "JP": {
+      "name": "Japan",
+      "inflation2025": 3.3,
+      "inflation2026": 2.1,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 2.0,
+      "notes": "IMF forecast"
+    },
+    "SG": {
+      "name": "Singapore",
+      "inflation2025": 2.0,
+      "inflation2026": 1.8,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "MAS forecast, stable market"
+    },
+    "HK": {
+      "name": "Hong Kong",
+      "inflation2025": 2.0,
+      "inflation2026": 2.0,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 1.0,
+      "notes": "Property market correction"
+    },
+    "KR": {
+      "name": "South Korea",
+      "inflation2025": 2.0,
+      "inflation2026": 1.8,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 2.0,
+      "notes": "BoK easing cycle"
+    },
+    "CN": {
+      "name": "China",
+      "inflation2025": 0.0,
+      "inflation2026": 0.8,
+      "inflation2027": 1.5,
+      "propertyGrowth2026": -3.0,
+      "notes": "Deflationary pressure, property crisis"
+    },
+    "IN": {
+      "name": "India",
+      "inflation2025": 1.3,
+      "inflation2026": 2.0,
+      "inflation2027": 4.0,
+      "propertyGrowth2026": 5.0,
+      "notes": "RBI forecast"
+    },
+    "MY": {
+      "name": "Malaysia",
+      "inflation2025": 2.0,
+      "inflation2026": 2.2,
+      "inflation2027": 2.5,
+      "propertyGrowth2026": 4.0,
+      "notes": "BNM forecast"
+    },
+    "VN": {
+      "name": "Vietnam",
+      "inflation2025": 3.5,
+      "inflation2026": 3.0,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 6.0,
+      "notes": "SBV target"
+    },
+    "TW": {
+      "name": "Taiwan",
+      "inflation2025": 2.0,
+      "inflation2026": 1.8,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 3.0,
+      "notes": "CBC forecast"
+    },
+    "ID": {
+      "name": "Indonesia",
+      "inflation2025": 2.5,
+      "inflation2026": 2.5,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 5.0,
+      "notes": "BI target range"
+    },
+    "PH": {
+      "name": "Philippines",
+      "inflation2025": 1.7,
+      "inflation2026": 2.5,
+      "inflation2027": 3.0,
+      "propertyGrowth2026": 5.0,
+      "notes": "BSP forecast"
+    },
+    "AE": {
+      "name": "UAE",
+      "inflation2025": 2.5,
+      "inflation2026": 2.3,
+      "inflation2027": 2.0,
+      "propertyGrowth2026": 8.0,
+      "notes": "Dubai premium market"
+    }
+  }
+}
