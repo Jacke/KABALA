@@ -5,17 +5,13 @@
  * Supports 2+ cities with optional home base for relative comparisons.
  */
 
-import { useState, useEffect, useMemo, Suspense, useCallback } from 'react';
+import { useState, useEffect, useMemo, Suspense, useCallback, useRef } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { getCityById, getCityIndex } from '@/lib/data';
 import { CitySelector, ComparisonTable } from '@/components/Compare';
-import type { CityWithMetrics } from '@/types';
+import type { CityWithMetrics, CityIndex } from '@/types';
 
 const MAX_CITIES = 5;
-
-// Get city index once at module level to avoid re-creating on each render
-const cityIndex = getCityIndex();
-const validCityIds = new Set(cityIndex.map((c) => c.id));
 
 /**
  * City chip component for displaying selected cities.
@@ -69,58 +65,53 @@ function CityChip({
 }
 
 /**
- * Parse URL params to get initial city IDs
- */
-function parseInitialCities(searchParams: URLSearchParams): string[] {
-  const citiesParam = searchParams.get('cities');
-  if (!citiesParam) return [];
-  return citiesParam
-    .split(',')
-    .filter((id) => validCityIds.has(id))
-    .slice(0, MAX_CITIES);
-}
-
-/**
- * Parse URL params to get initial home base
- */
-function parseInitialHome(searchParams: URLSearchParams, cityIds: string[]): string | null {
-  const homeParam = searchParams.get('home');
-  if (homeParam && cityIds.includes(homeParam)) {
-    return homeParam;
-  }
-  return null;
-}
-
-/**
  * Inner component that uses useSearchParams.
  */
 function ComparePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const isInitialized = useRef(false);
 
-  // Initialize state from URL params immediately
-  const initialCities = useMemo(() => parseInitialCities(searchParams), [searchParams]);
-  const initialHome = useMemo(() => parseInitialHome(searchParams, initialCities), [searchParams, initialCities]);
+  const [selectedCityIds, setSelectedCityIds] = useState<string[]>([]);
+  const [homeBaseId, setHomeBaseId] = useState<string | null>(null);
+  const [cityIndex, setCityIndex] = useState<CityIndex[]>([]);
+  const [validCityIds, setValidCityIds] = useState<Set<string>>(new Set());
 
-  const [selectedCityIds, setSelectedCityIds] = useState<string[]>(initialCities);
-  const [homeBaseId, setHomeBaseId] = useState<string | null>(initialHome);
-
-  // Sync state when URL changes (e.g., browser back/forward)
+  // Load city index on mount
   useEffect(() => {
-    const newCities = parseInitialCities(searchParams);
-    const newHome = parseInitialHome(searchParams, newCities);
+    const index = getCityIndex();
+    setCityIndex(index);
+    setValidCityIds(new Set(index.map((c) => c.id)));
+  }, []);
 
-    // Only update if actually different to avoid infinite loops
-    if (JSON.stringify(newCities) !== JSON.stringify(selectedCityIds)) {
-      setSelectedCityIds(newCities);
-    }
-    if (newHome !== homeBaseId) {
-      setHomeBaseId(newHome);
-    }
-  }, [searchParams]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Initialize from URL params once city index is loaded
+  useEffect(() => {
+    if (validCityIds.size === 0 || isInitialized.current) return;
 
-  // Update URL when state changes
+    const citiesParam = searchParams.get('cities');
+    const homeParam = searchParams.get('home');
+
+    if (citiesParam) {
+      const ids = citiesParam
+        .split(',')
+        .filter((id) => validCityIds.has(id))
+        .slice(0, MAX_CITIES);
+
+      if (ids.length > 0) {
+        setSelectedCityIds(ids);
+        if (homeParam && ids.includes(homeParam)) {
+          setHomeBaseId(homeParam);
+        }
+      }
+    }
+
+    isInitialized.current = true;
+  }, [searchParams, validCityIds]);
+
+  // Update URL when state changes (after initialization)
   const updateUrl = useCallback((cities: string[], home: string | null) => {
+    if (!isInitialized.current) return;
+
     const params = new URLSearchParams();
     if (cities.length > 0) {
       params.set('cities', cities.join(','));
@@ -168,8 +159,20 @@ function ComparePageContent() {
 
   const availableCities = useMemo(() =>
     cityIndex.filter((city) => !selectedCityIds.includes(city.id)),
-    [selectedCityIds]
+    [cityIndex, selectedCityIds]
   );
+
+  // Show loading state while city index is being loaded
+  if (cityIndex.length === 0) {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Compare Cities</h1>
+          <p className="text-gray-600 mt-2">Loading cities...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
