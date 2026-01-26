@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TimeToHomeForm, TimeToHomeResults } from '@/components/TimeToHome';
 import { calculateTimeToHome, convertToUsd, getInflationSource } from '@/lib/inflation';
 import type { TimeToHomeResult } from '@/types/inflation';
@@ -12,6 +12,17 @@ export default function TimeToHomePage() {
   const [userAge, setUserAge] = useState<number>(30);
 
   const source = getInflationSource();
+
+  // Force dark background on body and html for this page
+  useEffect(() => {
+    document.documentElement.style.backgroundColor = 'black';
+    document.body.style.backgroundColor = 'black';
+
+    return () => {
+      document.documentElement.style.backgroundColor = '';
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
 
   const handleCalculate = (data: {
     age: number;
