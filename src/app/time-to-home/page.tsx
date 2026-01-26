@@ -177,6 +177,11 @@ export default function TimeToHomePage() {
         </div>
       </div>
 
+      {/* Debug: State visibility */}
+      <div className="max-w-5xl mx-auto px-4 py-4 text-xs text-gray-500">
+        DEBUG: results={results ? 'yes' : 'no'}, selectedCity={selectedCity?.name || 'none'}, tabs={tabs.length}
+      </div>
+
       {/* Results Section with Tabs */}
       {results && selectedCity && tabs.length > 0 && (
         <div className="max-w-5xl mx-auto px-4 pb-16">
