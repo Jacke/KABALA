@@ -221,3 +221,33 @@ export function getSupportedCurrencies(): { code: string; name: string }[] {
     { code: 'AED', name: 'UAE Dirham' },
   ];
 }
+
+/**
+ * Calculate minimum monthly savings needed to ever afford property
+ * This is the breakeven point where savings growth matches price growth
+ */
+export function calculateMinimumMonthlySavings(
+  propertyPriceUsd: number,
+  currentSavingsUsd: number,
+  annualPropertyGrowth: number,
+  annualInflation: number
+): number {
+  // Monthly rates
+  const monthlyPropertyGrowth = annualPropertyGrowth / 100 / 12;
+  const monthlyInflation = annualInflation / 100 / 12;
+  const savingsGrowth = 0.02 / 12; // Assume 2% annual savings interest
+  const realLoss = Math.max(0, monthlyInflation - savingsGrowth);
+
+  // To make progress, monthly contribution must exceed:
+  // price growth + savings value loss
+  // contribution > price * monthlyPropertyGrowth + savings * realLoss
+
+  // At the start, minimum needed:
+  const priceGrowthPerMonth = propertyPriceUsd * monthlyPropertyGrowth;
+  const savingsLossPerMonth = currentSavingsUsd * realLoss;
+
+  // Add 20% buffer to actually make meaningful progress
+  const minimum = (priceGrowthPerMonth + savingsLossPerMonth) * 1.2;
+
+  return Math.ceil(minimum / 100) * 100; // Round up to nearest 100
+}

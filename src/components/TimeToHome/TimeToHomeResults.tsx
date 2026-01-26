@@ -49,6 +49,22 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
     return null;
   };
 
+  const getExtremeExplanation = (years: number, monthlyContribution: number, inflationRate: number, propertyGrowthRate: number): string | null => {
+    if (years < 100) return null;
+
+    const effectiveGrowth = propertyGrowthRate - inflationRate;
+    if (effectiveGrowth > 0 && monthlyContribution * 12 < effectiveGrowth * 10000) {
+      return `Property prices grow ${propertyGrowthRate.toFixed(1)}%/year while inflation is ${inflationRate.toFixed(1)}%. Your savings are being outpaced — you're chasing a moving target that runs faster than you.`;
+    }
+    if (years >= 500) {
+      return `At this rate, even your great-great-great-grandchildren wouldn't own this property. The math simply doesn't work.`;
+    }
+    if (years >= 200) {
+      return `This timeline exceeds average human lifespan twice over. Without drastic changes, this property is mathematically impossible for you.`;
+    }
+    return `With current inflation trends, property prices will double every ${(72 / propertyGrowthRate).toFixed(0)} years while your savings struggle to keep up.`;
+  };
+
   const getDifferenceIndicator = (noInflation: number, withInflation: number) => {
     if (noInflation === Infinity || withInflation === Infinity) return null;
     const diff = withInflation - noInflation;
@@ -150,12 +166,18 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
                 </div>
 
                 {/* With Inflation - THE REALITY */}
-                <div className="text-center">
-                  <p className="text-xs text-red-400 uppercase tracking-wide mb-1 font-semibold">⚡ REALITY</p>
-                  <p className={`text-3xl font-black ${getStatusColor(result.yearsWithInflation)}`}>
-                    {formatYears(result.yearsWithInflation)}
-                  </p>
-                  <p className="text-xs text-gray-400">
+                <div className="text-center relative">
+                  <div className={`${isExtreme ? 'animate-pulse' : ''}`}>
+                    <p className="text-xs uppercase tracking-wider mb-1 font-black">
+                      <span className="bg-gradient-to-r from-yellow-400 via-red-500 to-red-600 bg-clip-text text-transparent">
+                        ⚡ REALITY ⚡
+                      </span>
+                    </p>
+                    <p className={`text-3xl font-black ${getStatusColor(result.yearsWithInflation)} ${isExtreme ? 'drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]' : ''}`}>
+                      {formatYears(result.yearsWithInflation)}
+                    </p>
+                  </div>
+                  <p className="text-xs text-gray-400 mt-1">
                     Age: <span className={isExtreme ? 'text-red-400 font-bold' : ''}>{formatAge(result.ageAtPurchaseWithInflation)}</span>
                   </p>
                   {getDifferenceIndicator(result.yearsWithoutInflation, result.yearsWithInflation)}
@@ -163,8 +185,23 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
               </div>
             </div>
 
+            {/* Extreme value explanation */}
+            {isExtreme && (
+              <div className="mt-4 pt-4 border-t border-red-900/50 bg-red-950/30 -mx-6 -mb-6 px-6 pb-6 rounded-b-xl">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🔬</span>
+                  <div>
+                    <p className="text-red-300 font-semibold text-sm mb-1">Why so long?</p>
+                    <p className="text-red-200/70 text-sm">
+                      {getExtremeExplanation(result.yearsWithInflation, 2000, result.inflationRate, result.propertyGrowthRate)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Lifetime warning */}
-            {lifetimeMsg && (
+            {lifetimeMsg && !isExtreme && (
               <div className="mt-4 pt-4 border-t border-red-800/50">
                 <p className="text-red-400 font-medium">
                   {lifetimeMsg}
@@ -173,7 +210,7 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
             )}
 
             {/* Warning for unaffordable */}
-            {!result.affordable && !lifetimeMsg && (
+            {!result.affordable && !lifetimeMsg && !isExtreme && (
               <div className="mt-4 pt-4 border-t border-red-800/50">
                 <p className="text-red-400 text-sm">
                   Property prices are growing faster than your savings. You&apos;re running backwards on a treadmill.

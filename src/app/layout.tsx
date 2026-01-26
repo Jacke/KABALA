@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -48,10 +49,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-white`}>
-        <Navigation />
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          {children}
-        </main>
+        <LanguageProvider>
+          <Navigation />
+          <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+            {children}
+          </main>
+        </LanguageProvider>
       </body>
     </html>
   );
