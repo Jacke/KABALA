@@ -157,12 +157,17 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
                 <p className="text-gray-400 text-sm">
                   {locale === 'ru' ? 'Сейчас' : 'Now'}: ${result.priceUsd.toLocaleString()}
                 </p>
-                {result.yearsWithInflation > 1 && (
+                {result.yearsWithInflation > 1 && result.yearsWithInflation < 100 && (
                   <p className="text-red-400 text-sm font-medium">
                     {locale === 'ru' ? 'Через' : 'In'} {Math.round(result.yearsWithInflation)} {locale === 'ru' ? 'лет' : 'years'}: <span className="text-red-500">${result.priceWithInflationUsd.toLocaleString()}</span>
                     <span className="text-red-400/60 text-xs ml-1">
                       (+{Math.round((result.priceWithInflationUsd / result.priceUsd - 1) * 100)}%)
                     </span>
+                  </p>
+                )}
+                {result.yearsWithInflation >= 100 && (
+                  <p className="text-red-500 text-sm font-medium">
+                    {locale === 'ru' ? '∞ Недостижимо за человеческую жизнь' : '∞ Unreachable in a lifetime'}
                   </p>
                 )}
               </div>

@@ -138,9 +138,10 @@ export function calculateTimeToHome(
     const yearsNoInflation = calculateYearsToProperty(params, false);
     const yearsWithInflation = calculateYearsToProperty(params, true);
 
-    // Calculate inflated price at time of purchase
+    // Calculate inflated price at time of purchase (cap at 100 years to avoid overflow)
+    const cappedYears = Math.min(yearsWithInflation, 100);
     const priceWithInflationUsd = Math.round(
-      priceUsd * Math.pow(1 + propertyGrowthRate / 100, yearsWithInflation)
+      priceUsd * Math.pow(1 + propertyGrowthRate / 100, cappedYears)
     );
 
     const affordable = yearsWithInflation < 50;
