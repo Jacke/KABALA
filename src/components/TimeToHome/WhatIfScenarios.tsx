@@ -139,6 +139,9 @@ export function WhatIfScenarios({ savings, currency, monthlyContribution, age, c
   };
 
   const formatDiff = (base: number, adjusted: number) => {
+    if (!isFinite(base) && !isFinite(adjusted)) return t.noChange;
+    if (!isFinite(base) && isFinite(adjusted)) return `∞ → ${adjusted.toFixed(1)} ${t.years}`;
+    if (isFinite(base) && !isFinite(adjusted)) return `→ ∞`;
     const diff = adjusted - base;
     if (Math.abs(diff) < 0.1) return t.noChange;
     const years = Math.abs(diff).toFixed(1);
@@ -266,7 +269,7 @@ export function WhatIfScenarios({ savings, currency, monthlyContribution, age, c
                   <div className="text-center">
                     <p className="text-xs text-gray-500 uppercase mb-1">{t.current}</p>
                     <p className="text-xl font-bold text-gray-400">
-                      {base.yearsWithInflation > 100 ? '100+' : base.yearsWithInflation.toFixed(1)} {t.years}
+                      {!isFinite(base.yearsWithInflation) ? '∞' : base.yearsWithInflation.toFixed(1)} {t.years}
                     </p>
                   </div>
 
@@ -277,7 +280,7 @@ export function WhatIfScenarios({ savings, currency, monthlyContribution, age, c
                   <div className="text-center">
                     <p className="text-xs text-gray-500 uppercase mb-1">{t.adjusted}</p>
                     <p className={`text-xl font-bold ${getChangeColor(diff)}`}>
-                      {adjusted.yearsWithInflation > 100 ? '100+' : adjusted.yearsWithInflation.toFixed(1)} {t.years}
+                      {!isFinite(adjusted.yearsWithInflation) ? '∞' : adjusted.yearsWithInflation.toFixed(1)} {t.years}
                     </p>
                   </div>
 

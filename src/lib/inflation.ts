@@ -71,7 +71,7 @@ function calculateYearsToProperty(params: CalculationParams, withInflation: bool
     months++;
   }
 
-  if (months >= maxMonths) return 999;
+  if (months >= maxMonths) return Infinity;
   return months / 12;
 }
 
@@ -136,15 +136,18 @@ export function calculateTimeToHome(
     };
 
     const yearsNoInflation = calculateYearsToProperty(params, false);
-    const yearsWithInflation = calculateYearsToProperty(params, true);
+    const rawYearsWithInflation = calculateYearsToProperty(params, true);
 
-    // Calculate inflated price at time of purchase (cap at 100 years to avoid overflow)
-    const cappedYears = Math.min(yearsWithInflation, 100);
-    const priceWithInflationUsd = Math.round(
-      priceUsd * Math.pow(1 + propertyGrowthRate / 100, cappedYears)
-    );
+    // Normalize: anything over 100 years or Infinity → Infinity (unreachable)
+    const yearsWithInflation = rawYearsWithInflation > 100 ? Infinity : rawYearsWithInflation;
+    const yearsNoInflationNorm = yearsNoInflation > 200 ? Infinity : yearsNoInflation;
 
-    const affordable = yearsWithInflation < 50;
+    // Calculate inflated price at time of purchase (only for reachable cases)
+    const priceWithInflationUsd = isFinite(yearsWithInflation)
+      ? Math.round(priceUsd * Math.pow(1 + propertyGrowthRate / 100, yearsWithInflation))
+      : 0;
+
+    const affordable = isFinite(yearsWithInflation) && yearsWithInflation < 50;
 
     return {
       propertyType: prop.type,
@@ -152,12 +155,12 @@ export function calculateTimeToHome(
       priceLocal,
       priceUsd,
       priceWithInflationUsd,
-      yearsWithoutInflation: Math.round(yearsNoInflation * 10) / 10,
-      yearsWithInflation: Math.round(yearsWithInflation * 10) / 10,
-      ageAtPurchaseNoInflation: Math.round((age + yearsNoInflation) * 10) / 10,
-      ageAtPurchaseWithInflation: Math.round((age + yearsWithInflation) * 10) / 10,
-      totalSavedNoInflation: Math.round(savingsUsd + monthlyContributionUsd * 12 * yearsNoInflation),
-      totalSavedWithInflation: Math.round(savingsUsd + monthlyContributionUsd * 12 * yearsWithInflation),
+      yearsWithoutInflation: isFinite(yearsNoInflationNorm) ? Math.round(yearsNoInflationNorm * 10) / 10 : Infinity,
+      yearsWithInflation: isFinite(yearsWithInflation) ? Math.round(yearsWithInflation * 10) / 10 : Infinity,
+      ageAtPurchaseNoInflation: isFinite(yearsNoInflationNorm) ? Math.round((age + yearsNoInflationNorm) * 10) / 10 : Infinity,
+      ageAtPurchaseWithInflation: isFinite(yearsWithInflation) ? Math.round((age + yearsWithInflation) * 10) / 10 : Infinity,
+      totalSavedNoInflation: isFinite(yearsNoInflationNorm) ? Math.round(savingsUsd + monthlyContributionUsd * 12 * yearsNoInflationNorm) : 0,
+      totalSavedWithInflation: isFinite(yearsWithInflation) ? Math.round(savingsUsd + monthlyContributionUsd * 12 * yearsWithInflation) : 0,
       inflationRate,
       propertyGrowthRate,
       affordable,

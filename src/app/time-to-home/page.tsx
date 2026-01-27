@@ -23,7 +23,6 @@ export default function TimeToHomePage() {
   const [userSavings, setUserSavings] = useState<number>(50000);
   const [userCurrency, setUserCurrency] = useState<string>('USD');
   const [userMonthly, setUserMonthly] = useState<number>(3000);
-  const [calcError, setCalcError] = useState<string | null>(null);
   const { t, locale } = useLanguage();
 
   const source = getInflationSource();
@@ -41,24 +40,14 @@ export default function TimeToHomePage() {
 
   // Initial calculation on mount with default values
   useEffect(() => {
-    try {
-      console.log('[Page] Initial mount calculation');
-      const cities = getAllCities();
-      console.log('[Page] Got', cities.length, 'cities');
-      const defaultCity = cities.find(c => c.id === 'berlin');
-      console.log('[Page] Default city:', defaultCity?.name);
-      if (defaultCity && !results) {
-        console.log('[Page] Running initial calculation for', defaultCity.name);
-        const savingsUsd = convertToUsd(50000, 'USD');
-        const contributionUsd = convertToUsd(3000, 'USD');
-        const initialResults = calculateTimeToHome(defaultCity, savingsUsd, contributionUsd, 25);
-        console.log('[Page] Initial results:', initialResults.length);
-        setResults(initialResults);
-        setSelectedCity(defaultCity);
-      }
-    } catch (err) {
-      console.error('[Page] Mount calculation error:', err);
-      setCalcError(err instanceof Error ? err.message : 'Mount error: ' + String(err));
+    const cities = getAllCities();
+    const defaultCity = cities.find(c => c.id === 'berlin');
+    if (defaultCity && !results) {
+      const savingsUsd = convertToUsd(50000, 'USD');
+      const contributionUsd = convertToUsd(3000, 'USD');
+      const initialResults = calculateTimeToHome(defaultCity, savingsUsd, contributionUsd, 25);
+      setResults(initialResults);
+      setSelectedCity(defaultCity);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -70,32 +59,22 @@ export default function TimeToHomePage() {
     monthlyContribution: number;
     city: CityWithMetrics;
   }) => {
-    console.log('[Page] handleCalculate called with:', data.city.name);
-    try {
-      setCalcError(null);
-      const savingsUsd = convertToUsd(data.savings, data.currency);
-      const contributionUsd = convertToUsd(data.monthlyContribution, data.currency);
+    const savingsUsd = convertToUsd(data.savings, data.currency);
+    const contributionUsd = convertToUsd(data.monthlyContribution, data.currency);
 
-      console.log('[Page] Calculating time to home...');
-      const calculationResults = calculateTimeToHome(
-        data.city,
-        savingsUsd,
-        contributionUsd,
-        data.age
-      );
+    const calculationResults = calculateTimeToHome(
+      data.city,
+      savingsUsd,
+      contributionUsd,
+      data.age
+    );
 
-      console.log('[Page] Calculation results:', calculationResults.length, 'properties');
-      setResults(calculationResults);
-      setSelectedCity(data.city);
-      setUserAge(data.age);
-      setUserSavings(data.savings);
-      setUserCurrency(data.currency);
-      setUserMonthly(data.monthlyContribution);
-      console.log('[Page] State updated successfully');
-    } catch (err) {
-      setCalcError(err instanceof Error ? err.message : 'Unknown error');
-      console.error('[Page] Calculation error:', err);
-    }
+    setResults(calculationResults);
+    setSelectedCity(data.city);
+    setUserAge(data.age);
+    setUserSavings(data.savings);
+    setUserCurrency(data.currency);
+    setUserMonthly(data.monthlyContribution);
   }, []);
 
   // Tab labels
@@ -213,29 +192,14 @@ export default function TimeToHomePage() {
         </div>
       </div>
 
-      {/* Debug: State visibility - v4 */}
-      <div className="max-w-5xl mx-auto px-4 py-4 text-sm bg-yellow-500 text-black font-bold">
-        🔧 DEBUG-V4: results={results ? `yes(${results.length})` : 'no'}, city={selectedCity?.name || 'none'}, tabs={tabs.length}
-        {calcError && <span className="text-red-600 ml-2">ERROR: {calcError}</span>}
-      </div>
-
-      {/* ALWAYS show results section - render tabs if we have data, otherwise show a message */}
-      <div className="max-w-5xl mx-auto px-4 pb-16">
-        <div className="bg-gradient-to-br from-gray-950 to-black border border-red-900/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
-          {results && selectedCity && tabs.length > 0 ? (
+      {/* Results Section with Tabs */}
+      {results && selectedCity && tabs.length > 0 && (
+        <div className="max-w-5xl mx-auto px-4 pb-16">
+          <div className="bg-gradient-to-br from-gray-950 to-black border border-red-900/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
             <Tabs tabs={tabs} defaultTab="results" />
-          ) : (
-            <div className="text-center py-8">
-              <p className="text-gray-400 text-lg">
-                {locale === 'ru' ? '⏳ Загрузка расчёта...' : '⏳ Loading calculation...'}
-              </p>
-              <p className="text-gray-600 text-sm mt-2">
-                results: {results ? 'yes' : 'no'} | city: {selectedCity?.name || 'none'} | tabs: {tabs.length}
-              </p>
-            </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* How It Works */}
       <div className="max-w-5xl mx-auto px-4 pb-16">

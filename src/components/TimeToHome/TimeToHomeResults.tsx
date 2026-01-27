@@ -15,9 +15,11 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
   const source = getInflationSource();
   const { t, locale } = useLanguage();
 
+  const isUnreachable = (years: number): boolean => !isFinite(years);
+
   const formatYears = (years: number): string => {
     if (years < 1) return t.timeToHome.results.alreadyAffordable;
-    if (years >= 100) return locale === 'ru' ? '∞ лет' : '∞ years';
+    if (isUnreachable(years)) return '∞';
     const y = Math.floor(years);
     const m = Math.round((years - y) * 12);
     if (m === 0) return `${y} ${y === 1 ? t.timeToHome.results.year_singular : t.timeToHome.results.years}`;
@@ -25,13 +27,12 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
   };
 
   const formatAge = (ageVal: number): string => {
-    if (ageVal === Infinity || ageVal > 150) return '∞';
+    if (!isFinite(ageVal)) return '—';
     return Math.round(ageVal).toString();
   };
 
   const getStatusColor = (years: number): string => {
-    if (years >= 200) return 'text-red-600 animate-pulse';
-    if (years >= 100) return 'text-red-500';
+    if (isUnreachable(years)) return 'text-red-500';
     if (years >= 50) return 'text-red-400';
     if (years > 30) return 'text-orange-400';
     if (years > 15) return 'text-yellow-400';
@@ -40,27 +41,19 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
   };
 
   const getLifetimeMessage = (years: number, currentAge: number): string | null => {
-    if (years >= 100) return null; // Already showing ∞
+    if (isUnreachable(years)) return null;
     const ageAtPurchase = currentAge + years;
     if (ageAtPurchase > 90) return `👴 ${t.timeToHome.results.liveVeryLong}`;
     if (ageAtPurchase > 70) return `🧓 ${t.timeToHome.results.retirementAge}`;
     return null;
   };
 
-  const getExtremeExplanation = (years: number, inflationRate: number, propertyGrowthRate: number): string | null => {
-    if (years < 100) return null;
-    return locale === 'ru'
-      ? `Цены растут на ${propertyGrowthRate.toFixed(1)}% в год — быстрее, чем твои накопления. Математически недостижимо.`
-      : `Prices grow ${propertyGrowthRate.toFixed(1)}%/year — faster than your savings. Mathematically unreachable.`;
-  };
-
   const getDifferenceIndicator = (noInflation: number, withInflation: number) => {
-    // Don't show for extreme cases
-    if (noInflation === Infinity || withInflation === Infinity || withInflation >= 100) return null;
+    if (!isFinite(noInflation) || !isFinite(withInflation)) return null;
     const diff = withInflation - noInflation;
     if (diff <= 0.5) return null;
     const pct = noInflation > 0 ? Math.round((diff / noInflation) * 100) : 0;
-    if (pct > 500) return null; // Don't show ridiculous percentages
+    if (pct > 300) return null;
     return (
       <span className="text-orange-400 text-sm">
         +{diff.toFixed(1)}{locale === 'ru' ? 'г' : 'y'} ({pct}% {t.timeToHome.results.longer})
@@ -69,8 +62,8 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
   };
 
   // Only show "hopeless" banner if 1-bedroom (first result) is unreachable
-  const firstResult = results[0]?.yearsWithInflation || 0;
-  const isHopeless = firstResult > 100;
+  const firstResult = results[0]?.yearsWithInflation ?? 0;
+  const isHopeless = isUnreachable(firstResult);
 
   // Property type labels
   const propertyLabels: Record<string, string> = locale === 'ru' ? {
@@ -92,15 +85,17 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
         <span className="text-sm text-gray-400">{t.timeToHome.results.yourAge}: {age}</span>
       </div>
 
-      {/* Warning Banner for extreme cases */}
+      {/* Warning Banner for unreachable cases */}
       {isHopeless && (
-        <div className="p-4 bg-gradient-to-r from-red-950 to-black border-2 border-red-700 rounded-lg animate-pulse">
+        <div className="p-4 bg-gradient-to-r from-red-950 to-black border-2 border-red-700 rounded-lg">
           <div className="flex items-center gap-3">
             <div className="text-3xl">☠️</div>
             <div>
               <p className="text-red-400 font-bold text-lg">{t.timeToHome.results.realityCheck}</p>
               <p className="text-red-300/80 text-sm">
-                {t.timeToHome.results.realityCheckText.replace('{years}', Math.round(firstResult).toString())}
+                {locale === 'ru'
+                  ? 'Цены на жильё растут быстрее, чем ваши накопления. При текущих условиях покупка невозможна.'
+                  : 'Property prices grow faster than your savings. Under current conditions, buying is unreachable.'}
               </p>
             </div>
           </div>
@@ -127,7 +122,7 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
       {/* Results Cards */}
       <div className="grid grid-cols-1 gap-4">
         {results.map((result) => {
-          const isExtreme = result.yearsWithInflation > 100;
+          const isExtreme = isUnreachable(result.yearsWithInflation);
           const lifetimeMsg = getLifetimeMessage(result.yearsWithInflation, age);
           const label = propertyLabels[result.propertyType] || result.propertyLabel;
 
@@ -146,12 +141,12 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
               {/* Property Info */}
               <div className="flex-1">
                 <h4 className="text-lg font-semibold text-white">
-                  {isExtreme && '💸 '}{label}
+                  {label}
                 </h4>
                 <p className="text-gray-400 text-sm">
                   {locale === 'ru' ? 'Сейчас' : 'Now'}: ${result.priceUsd.toLocaleString()}
                 </p>
-                {result.yearsWithInflation > 1 && result.yearsWithInflation < 100 && (
+                {!isExtreme && result.yearsWithInflation > 1 && (
                   <p className="text-red-400 text-sm font-medium">
                     {locale === 'ru' ? 'Через' : 'In'} {Math.round(result.yearsWithInflation)} {locale === 'ru' ? 'лет' : 'years'}: <span className="text-red-500">${result.priceWithInflationUsd.toLocaleString()}</span>
                     <span className="text-red-400/60 text-xs ml-1">
@@ -159,9 +154,9 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
                     </span>
                   </p>
                 )}
-                {result.yearsWithInflation >= 100 && (
+                {isExtreme && (
                   <p className="text-red-500 text-sm font-medium">
-                    {locale === 'ru' ? '∞ Недостижимо за человеческую жизнь' : '∞ Unreachable in a lifetime'}
+                    {locale === 'ru' ? 'Недостижимо — цены растут быстрее накоплений' : 'Unreachable — prices outpace your savings'}
                   </p>
                 )}
               </div>
@@ -181,13 +176,13 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
 
                 {/* With Inflation - THE REALITY */}
                 <div className="text-center relative">
-                  <div className={`${isExtreme ? 'animate-pulse' : ''}`}>
+                  <div>
                     <p className="text-xs uppercase tracking-wider mb-1 font-black">
                       <span className="bg-gradient-to-r from-yellow-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-                        ⚡ {t.timeToHome.results.reality} ⚡
+                        {t.timeToHome.results.reality}
                       </span>
                     </p>
-                    <p className={`text-3xl font-black ${getStatusColor(result.yearsWithInflation)} ${isExtreme ? 'drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]' : ''}`}>
+                    <p className={`text-3xl font-black ${getStatusColor(result.yearsWithInflation)}`}>
                       {formatYears(result.yearsWithInflation)}
                     </p>
                   </div>
@@ -199,18 +194,14 @@ export function TimeToHomeResults({ results, city, age }: TimeToHomeResultsProps
               </div>
             </div>
 
-            {/* Extreme value explanation */}
+            {/* Unreachable explanation */}
             {isExtreme && (
-              <div className="mt-4 pt-4 border-t border-red-900/50 bg-red-950/30 -mx-6 -mb-6 px-6 pb-6 rounded-b-xl">
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">🔬</span>
-                  <div>
-                    <p className="text-red-300 font-semibold text-sm mb-1">{t.timeToHome.results.whySoLong}</p>
-                    <p className="text-red-200/70 text-sm">
-                      {getExtremeExplanation(result.yearsWithInflation, result.inflationRate, result.propertyGrowthRate)}
-                    </p>
-                  </div>
-                </div>
+              <div className="mt-4 pt-4 border-t border-red-900/50">
+                <p className="text-red-200/70 text-sm">
+                  {locale === 'ru'
+                    ? `Цены растут на ${result.propertyGrowthRate.toFixed(1)}%/год — быстрее, чем ваши накопления. Математически недостижимо.`
+                    : `Prices grow ${result.propertyGrowthRate.toFixed(1)}%/year — faster than your savings. Mathematically unreachable.`}
+                </p>
               </div>
             )}
 

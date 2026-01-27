@@ -130,12 +130,12 @@ export function AffordabilityMap({ savings, currency, monthlyContribution, age, 
             )}
           </div>
           <span className={`font-bold ${textColors[data.status]}`}>
-            {data.years1bed > 100 ? '100+' : Math.round(data.years1bed)} {t.years}
+            {!isFinite(data.years1bed) ? '∞' : Math.round(data.years1bed)} {t.years}
           </span>
         </div>
         <div className="flex justify-between text-xs text-gray-500">
           <span>{t.oneBed}</span>
-          <span>{t.ageAtPurchase}: {data.ageAt1bed > 100 ? '100+' : Math.round(data.ageAt1bed)}</span>
+          <span>{t.ageAtPurchase}: {!isFinite(data.ageAt1bed) ? '—' : Math.round(data.ageAt1bed)}</span>
         </div>
       </div>
     );

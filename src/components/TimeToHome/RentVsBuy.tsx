@@ -147,7 +147,7 @@ export function RentVsBuy({ results, city, age }: RentVsBuyProps) {
                   </div>
                   <div className="flex items-center justify-between p-3 bg-gray-900/50 rounded-lg">
                     <span className="text-gray-400">{t.yearsToSave}</span>
-                    <span className="text-white font-bold">{data.yearsWithInflation > 100 ? '100+' : data.yearsWithInflation.toFixed(1)} {t.years}</span>
+                    <span className="text-white font-bold">{!isFinite(data.yearsWithInflation) ? '∞' : data.yearsWithInflation.toFixed(1)} {t.years}</span>
                   </div>
                 </div>
               </div>

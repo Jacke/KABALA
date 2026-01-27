@@ -260,7 +260,7 @@ export function CoupleMode({ savings, currency, monthlyContribution, age, city, 
                   <div>
                     <p className="text-xs text-gray-400 mb-1">{t.alone}</p>
                     <p className="text-lg font-bold text-gray-400">
-                      {base.yearsWithInflation > 100 ? '100+' : base.yearsWithInflation.toFixed(1)}
+                      {!isFinite(base.yearsWithInflation) ? '∞' : base.yearsWithInflation.toFixed(1)}
                     </p>
                     <p className="text-xs text-gray-500">{t.years}</p>
                   </div>
@@ -274,7 +274,7 @@ export function CoupleMode({ savings, currency, monthlyContribution, age, city, 
                   <div>
                     <p className="text-xs text-pink-300 mb-1">{t.withPartner}</p>
                     <p className="text-lg font-bold text-pink-400">
-                      {combined.yearsWithInflation > 100 ? '100+' : combined.yearsWithInflation.toFixed(1)}
+                      {!isFinite(combined.yearsWithInflation) ? '∞' : combined.yearsWithInflation.toFixed(1)}
                     </p>
                     <p className="text-xs text-pink-300/70">{t.years}</p>
                   </div>

@@ -87,9 +87,9 @@ export function LifeTimeline({ age, results, cityName }: LifeTimelineProps) {
     return results.map((result) => {
       const purchaseAge = result.ageAtPurchaseWithInflation;
       const yearsToSave = result.yearsWithInflation;
-      const withinLifetime = purchaseAge <= MAX_AGE;
+      const withinLifetime = isFinite(purchaseAge) && purchaseAge <= MAX_AGE;
       const freeYearsAfter = withinLifetime ? MAX_AGE - purchaseAge : 0;
-      const percentLifeUsed = withinLifetime ? Math.round((yearsToSave / (MAX_AGE - age)) * 100) : 100;
+      const percentLifeUsed = withinLifetime && isFinite(yearsToSave) ? Math.round((yearsToSave / (MAX_AGE - age)) * 100) : 100;
 
       return {
         ...result,

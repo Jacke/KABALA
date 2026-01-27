@@ -113,13 +113,8 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
 
   // Auto-calculate on any change
   const triggerCalculation = useCallback(() => {
-    console.log('[TimeToHome] triggerCalculation called, selectedCity:', selectedCity?.name);
-    if (!selectedCity) {
-      console.log('[TimeToHome] No selectedCity, returning early');
-      return;
-    }
+    if (!selectedCity) return;
 
-    console.log('[TimeToHome] Calling onCalculate with:', { age, savings, currency, monthlyContribution, city: selectedCity.name });
     onCalculate({
       age,
       savings,
@@ -131,13 +126,6 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
 
   // Auto-trigger calculation when values change
   useEffect(() => {
-    console.log('[TimeToHome] useEffect triggered, calling triggerCalculation');
-    triggerCalculation();
-  }, [triggerCalculation]);
-
-  // Manual calculate handler
-  const handleManualCalculate = useCallback(() => {
-    console.log('[TimeToHome] Manual calculate clicked');
     triggerCalculation();
   }, [triggerCalculation]);
 
@@ -316,15 +304,8 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
         </div>
       </div>
 
-      {/* Calculate and Share Buttons */}
-      <div className="flex justify-between items-center">
-        <button
-          type="button"
-          onClick={handleManualCalculate}
-          className="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 rounded-lg text-white font-bold text-lg transition-all shadow-lg shadow-red-900/30"
-        >
-          {locale === 'ru' ? '🔥 Рассчитать' : '🔥 Calculate'}
-        </button>
+      {/* Share Button */}
+      <div className="flex justify-end">
         <button
           type="button"
           onClick={() => {
