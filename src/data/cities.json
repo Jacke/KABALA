@@ -14858,5 +14858,3735 @@
       "updatedAt": "2026-01-01",
       "sources": ["Numbeo", "Local statistics"]
     }
+  },
+  {
+    "id": "reading",
+    "name": "Reading",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.4543,
+      "lng": -0.9781
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 174000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3700,
+          "usd": 4699
+        },
+        "median": {
+          "local": 3200,
+          "usd": 4064
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 950,
+          "usd": 1207
+        },
+        "oneBedroom": {
+          "local": 1200,
+          "usd": 1524
+        },
+        "twoBedroom": {
+          "local": 1600,
+          "usd": 2032
+        },
+        "threeBedroom": {
+          "local": 2200,
+          "usd": 2794
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 4800,
+          "usd": 6096
+        },
+        "outside": {
+          "local": 3200,
+          "usd": 4064
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 240000,
+            "usd": 304800
+          },
+          "twoBedroom": {
+            "local": 360000,
+            "usd": 457200
+          },
+          "threeBedroom": {
+            "local": 528000,
+            "usd": 670560
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 160000,
+            "usd": 203200
+          },
+          "twoBedroom": {
+            "local": 240000,
+            "usd": 304800
+          },
+          "threeBedroom": {
+            "local": 352000,
+            "usd": 447040
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 280,
+          "usd": 356
+        },
+        "restaurantMeal": {
+          "local": 18,
+          "usd": 23
+        },
+        "fastFood": {
+          "local": 8,
+          "usd": 10
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 80,
+          "usd": 102
+        },
+        "taxiPerKm": {
+          "local": 2.00,
+          "usd": 2.54
+        },
+        "gasoline": {
+          "local": 1.34,
+          "usd": 1.70
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 190,
+          "usd": 241
+        },
+        "internet": {
+          "local": 33,
+          "usd": 42
+        },
+        "mobile": {
+          "local": 18,
+          "usd": 23
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 38,
+          "usd": 48
+        },
+        "cinema": {
+          "local": 12,
+          "usd": 15
+        },
+        "cappuccino": {
+          "local": 3.50,
+          "usd": 4.45
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1300,
+          "usd": 1651
+        },
+        "internationalSchool": {
+          "local": 21600,
+          "usd": 27432
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 80,
+          "usd": 102
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "slough",
+    "name": "Slough",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.5105,
+      "lng": -0.5950
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 164000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3400,
+          "usd": 4318
+        },
+        "median": {
+          "local": 2800,
+          "usd": 3556
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 900,
+          "usd": 1143
+        },
+        "oneBedroom": {
+          "local": 1150,
+          "usd": 1461
+        },
+        "twoBedroom": {
+          "local": 1500,
+          "usd": 1905
+        },
+        "threeBedroom": {
+          "local": 2000,
+          "usd": 2540
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 5200,
+          "usd": 6604
+        },
+        "outside": {
+          "local": 3500,
+          "usd": 4445
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 260000,
+            "usd": 330200
+          },
+          "twoBedroom": {
+            "local": 390000,
+            "usd": 495300
+          },
+          "threeBedroom": {
+            "local": 572000,
+            "usd": 726440
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 175000,
+            "usd": 222250
+          },
+          "twoBedroom": {
+            "local": 262500,
+            "usd": 333375
+          },
+          "threeBedroom": {
+            "local": 385000,
+            "usd": 488950
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 270,
+          "usd": 343
+        },
+        "restaurantMeal": {
+          "local": 16,
+          "usd": 20
+        },
+        "fastFood": {
+          "local": 8,
+          "usd": 10
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 75,
+          "usd": 95
+        },
+        "taxiPerKm": {
+          "local": 1.80,
+          "usd": 2.29
+        },
+        "gasoline": {
+          "local": 1.34,
+          "usd": 1.70
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 185,
+          "usd": 235
+        },
+        "internet": {
+          "local": 32,
+          "usd": 41
+        },
+        "mobile": {
+          "local": 18,
+          "usd": 23
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 35,
+          "usd": 44
+        },
+        "cinema": {
+          "local": 11,
+          "usd": 14
+        },
+        "cappuccino": {
+          "local": 3.30,
+          "usd": 4.19
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1250,
+          "usd": 1588
+        },
+        "internationalSchool": {
+          "local": 20400,
+          "usd": 25908
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 75,
+          "usd": 95
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "watford",
+    "name": "Watford",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.6565,
+      "lng": -0.3903
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 102000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3500,
+          "usd": 4445
+        },
+        "median": {
+          "local": 3000,
+          "usd": 3810
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 950,
+          "usd": 1207
+        },
+        "oneBedroom": {
+          "local": 1200,
+          "usd": 1524
+        },
+        "twoBedroom": {
+          "local": 1600,
+          "usd": 2032
+        },
+        "threeBedroom": {
+          "local": 2200,
+          "usd": 2794
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 5400,
+          "usd": 6858
+        },
+        "outside": {
+          "local": 3600,
+          "usd": 4572
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 270000,
+            "usd": 342900
+          },
+          "twoBedroom": {
+            "local": 405000,
+            "usd": 514350
+          },
+          "threeBedroom": {
+            "local": 594000,
+            "usd": 754380
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 180000,
+            "usd": 228600
+          },
+          "twoBedroom": {
+            "local": 270000,
+            "usd": 342900
+          },
+          "threeBedroom": {
+            "local": 396000,
+            "usd": 502920
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 275,
+          "usd": 349
+        },
+        "restaurantMeal": {
+          "local": 17,
+          "usd": 22
+        },
+        "fastFood": {
+          "local": 8,
+          "usd": 10
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 85,
+          "usd": 108
+        },
+        "taxiPerKm": {
+          "local": 2.00,
+          "usd": 2.54
+        },
+        "gasoline": {
+          "local": 1.34,
+          "usd": 1.70
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 190,
+          "usd": 241
+        },
+        "internet": {
+          "local": 33,
+          "usd": 42
+        },
+        "mobile": {
+          "local": 18,
+          "usd": 23
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 38,
+          "usd": 48
+        },
+        "cinema": {
+          "local": 12,
+          "usd": 15
+        },
+        "cappuccino": {
+          "local": 3.50,
+          "usd": 4.45
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1350,
+          "usd": 1715
+        },
+        "internationalSchool": {
+          "local": 22200,
+          "usd": 28194
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 80,
+          "usd": 102
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "croydon",
+    "name": "Croydon",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.3762,
+      "lng": -0.0982
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 390000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3200,
+          "usd": 4064
+        },
+        "median": {
+          "local": 2800,
+          "usd": 3556
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 1000,
+          "usd": 1270
+        },
+        "oneBedroom": {
+          "local": 1250,
+          "usd": 1588
+        },
+        "twoBedroom": {
+          "local": 1650,
+          "usd": 2096
+        },
+        "threeBedroom": {
+          "local": 2300,
+          "usd": 2921
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 5000,
+          "usd": 6350
+        },
+        "outside": {
+          "local": 3400,
+          "usd": 4318
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 250000,
+            "usd": 317500
+          },
+          "twoBedroom": {
+            "local": 375000,
+            "usd": 476250
+          },
+          "threeBedroom": {
+            "local": 550000,
+            "usd": 698500
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 170000,
+            "usd": 215900
+          },
+          "twoBedroom": {
+            "local": 255000,
+            "usd": 323850
+          },
+          "threeBedroom": {
+            "local": 374000,
+            "usd": 475180
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 285,
+          "usd": 362
+        },
+        "restaurantMeal": {
+          "local": 18,
+          "usd": 23
+        },
+        "fastFood": {
+          "local": 8.50,
+          "usd": 11
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 140,
+          "usd": 178
+        },
+        "taxiPerKm": {
+          "local": 2.20,
+          "usd": 2.79
+        },
+        "gasoline": {
+          "local": 1.36,
+          "usd": 1.73
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 195,
+          "usd": 248
+        },
+        "internet": {
+          "local": 33,
+          "usd": 42
+        },
+        "mobile": {
+          "local": 19,
+          "usd": 24
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 40,
+          "usd": 51
+        },
+        "cinema": {
+          "local": 13,
+          "usd": 17
+        },
+        "cappuccino": {
+          "local": 3.70,
+          "usd": 4.70
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1400,
+          "usd": 1778
+        },
+        "internationalSchool": {
+          "local": 24000,
+          "usd": 30480
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 85,
+          "usd": 108
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "bromley",
+    "name": "Bromley",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.4059,
+      "lng": 0.0143
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 340000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3300,
+          "usd": 4191
+        },
+        "median": {
+          "local": 2750,
+          "usd": 3493
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 1050,
+          "usd": 1334
+        },
+        "oneBedroom": {
+          "local": 1300,
+          "usd": 1651
+        },
+        "twoBedroom": {
+          "local": 1700,
+          "usd": 2159
+        },
+        "threeBedroom": {
+          "local": 2400,
+          "usd": 3048
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 5500,
+          "usd": 6985
+        },
+        "outside": {
+          "local": 3700,
+          "usd": 4699
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 275000,
+            "usd": 349250
+          },
+          "twoBedroom": {
+            "local": 412000,
+            "usd": 523240
+          },
+          "threeBedroom": {
+            "local": 605000,
+            "usd": 768350
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 185000,
+            "usd": 234950
+          },
+          "twoBedroom": {
+            "local": 277500,
+            "usd": 352425
+          },
+          "threeBedroom": {
+            "local": 407000,
+            "usd": 516890
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 285,
+          "usd": 362
+        },
+        "restaurantMeal": {
+          "local": 18,
+          "usd": 23
+        },
+        "fastFood": {
+          "local": 8.50,
+          "usd": 11
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 145,
+          "usd": 184
+        },
+        "taxiPerKm": {
+          "local": 2.20,
+          "usd": 2.79
+        },
+        "gasoline": {
+          "local": 1.36,
+          "usd": 1.73
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 195,
+          "usd": 248
+        },
+        "internet": {
+          "local": 33,
+          "usd": 42
+        },
+        "mobile": {
+          "local": 19,
+          "usd": 24
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 42,
+          "usd": 53
+        },
+        "cinema": {
+          "local": 13,
+          "usd": 17
+        },
+        "cappuccino": {
+          "local": 3.70,
+          "usd": 4.70
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1400,
+          "usd": 1778
+        },
+        "internationalSchool": {
+          "local": 24000,
+          "usd": 30480
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 85,
+          "usd": 108
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "st-albans",
+    "name": "St Albans",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.7520,
+      "lng": -0.3389
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 82000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3600,
+          "usd": 4572
+        },
+        "median": {
+          "local": 3100,
+          "usd": 3937
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 1050,
+          "usd": 1334
+        },
+        "oneBedroom": {
+          "local": 1300,
+          "usd": 1651
+        },
+        "twoBedroom": {
+          "local": 1750,
+          "usd": 2223
+        },
+        "threeBedroom": {
+          "local": 2500,
+          "usd": 3175
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 6000,
+          "usd": 7620
+        },
+        "outside": {
+          "local": 4000,
+          "usd": 5080
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 300000,
+            "usd": 381000
+          },
+          "twoBedroom": {
+            "local": 450000,
+            "usd": 571500
+          },
+          "threeBedroom": {
+            "local": 660000,
+            "usd": 838200
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 200000,
+            "usd": 254000
+          },
+          "twoBedroom": {
+            "local": 300000,
+            "usd": 381000
+          },
+          "threeBedroom": {
+            "local": 440000,
+            "usd": 558800
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 280,
+          "usd": 356
+        },
+        "restaurantMeal": {
+          "local": 19,
+          "usd": 24
+        },
+        "fastFood": {
+          "local": 8.50,
+          "usd": 11
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 85,
+          "usd": 108
+        },
+        "taxiPerKm": {
+          "local": 2.00,
+          "usd": 2.54
+        },
+        "gasoline": {
+          "local": 1.34,
+          "usd": 1.70
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 195,
+          "usd": 248
+        },
+        "internet": {
+          "local": 34,
+          "usd": 43
+        },
+        "mobile": {
+          "local": 18,
+          "usd": 23
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 42,
+          "usd": 53
+        },
+        "cinema": {
+          "local": 13,
+          "usd": 17
+        },
+        "cappuccino": {
+          "local": 3.60,
+          "usd": 4.57
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1400,
+          "usd": 1778
+        },
+        "internationalSchool": {
+          "local": 24000,
+          "usd": 30480
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 85,
+          "usd": 108
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "guildford",
+    "name": "Guildford",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.2362,
+      "lng": -0.5704
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 84000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3600,
+          "usd": 4572
+        },
+        "median": {
+          "local": 3000,
+          "usd": 3810
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 1000,
+          "usd": 1270
+        },
+        "oneBedroom": {
+          "local": 1250,
+          "usd": 1588
+        },
+        "twoBedroom": {
+          "local": 1700,
+          "usd": 2159
+        },
+        "threeBedroom": {
+          "local": 2400,
+          "usd": 3048
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 5500,
+          "usd": 6985
+        },
+        "outside": {
+          "local": 3700,
+          "usd": 4699
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 275000,
+            "usd": 349250
+          },
+          "twoBedroom": {
+            "local": 412000,
+            "usd": 523240
+          },
+          "threeBedroom": {
+            "local": 605000,
+            "usd": 768350
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 185000,
+            "usd": 234950
+          },
+          "twoBedroom": {
+            "local": 277500,
+            "usd": 352425
+          },
+          "threeBedroom": {
+            "local": 407000,
+            "usd": 516890
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 280,
+          "usd": 356
+        },
+        "restaurantMeal": {
+          "local": 18,
+          "usd": 23
+        },
+        "fastFood": {
+          "local": 8.50,
+          "usd": 11
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 80,
+          "usd": 102
+        },
+        "taxiPerKm": {
+          "local": 2.00,
+          "usd": 2.54
+        },
+        "gasoline": {
+          "local": 1.35,
+          "usd": 1.71
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 195,
+          "usd": 248
+        },
+        "internet": {
+          "local": 33,
+          "usd": 42
+        },
+        "mobile": {
+          "local": 18,
+          "usd": 23
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 40,
+          "usd": 51
+        },
+        "cinema": {
+          "local": 12,
+          "usd": 15
+        },
+        "cappuccino": {
+          "local": 3.50,
+          "usd": 4.45
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1350,
+          "usd": 1715
+        },
+        "internationalSchool": {
+          "local": 22800,
+          "usd": 28956
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 80,
+          "usd": 102
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "woking",
+    "name": "Woking",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.3162,
+      "lng": -0.5600
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 65000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3500,
+          "usd": 4445
+        },
+        "median": {
+          "local": 3000,
+          "usd": 3810
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 950,
+          "usd": 1207
+        },
+        "oneBedroom": {
+          "local": 1200,
+          "usd": 1524
+        },
+        "twoBedroom": {
+          "local": 1650,
+          "usd": 2096
+        },
+        "threeBedroom": {
+          "local": 2300,
+          "usd": 2921
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 5300,
+          "usd": 6731
+        },
+        "outside": {
+          "local": 3500,
+          "usd": 4445
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 265000,
+            "usd": 336550
+          },
+          "twoBedroom": {
+            "local": 397000,
+            "usd": 504190
+          },
+          "threeBedroom": {
+            "local": 583000,
+            "usd": 740410
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 175000,
+            "usd": 222250
+          },
+          "twoBedroom": {
+            "local": 262500,
+            "usd": 333375
+          },
+          "threeBedroom": {
+            "local": 385000,
+            "usd": 488950
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 275,
+          "usd": 349
+        },
+        "restaurantMeal": {
+          "local": 17,
+          "usd": 22
+        },
+        "fastFood": {
+          "local": 8,
+          "usd": 10
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 78,
+          "usd": 99
+        },
+        "taxiPerKm": {
+          "local": 1.90,
+          "usd": 2.41
+        },
+        "gasoline": {
+          "local": 1.35,
+          "usd": 1.71
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 190,
+          "usd": 241
+        },
+        "internet": {
+          "local": 32,
+          "usd": 41
+        },
+        "mobile": {
+          "local": 18,
+          "usd": 23
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 38,
+          "usd": 48
+        },
+        "cinema": {
+          "local": 12,
+          "usd": 15
+        },
+        "cappuccino": {
+          "local": 3.40,
+          "usd": 4.32
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1300,
+          "usd": 1651
+        },
+        "internationalSchool": {
+          "local": 21600,
+          "usd": 27432
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 75,
+          "usd": 95
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "chelmsford",
+    "name": "Chelmsford",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 51.7356,
+      "lng": 0.4685
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 115000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3200,
+          "usd": 4064
+        },
+        "median": {
+          "local": 2700,
+          "usd": 3429
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 850,
+          "usd": 1080
+        },
+        "oneBedroom": {
+          "local": 1100,
+          "usd": 1397
+        },
+        "twoBedroom": {
+          "local": 1450,
+          "usd": 1842
+        },
+        "threeBedroom": {
+          "local": 2000,
+          "usd": 2540
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 4500,
+          "usd": 5715
+        },
+        "outside": {
+          "local": 3000,
+          "usd": 3810
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 225000,
+            "usd": 285750
+          },
+          "twoBedroom": {
+            "local": 337000,
+            "usd": 427990
+          },
+          "threeBedroom": {
+            "local": 495000,
+            "usd": 628650
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 150000,
+            "usd": 190500
+          },
+          "twoBedroom": {
+            "local": 225000,
+            "usd": 285750
+          },
+          "threeBedroom": {
+            "local": 330000,
+            "usd": 419100
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 265,
+          "usd": 337
+        },
+        "restaurantMeal": {
+          "local": 16,
+          "usd": 20
+        },
+        "fastFood": {
+          "local": 8,
+          "usd": 10
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 75,
+          "usd": 95
+        },
+        "taxiPerKm": {
+          "local": 1.80,
+          "usd": 2.29
+        },
+        "gasoline": {
+          "local": 1.34,
+          "usd": 1.70
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 185,
+          "usd": 235
+        },
+        "internet": {
+          "local": 32,
+          "usd": 41
+        },
+        "mobile": {
+          "local": 17,
+          "usd": 22
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 35,
+          "usd": 44
+        },
+        "cinema": {
+          "local": 11,
+          "usd": 14
+        },
+        "cappuccino": {
+          "local": 3.30,
+          "usd": 4.19
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1200,
+          "usd": 1524
+        },
+        "internationalSchool": {
+          "local": 20400,
+          "usd": 25908
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 75,
+          "usd": 95
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "milton-keynes",
+    "name": "Milton Keynes",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "eu",
+    "coordinates": {
+      "lat": 52.0406,
+      "lng": -0.7594
+    },
+    "currency": {
+      "code": "GBP",
+      "symbol": "£",
+      "name": "British Pound"
+    },
+    "population": 250000,
+    "timezone": "Europe/London",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 3300,
+          "usd": 4191
+        },
+        "median": {
+          "local": 2750,
+          "usd": 3493
+        },
+        "minimum": {
+          "local": 1890,
+          "usd": 2400
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 800,
+          "usd": 1016
+        },
+        "oneBedroom": {
+          "local": 1050,
+          "usd": 1334
+        },
+        "twoBedroom": {
+          "local": 1350,
+          "usd": 1715
+        },
+        "threeBedroom": {
+          "local": 1850,
+          "usd": 2350
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 3800,
+          "usd": 4826
+        },
+        "outside": {
+          "local": 2500,
+          "usd": 3175
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 190000,
+            "usd": 241300
+          },
+          "twoBedroom": {
+            "local": 285000,
+            "usd": 361950
+          },
+          "threeBedroom": {
+            "local": 418000,
+            "usd": 530860
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 125000,
+            "usd": 158750
+          },
+          "twoBedroom": {
+            "local": 187500,
+            "usd": 238125
+          },
+          "threeBedroom": {
+            "local": 275000,
+            "usd": 349250
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 260,
+          "usd": 330
+        },
+        "restaurantMeal": {
+          "local": 15,
+          "usd": 19
+        },
+        "fastFood": {
+          "local": 7.50,
+          "usd": 10
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 70,
+          "usd": 89
+        },
+        "taxiPerKm": {
+          "local": 1.70,
+          "usd": 2.16
+        },
+        "gasoline": {
+          "local": 1.33,
+          "usd": 1.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 180,
+          "usd": 229
+        },
+        "internet": {
+          "local": 30,
+          "usd": 38
+        },
+        "mobile": {
+          "local": 17,
+          "usd": 22
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 33,
+          "usd": 42
+        },
+        "cinema": {
+          "local": 11,
+          "usd": 14
+        },
+        "cappuccino": {
+          "local": 3.20,
+          "usd": 4.06
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 1100,
+          "usd": 1397
+        },
+        "internationalSchool": {
+          "local": 19200,
+          "usd": 24384
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 70,
+          "usd": 89
+        },
+        "medicationBasic": {
+          "local": 10,
+          "usd": 13
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 0 },
+            { "threshold": 12570, "rate": 20 },
+            { "threshold": 50270, "rate": 40 },
+            { "threshold": 125140, "rate": 45 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 12,
+          "employerRate": 13.8
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 5
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "krasnogorsk",
+    "name": "Krasnogorsk",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.8204,
+      "lng": 37.3386
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 270519,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 105000,
+          "usd": 1154
+        },
+        "median": {
+          "local": 82000,
+          "usd": 901
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 38000,
+          "usd": 418
+        },
+        "oneBedroom": {
+          "local": 50000,
+          "usd": 549
+        },
+        "twoBedroom": {
+          "local": 70000,
+          "usd": 769
+        },
+        "threeBedroom": {
+          "local": 100000,
+          "usd": 1099
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 220000,
+          "usd": 2418
+        },
+        "outside": {
+          "local": 170000,
+          "usd": 1868
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 9900000,
+            "usd": 108791
+          },
+          "twoBedroom": {
+            "local": 15400000,
+            "usd": 169231
+          },
+          "threeBedroom": {
+            "local": 22000000,
+            "usd": 241758
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 7650000,
+            "usd": 84066
+          },
+          "twoBedroom": {
+            "local": 11900000,
+            "usd": 130769
+          },
+          "threeBedroom": {
+            "local": 17000000,
+            "usd": 186813
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 20000,
+          "usd": 220
+        },
+        "restaurantMeal": {
+          "local": 900,
+          "usd": 10
+        },
+        "fastFood": {
+          "local": 450,
+          "usd": 5
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 3200,
+          "usd": 35
+        },
+        "taxiPerKm": {
+          "local": 18,
+          "usd": 0.20
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 7500,
+          "usd": 82
+        },
+        "internet": {
+          "local": 550,
+          "usd": 6
+        },
+        "mobile": {
+          "local": 450,
+          "usd": 5
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 3500,
+          "usd": 38
+        },
+        "cinema": {
+          "local": 400,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 220,
+          "usd": 2.42
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 35000,
+          "usd": 385
+        },
+        "internationalSchool": {
+          "local": 1440000,
+          "usd": 15824
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2500,
+          "usd": 27
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "odintsovo",
+    "name": "Odintsovo",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.6775,
+      "lng": 37.2637
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 238534,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 100000,
+          "usd": 1099
+        },
+        "median": {
+          "local": 78000,
+          "usd": 857
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 36000,
+          "usd": 396
+        },
+        "oneBedroom": {
+          "local": 48000,
+          "usd": 527
+        },
+        "twoBedroom": {
+          "local": 68000,
+          "usd": 747
+        },
+        "threeBedroom": {
+          "local": 95000,
+          "usd": 1044
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 200000,
+          "usd": 2198
+        },
+        "outside": {
+          "local": 155000,
+          "usd": 1703
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 9000000,
+            "usd": 98901
+          },
+          "twoBedroom": {
+            "local": 14000000,
+            "usd": 153846
+          },
+          "threeBedroom": {
+            "local": 20000000,
+            "usd": 219780
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 6975000,
+            "usd": 76648
+          },
+          "twoBedroom": {
+            "local": 10850000,
+            "usd": 119231
+          },
+          "threeBedroom": {
+            "local": 15500000,
+            "usd": 170330
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 19000,
+          "usd": 209
+        },
+        "restaurantMeal": {
+          "local": 850,
+          "usd": 9
+        },
+        "fastFood": {
+          "local": 430,
+          "usd": 5
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 3200,
+          "usd": 35
+        },
+        "taxiPerKm": {
+          "local": 18,
+          "usd": 0.20
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 7200,
+          "usd": 79
+        },
+        "internet": {
+          "local": 550,
+          "usd": 6
+        },
+        "mobile": {
+          "local": 450,
+          "usd": 5
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 3200,
+          "usd": 35
+        },
+        "cinema": {
+          "local": 400,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 210,
+          "usd": 2.31
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 32000,
+          "usd": 352
+        },
+        "internationalSchool": {
+          "local": 1560000,
+          "usd": 17143
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2500,
+          "usd": 27
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "khimki",
+    "name": "Khimki",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.8970,
+      "lng": 37.4297
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 256684,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 108000,
+          "usd": 1187
+        },
+        "median": {
+          "local": 84000,
+          "usd": 923
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 35000,
+          "usd": 385
+        },
+        "oneBedroom": {
+          "local": 47000,
+          "usd": 516
+        },
+        "twoBedroom": {
+          "local": 65000,
+          "usd": 714
+        },
+        "threeBedroom": {
+          "local": 90000,
+          "usd": 989
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 204000,
+          "usd": 2242
+        },
+        "outside": {
+          "local": 160000,
+          "usd": 1758
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 9200000,
+            "usd": 101099
+          },
+          "twoBedroom": {
+            "local": 14300000,
+            "usd": 157143
+          },
+          "threeBedroom": {
+            "local": 20400000,
+            "usd": 224176
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 7200000,
+            "usd": 79121
+          },
+          "twoBedroom": {
+            "local": 11200000,
+            "usd": 123077
+          },
+          "threeBedroom": {
+            "local": 16000000,
+            "usd": 175824
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 19000,
+          "usd": 209
+        },
+        "restaurantMeal": {
+          "local": 850,
+          "usd": 9
+        },
+        "fastFood": {
+          "local": 430,
+          "usd": 5
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 3200,
+          "usd": 35
+        },
+        "taxiPerKm": {
+          "local": 18,
+          "usd": 0.20
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 7200,
+          "usd": 79
+        },
+        "internet": {
+          "local": 550,
+          "usd": 6
+        },
+        "mobile": {
+          "local": 450,
+          "usd": 5
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 3200,
+          "usd": 35
+        },
+        "cinema": {
+          "local": 400,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 220,
+          "usd": 2.42
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 30000,
+          "usd": 330
+        },
+        "internationalSchool": {
+          "local": 1320000,
+          "usd": 14505
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2500,
+          "usd": 27
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "mytishchi",
+    "name": "Mytishchi",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.9116,
+      "lng": 37.7308
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 262702,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 100000,
+          "usd": 1099
+        },
+        "median": {
+          "local": 78000,
+          "usd": 857
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 35000,
+          "usd": 385
+        },
+        "oneBedroom": {
+          "local": 45000,
+          "usd": 494
+        },
+        "twoBedroom": {
+          "local": 63000,
+          "usd": 692
+        },
+        "threeBedroom": {
+          "local": 88000,
+          "usd": 967
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 196000,
+          "usd": 2154
+        },
+        "outside": {
+          "local": 150000,
+          "usd": 1648
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 8800000,
+            "usd": 96703
+          },
+          "twoBedroom": {
+            "local": 13700000,
+            "usd": 150549
+          },
+          "threeBedroom": {
+            "local": 19600000,
+            "usd": 215385
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 6750000,
+            "usd": 74176
+          },
+          "twoBedroom": {
+            "local": 10500000,
+            "usd": 115385
+          },
+          "threeBedroom": {
+            "local": 15000000,
+            "usd": 164835
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 18500,
+          "usd": 203
+        },
+        "restaurantMeal": {
+          "local": 800,
+          "usd": 9
+        },
+        "fastFood": {
+          "local": 420,
+          "usd": 5
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 3200,
+          "usd": 35
+        },
+        "taxiPerKm": {
+          "local": 17,
+          "usd": 0.19
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 7000,
+          "usd": 77
+        },
+        "internet": {
+          "local": 500,
+          "usd": 5
+        },
+        "mobile": {
+          "local": 450,
+          "usd": 5
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 3000,
+          "usd": 33
+        },
+        "cinema": {
+          "local": 380,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 200,
+          "usd": 2.20
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 30000,
+          "usd": 330
+        },
+        "internationalSchool": {
+          "local": 1200000,
+          "usd": 13187
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2300,
+          "usd": 25
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "balashikha",
+    "name": "Balashikha",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.7963,
+      "lng": 37.9381
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 544303,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 92000,
+          "usd": 1011
+        },
+        "median": {
+          "local": 72000,
+          "usd": 791
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 32000,
+          "usd": 352
+        },
+        "oneBedroom": {
+          "local": 40000,
+          "usd": 440
+        },
+        "twoBedroom": {
+          "local": 55000,
+          "usd": 604
+        },
+        "threeBedroom": {
+          "local": 78000,
+          "usd": 857
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 175000,
+          "usd": 1923
+        },
+        "outside": {
+          "local": 140000,
+          "usd": 1538
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 7900000,
+            "usd": 86813
+          },
+          "twoBedroom": {
+            "local": 12300000,
+            "usd": 135165
+          },
+          "threeBedroom": {
+            "local": 17500000,
+            "usd": 192308
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 6300000,
+            "usd": 69231
+          },
+          "twoBedroom": {
+            "local": 9800000,
+            "usd": 107692
+          },
+          "threeBedroom": {
+            "local": 14000000,
+            "usd": 153846
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 18000,
+          "usd": 198
+        },
+        "restaurantMeal": {
+          "local": 750,
+          "usd": 8
+        },
+        "fastFood": {
+          "local": 400,
+          "usd": 4
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 3000,
+          "usd": 33
+        },
+        "taxiPerKm": {
+          "local": 16,
+          "usd": 0.18
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 6800,
+          "usd": 75
+        },
+        "internet": {
+          "local": 500,
+          "usd": 5
+        },
+        "mobile": {
+          "local": 400,
+          "usd": 4
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 2800,
+          "usd": 31
+        },
+        "cinema": {
+          "local": 370,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 190,
+          "usd": 2.09
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 28000,
+          "usd": 308
+        },
+        "internationalSchool": {
+          "local": 1140000,
+          "usd": 12527
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2200,
+          "usd": 24
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "lyubertsy",
+    "name": "Lyubertsy",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.6786,
+      "lng": 37.8933
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 238500,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 95000,
+          "usd": 1044
+        },
+        "median": {
+          "local": 74000,
+          "usd": 813
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 33000,
+          "usd": 363
+        },
+        "oneBedroom": {
+          "local": 42000,
+          "usd": 462
+        },
+        "twoBedroom": {
+          "local": 58000,
+          "usd": 637
+        },
+        "threeBedroom": {
+          "local": 82000,
+          "usd": 901
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 185000,
+          "usd": 2033
+        },
+        "outside": {
+          "local": 145000,
+          "usd": 1593
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 8300000,
+            "usd": 91209
+          },
+          "twoBedroom": {
+            "local": 13000000,
+            "usd": 142857
+          },
+          "threeBedroom": {
+            "local": 18500000,
+            "usd": 203297
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 6525000,
+            "usd": 71703
+          },
+          "twoBedroom": {
+            "local": 10150000,
+            "usd": 111538
+          },
+          "threeBedroom": {
+            "local": 14500000,
+            "usd": 159341
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 18000,
+          "usd": 198
+        },
+        "restaurantMeal": {
+          "local": 750,
+          "usd": 8
+        },
+        "fastFood": {
+          "local": 400,
+          "usd": 4
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 3000,
+          "usd": 33
+        },
+        "taxiPerKm": {
+          "local": 16,
+          "usd": 0.18
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 6800,
+          "usd": 75
+        },
+        "internet": {
+          "local": 500,
+          "usd": 5
+        },
+        "mobile": {
+          "local": 400,
+          "usd": 4
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 2800,
+          "usd": 31
+        },
+        "cinema": {
+          "local": 370,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 190,
+          "usd": 2.09
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 28000,
+          "usd": 308
+        },
+        "internationalSchool": {
+          "local": 1140000,
+          "usd": 12527
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2200,
+          "usd": 24
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "podolsk",
+    "name": "Podolsk",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.4311,
+      "lng": 37.5457
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 329432,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 88000,
+          "usd": 967
+        },
+        "median": {
+          "local": 68000,
+          "usd": 747
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 28000,
+          "usd": 308
+        },
+        "oneBedroom": {
+          "local": 35000,
+          "usd": 385
+        },
+        "twoBedroom": {
+          "local": 50000,
+          "usd": 549
+        },
+        "threeBedroom": {
+          "local": 72000,
+          "usd": 791
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 155000,
+          "usd": 1703
+        },
+        "outside": {
+          "local": 120000,
+          "usd": 1319
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 7000000,
+            "usd": 76923
+          },
+          "twoBedroom": {
+            "local": 10900000,
+            "usd": 119780
+          },
+          "threeBedroom": {
+            "local": 15500000,
+            "usd": 170330
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 5400000,
+            "usd": 59341
+          },
+          "twoBedroom": {
+            "local": 8400000,
+            "usd": 92308
+          },
+          "threeBedroom": {
+            "local": 12000000,
+            "usd": 131868
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 17000,
+          "usd": 187
+        },
+        "restaurantMeal": {
+          "local": 700,
+          "usd": 8
+        },
+        "fastFood": {
+          "local": 380,
+          "usd": 4
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 2800,
+          "usd": 31
+        },
+        "taxiPerKm": {
+          "local": 15,
+          "usd": 0.16
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 6500,
+          "usd": 71
+        },
+        "internet": {
+          "local": 500,
+          "usd": 5
+        },
+        "mobile": {
+          "local": 400,
+          "usd": 4
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 2500,
+          "usd": 27
+        },
+        "cinema": {
+          "local": 350,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 180,
+          "usd": 1.98
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 25000,
+          "usd": 275
+        },
+        "internationalSchool": {
+          "local": 1020000,
+          "usd": 11209
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2000,
+          "usd": 22
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "korolev",
+    "name": "Korolev",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.9164,
+      "lng": 37.8543
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 225271,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 98000,
+          "usd": 1077
+        },
+        "median": {
+          "local": 76000,
+          "usd": 835
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 33000,
+          "usd": 363
+        },
+        "oneBedroom": {
+          "local": 42000,
+          "usd": 462
+        },
+        "twoBedroom": {
+          "local": 58000,
+          "usd": 637
+        },
+        "threeBedroom": {
+          "local": 80000,
+          "usd": 879
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 180000,
+          "usd": 1978
+        },
+        "outside": {
+          "local": 140000,
+          "usd": 1538
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 8100000,
+            "usd": 89011
+          },
+          "twoBedroom": {
+            "local": 12600000,
+            "usd": 138462
+          },
+          "threeBedroom": {
+            "local": 18000000,
+            "usd": 197802
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 6300000,
+            "usd": 69231
+          },
+          "twoBedroom": {
+            "local": 9800000,
+            "usd": 107692
+          },
+          "threeBedroom": {
+            "local": 14000000,
+            "usd": 153846
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 18000,
+          "usd": 198
+        },
+        "restaurantMeal": {
+          "local": 800,
+          "usd": 9
+        },
+        "fastFood": {
+          "local": 420,
+          "usd": 5
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 3000,
+          "usd": 33
+        },
+        "taxiPerKm": {
+          "local": 16,
+          "usd": 0.18
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 6800,
+          "usd": 75
+        },
+        "internet": {
+          "local": 500,
+          "usd": 5
+        },
+        "mobile": {
+          "local": 400,
+          "usd": 4
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 2800,
+          "usd": 31
+        },
+        "cinema": {
+          "local": 370,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 200,
+          "usd": 2.20
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 28000,
+          "usd": 308
+        },
+        "internationalSchool": {
+          "local": 1140000,
+          "usd": 12527
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2300,
+          "usd": 25
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "dolgoprudny",
+    "name": "Dolgoprudny",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.9381,
+      "lng": 37.5143
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 116053,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 102000,
+          "usd": 1121
+        },
+        "median": {
+          "local": 80000,
+          "usd": 879
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 35000,
+          "usd": 385
+        },
+        "oneBedroom": {
+          "local": 45000,
+          "usd": 494
+        },
+        "twoBedroom": {
+          "local": 63000,
+          "usd": 692
+        },
+        "threeBedroom": {
+          "local": 88000,
+          "usd": 967
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 214000,
+          "usd": 2352
+        },
+        "outside": {
+          "local": 165000,
+          "usd": 1813
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 9600000,
+            "usd": 105495
+          },
+          "twoBedroom": {
+            "local": 15000000,
+            "usd": 164835
+          },
+          "threeBedroom": {
+            "local": 21400000,
+            "usd": 235165
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 7425000,
+            "usd": 81593
+          },
+          "twoBedroom": {
+            "local": 11550000,
+            "usd": 126923
+          },
+          "threeBedroom": {
+            "local": 16500000,
+            "usd": 181319
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 19000,
+          "usd": 209
+        },
+        "restaurantMeal": {
+          "local": 850,
+          "usd": 9
+        },
+        "fastFood": {
+          "local": 430,
+          "usd": 5
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 3200,
+          "usd": 35
+        },
+        "taxiPerKm": {
+          "local": 17,
+          "usd": 0.19
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 7000,
+          "usd": 77
+        },
+        "internet": {
+          "local": 550,
+          "usd": 6
+        },
+        "mobile": {
+          "local": 450,
+          "usd": 5
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 3000,
+          "usd": 33
+        },
+        "cinema": {
+          "local": 380,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 210,
+          "usd": 2.31
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 32000,
+          "usd": 352
+        },
+        "internationalSchool": {
+          "local": 1260000,
+          "usd": 13846
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2500,
+          "usd": 27
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
+  },
+  {
+    "id": "domodedovo",
+    "name": "Domodedovo",
+    "country": "Russia",
+    "countryCode": "RU",
+    "region": "cis",
+    "coordinates": {
+      "lat": 55.4369,
+      "lng": 37.7676
+    },
+    "currency": {
+      "code": "RUB",
+      "symbol": "\u20bd",
+      "name": "Russian Ruble"
+    },
+    "population": 158046,
+    "timezone": "Europe/Moscow",
+    "metrics": {
+      "salary": {
+        "average": {
+          "local": 90000,
+          "usd": 989
+        },
+        "median": {
+          "local": 70000,
+          "usd": 769
+        },
+        "minimum": {
+          "local": 22440,
+          "usd": 247
+        }
+      },
+      "rent": {
+        "studio": {
+          "local": 28000,
+          "usd": 308
+        },
+        "oneBedroom": {
+          "local": 35000,
+          "usd": 385
+        },
+        "twoBedroom": {
+          "local": 50000,
+          "usd": 549
+        },
+        "threeBedroom": {
+          "local": 72000,
+          "usd": 791
+        }
+      },
+      "property": {
+        "cityCenter": {
+          "local": 160000,
+          "usd": 1758
+        },
+        "outside": {
+          "local": 125000,
+          "usd": 1374
+        },
+        "buyCityCenter": {
+          "oneBedroom": {
+            "local": 7200000,
+            "usd": 79121
+          },
+          "twoBedroom": {
+            "local": 11200000,
+            "usd": 123077
+          },
+          "threeBedroom": {
+            "local": 16000000,
+            "usd": 175824
+          }
+        },
+        "buyOutside": {
+          "oneBedroom": {
+            "local": 5625000,
+            "usd": 61813
+          },
+          "twoBedroom": {
+            "local": 8750000,
+            "usd": 96154
+          },
+          "threeBedroom": {
+            "local": 12500000,
+            "usd": 137363
+          }
+        }
+      },
+      "food": {
+        "groceries": {
+          "local": 17500,
+          "usd": 192
+        },
+        "restaurantMeal": {
+          "local": 700,
+          "usd": 8
+        },
+        "fastFood": {
+          "local": 380,
+          "usd": 4
+        }
+      },
+      "transport": {
+        "monthlyPass": {
+          "local": 2800,
+          "usd": 31
+        },
+        "taxiPerKm": {
+          "local": 15,
+          "usd": 0.16
+        },
+        "gasoline": {
+          "local": 63,
+          "usd": 0.69
+        }
+      },
+      "utilities": {
+        "basic": {
+          "local": 6500,
+          "usd": 71
+        },
+        "internet": {
+          "local": 500,
+          "usd": 5
+        },
+        "mobile": {
+          "local": 400,
+          "usd": 4
+        }
+      },
+      "lifestyle": {
+        "gymMembership": {
+          "local": 2500,
+          "usd": 27
+        },
+        "cinema": {
+          "local": 350,
+          "usd": 4
+        },
+        "cappuccino": {
+          "local": 180,
+          "usd": 1.98
+        }
+      },
+      "education": {
+        "preschool": {
+          "local": 25000,
+          "usd": 275
+        },
+        "internationalSchool": {
+          "local": 1020000,
+          "usd": 11209
+        }
+      },
+      "healthcare": {
+        "doctorVisit": {
+          "local": 2000,
+          "usd": 22
+        },
+        "medicationBasic": {
+          "local": 800,
+          "usd": 9
+        }
+      },
+      "tax": {
+        "incomeTax": {
+          "brackets": [
+            { "threshold": 0, "rate": 13 },
+            { "threshold": 5000000, "rate": 15 }
+          ],
+          "yearlyDeduction": 0
+        },
+        "socialContributions": {
+          "employeeRate": 0,
+          "employerRate": 30,
+          "cap": 1917000
+        },
+        "vat": {
+          "standard": 20,
+          "reduced": 10
+        }
+      },
+      "updatedAt": "2026-01-01",
+      "sources": ["Numbeo estimates", "Local statistics"]
+    }
   }
 ]
