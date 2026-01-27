@@ -41,17 +41,24 @@ export default function TimeToHomePage() {
 
   // Initial calculation on mount with default values
   useEffect(() => {
-    console.log('[Page] Initial mount calculation');
-    const cities = getAllCities();
-    const defaultCity = cities.find(c => c.id === 'berlin');
-    if (defaultCity && !results) {
-      console.log('[Page] Running initial calculation for', defaultCity.name);
-      const savingsUsd = convertToUsd(50000, 'USD');
-      const contributionUsd = convertToUsd(3000, 'USD');
-      const initialResults = calculateTimeToHome(defaultCity, savingsUsd, contributionUsd, 25);
-      console.log('[Page] Initial results:', initialResults.length);
-      setResults(initialResults);
-      setSelectedCity(defaultCity);
+    try {
+      console.log('[Page] Initial mount calculation');
+      const cities = getAllCities();
+      console.log('[Page] Got', cities.length, 'cities');
+      const defaultCity = cities.find(c => c.id === 'berlin');
+      console.log('[Page] Default city:', defaultCity?.name);
+      if (defaultCity && !results) {
+        console.log('[Page] Running initial calculation for', defaultCity.name);
+        const savingsUsd = convertToUsd(50000, 'USD');
+        const contributionUsd = convertToUsd(3000, 'USD');
+        const initialResults = calculateTimeToHome(defaultCity, savingsUsd, contributionUsd, 25);
+        console.log('[Page] Initial results:', initialResults.length);
+        setResults(initialResults);
+        setSelectedCity(defaultCity);
+      }
+    } catch (err) {
+      console.error('[Page] Mount calculation error:', err);
+      setCalcError(err instanceof Error ? err.message : 'Mount error: ' + String(err));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
