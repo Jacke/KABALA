@@ -11,6 +11,15 @@
  *   npx tsx scripts/update-data.ts --city berlin # update one city
  *   npx tsx scripts/update-data.ts --inflation   # update inflation only
  *   npx tsx scripts/update-data.ts --dry-run     # preview without writing
+ *   npx tsx scripts/update-data.ts --resume      # skip cities updated today
+ *
+ * Rate Limit Strategy:
+ *   - Random delay 4-8s between requests
+ *   - Rotating User-Agent headers
+ *   - On 429: checks Retry-After header, waits with exponential backoff
+ *   - Up to 3 retries per city, then saves progress and continues
+ *   - Intermediate saves every 10 cities so progress isn't lost
+ *   - --resume flag skips cities already updated today
  */
 
 import * as fs from 'fs';
@@ -21,8 +30,24 @@ import * as path from 'path';
 const CITIES_PATH = path.resolve(__dirname, '../src/data/cities.json');
 const INFLATION_PATH = path.resolve(__dirname, '../src/data/inflation.json');
 
-const DELAY_MS = 3000; // delay between requests to avoid rate limiting
-const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+const MIN_DELAY_MS = 4000;  // minimum delay between requests
+const MAX_DELAY_MS = 8000;  // maximum delay between requests
+const MAX_RETRIES = 3;      // max retries per city on 429
+const INITIAL_BACKOFF_MS = 30_000;  // first retry wait: 30s
+const MAX_BACKOFF_MS = 300_000;     // max retry wait: 5 min
+const SAVE_INTERVAL = 10;  // save progress every N cities
+
+// Pool of realistic User-Agent strings
+const USER_AGENTS = [
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0',
+  'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0',
+];
 
 // Numbeo URL slug overrides for cities whose names don't match the URL pattern
 const NUMBEO_SLUGS: Record<string, string> = {
@@ -45,7 +70,7 @@ const NUMBEO_SLUGS: Record<string, string> = {
   'bogota': 'Bogota',
   'medellin': 'Medellin',
   'santiago': 'Santiago',
-  // Russian suburbs — Numbeo may not have pages for all of them
+  // Russian suburbs
   'krasnogorsk': 'Krasnogorsk-Russia',
   'odintsovo': 'Odintsovo-Russia',
   'khimki': 'Khimki-Russia',
@@ -64,8 +89,21 @@ function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function randomDelay(): number {
+  return MIN_DELAY_MS + Math.random() * (MAX_DELAY_MS - MIN_DELAY_MS);
+}
+
+function randomUserAgent(): string {
+  return USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+}
+
+function formatDuration(ms: number): string {
+  if (ms < 1000) return `${ms}ms`;
+  if (ms < 60000) return `${Math.round(ms / 1000)}s`;
+  return `${Math.round(ms / 60000)}m ${Math.round((ms % 60000) / 1000)}s`;
+}
+
 function parseNumber(text: string): number | null {
-  // Remove currency symbols, commas, spaces, and non-breaking spaces
   const cleaned = text.replace(/[^0-9.\-]/g, '');
   const num = parseFloat(cleaned);
   return isNaN(num) ? null : num;
@@ -73,44 +111,138 @@ function parseNumber(text: string): number | null {
 
 function getCitySlug(cityId: string, cityName: string): string {
   if (NUMBEO_SLUGS[cityId]) return NUMBEO_SLUGS[cityId];
-  // Convert "São Paulo" → "Sao-Paulo", "Ho Chi Minh City" → "Ho-Chi-Minh-City"
   return cityName
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // strip diacritics
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/['']/g, '')
     .replace(/\s+/g, '-')
     .replace(/\./g, '');
 }
 
-async function fetchPage(url: string): Promise<string | null> {
+function todayStr(): string {
+  return new Date().toISOString().split('T')[0];
+}
+
+// ─── Rate-limited fetch with retry ────────────────────────────────────
+
+interface FetchResult {
+  html: string | null;
+  status: number;
+  retryAfter: number | null;  // seconds from Retry-After header
+  headers: Record<string, string>;
+  rateLimited: boolean;
+}
+
+async function fetchWithAnalysis(url: string): Promise<FetchResult> {
   try {
     const res = await fetch(url, {
       headers: {
-        'User-Agent': USER_AGENT,
-        'Accept': 'text/html,application/xhtml+xml',
+        'User-Agent': randomUserAgent(),
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+        'Sec-Fetch-Dest': 'document',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'none',
+        'Sec-Fetch-User': '?1',
+        'Cache-Control': 'max-age=0',
       },
+      redirect: 'follow',
     });
-    if (!res.ok) {
-      console.error(`  ✗ HTTP ${res.status} for ${url}`);
-      return null;
+
+    // Collect all headers for analysis
+    const headers: Record<string, string> = {};
+    res.headers.forEach((value, key) => {
+      headers[key.toLowerCase()] = value;
+    });
+
+    // Parse Retry-After header
+    let retryAfter: number | null = null;
+    const retryHeader = headers['retry-after'];
+    if (retryHeader) {
+      const seconds = parseInt(retryHeader);
+      if (!isNaN(seconds)) {
+        retryAfter = seconds;
+      } else {
+        // Could be a date string
+        const date = new Date(retryHeader);
+        if (!isNaN(date.getTime())) {
+          retryAfter = Math.max(0, Math.ceil((date.getTime() - Date.now()) / 1000));
+        }
+      }
     }
-    return await res.text();
+
+    const rateLimited = res.status === 429 || res.status === 403;
+
+    if (!res.ok) {
+      return { html: null, status: res.status, retryAfter, headers, rateLimited };
+    }
+
+    const html = await res.text();
+    return { html, status: res.status, retryAfter, headers, rateLimited };
   } catch (err) {
-    console.error(`  ✗ Fetch error for ${url}:`, (err as Error).message);
-    return null;
+    return { html: null, status: 0, retryAfter: null, headers: {}, rateLimited: false };
   }
+}
+
+async function fetchWithRetry(url: string, cityName: string): Promise<{ html: string | null; gaveUp: boolean }> {
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    const result = await fetchWithAnalysis(url);
+
+    // Success
+    if (result.html) {
+      return { html: result.html, gaveUp: false };
+    }
+
+    // Not rate limited — genuine error, don't retry
+    if (!result.rateLimited) {
+      if (result.status > 0) {
+        console.log(`HTTP ${result.status}`);
+      } else {
+        console.log('NETWORK ERROR');
+      }
+      return { html: null, gaveUp: false };
+    }
+
+    // Rate limited — analyze and decide
+    if (attempt === MAX_RETRIES) {
+      const info = [`HTTP ${result.status}`];
+      if (result.retryAfter) info.push(`Retry-After: ${formatDuration(result.retryAfter * 1000)}`);
+      console.log(`RATE LIMITED (${info.join(', ')}) — gave up after ${MAX_RETRIES} retries`);
+      return { html: null, gaveUp: true };
+    }
+
+    // Calculate wait time
+    let waitMs: number;
+    if (result.retryAfter) {
+      // Server told us how long to wait — but cap it
+      const serverWaitMs = result.retryAfter * 1000;
+      waitMs = Math.min(serverWaitMs, MAX_BACKOFF_MS);
+      console.log(`429 — Retry-After: ${formatDuration(serverWaitMs)}${serverWaitMs > MAX_BACKOFF_MS ? ` (capped to ${formatDuration(MAX_BACKOFF_MS)})` : ''}`);
+    } else {
+      // Exponential backoff: 30s, 60s, 120s
+      waitMs = Math.min(INITIAL_BACKOFF_MS * Math.pow(2, attempt), MAX_BACKOFF_MS);
+      // Add jitter (±20%)
+      waitMs = waitMs * (0.8 + Math.random() * 0.4);
+      console.log(`429 — no Retry-After header, backoff ${formatDuration(waitMs)}...`);
+    }
+
+    process.stdout.write(`  ⏳ [${cityName}] Retry ${attempt + 1}/${MAX_RETRIES} in ${formatDuration(waitMs)}...`);
+    await sleep(waitMs);
+    process.stdout.write(` retrying... `);
+  }
+
+  return { html: null, gaveUp: true };
 }
 
 // ─── Numbeo Scraper ───────────────────────────────────────────────────
 
 interface NumbeoData {
-  // Restaurants
   mealInexpensive?: number;
   mealMidRange?: number;
   mcdonalds?: number;
   cappuccino?: number;
-
-  // Markets (we'll estimate monthly groceries from individual items)
   milk?: number;
   bread?: number;
   rice?: number;
@@ -126,41 +258,25 @@ interface NumbeoData {
   lettuce?: number;
   water1_5l?: number;
   wine?: number;
-
-  // Transport
   monthlyPass?: number;
   taxiKm?: number;
   gasoline?: number;
-
-  // Utilities
   basicUtilities?: number;
   internet?: number;
   mobile?: number;
-
-  // Sports
   gym?: number;
   cinema?: number;
-
-  // Childcare
   preschool?: number;
   internationalSchool?: number;
-
-  // Rent
   rent1bedCenter?: number;
   rent1bedOutside?: number;
   rent3bedCenter?: number;
   rent3bedOutside?: number;
-
-  // Buy
   pricePerSqmCenter?: number;
   pricePerSqmOutside?: number;
-
-  // Salary
   avgSalary?: number;
 }
 
-// Map Numbeo item text (substring match) to our data fields
-// These are the EXACT strings from Numbeo's HTML as of Jan 2026
 const ITEM_MAPPING: Array<[string, keyof NumbeoData]> = [
   ['Meal at an Inexpensive Restaurant', 'mealInexpensive'],
   ['Combo Meal at McDonald', 'mcdonalds'],
@@ -202,8 +318,6 @@ const ITEM_MAPPING: Array<[string, keyof NumbeoData]> = [
 function parseNumbeoPage(html: string): NumbeoData {
   const data: NumbeoData = {};
 
-  // Numbeo HTML structure (Jan 2026):
-  // <tr><td>Item Name </td> <td ... class="priceValue ..."> <span class="first_currency">17.81&nbsp;&#36;</span></td>
   const rowPattern = /<tr><td[^>]*>(.*?)<\/td>\s*<td[^>]*class="priceValue[^"]*"[^>]*>\s*<span[^>]*>(.*?)<\/span>/gi;
 
   let match;
@@ -229,17 +343,13 @@ function parseNumbeoPage(html: string): NumbeoData {
   return data;
 }
 
-// Estimate monthly groceries from individual item prices
 function estimateMonthlyGroceries(data: NumbeoData): number {
-  // A reasonable monthly grocery basket for one person:
-  // 8L milk, 4 loaves bread, 2kg rice, 24 eggs, 1kg cheese,
-  // 4kg chicken, 2kg beef, 4kg fruit, 4kg vegetables, 12L water, 2 bottles wine
   let total = 0;
   let items = 0;
   if (data.milk) { total += data.milk * 8; items++; }
   if (data.bread) { total += data.bread * 4; items++; }
   if (data.rice) { total += data.rice * 2; items++; }
-  if (data.eggs) { total += data.eggs * 2; items++; } // 24 eggs = 2x12
+  if (data.eggs) { total += data.eggs * 2; items++; }
   if (data.cheese) { total += data.cheese * 0.5; items++; }
   if (data.chicken) { total += data.chicken * 4; items++; }
   if (data.beef) { total += data.beef * 2; items++; }
@@ -251,24 +361,19 @@ function estimateMonthlyGroceries(data: NumbeoData): number {
   if (data.lettuce) { total += data.lettuce * 4; items++; }
   if (data.water1_5l) { total += data.water1_5l * 8; items++; }
 
-  // If we have enough items, return the estimate
   if (items >= 5) return Math.round(total);
   return 0;
 }
 
 // ─── Currency conversion ──────────────────────────────────────────────
 
-// We fetch Numbeo in USD to get consistent comparisons
-// For local currency, we use the existing exchange rate from the city data
-
 function getLocalFromUsd(usdAmount: number, city: any): number {
-  // Calculate the exchange rate from existing data
   const existingSalary = city.metrics?.salary?.average;
   if (existingSalary && existingSalary.usd > 0 && existingSalary.local > 0) {
     const rate = existingSalary.local / existingSalary.usd;
     return Math.round(usdAmount * rate * 100) / 100;
   }
-  return usdAmount; // fallback
+  return usdAmount;
 }
 
 // ─── Update city metrics ──────────────────────────────────────────────
@@ -277,7 +382,6 @@ function updateCityMetrics(city: any, numbeoData: NumbeoData): { updated: boolea
   const fields: string[] = [];
   const m = city.metrics;
 
-  // Helper to update a MoneyAmount field
   const updateField = (obj: any, key: string, usdValue: number | undefined, label: string) => {
     if (!usdValue || usdValue <= 0) return;
     if (!obj[key]) obj[key] = { local: 0, usd: 0 };
@@ -286,29 +390,24 @@ function updateCityMetrics(city: any, numbeoData: NumbeoData): { updated: boolea
     fields.push(label);
   };
 
-  // Salary
   if (numbeoData.avgSalary) {
     updateField(m.salary, 'average', numbeoData.avgSalary, 'salary.average');
   }
 
-  // Rent
   if (numbeoData.rent1bedCenter) {
     updateField(m.rent, 'oneBedroom', numbeoData.rent1bedCenter, 'rent.1bed');
   }
   if (numbeoData.rent3bedCenter) {
     updateField(m.rent, 'threeBedroom', numbeoData.rent3bedCenter, 'rent.3bed');
   }
-  // Estimate 2-bed from 1-bed and 3-bed
   if (numbeoData.rent1bedCenter && numbeoData.rent3bedCenter) {
     const rent2bed = numbeoData.rent1bedCenter + (numbeoData.rent3bedCenter - numbeoData.rent1bedCenter) * 0.45;
     updateField(m.rent, 'twoBedroom', rent2bed, 'rent.2bed');
   }
 
-  // Property
   if (numbeoData.pricePerSqmCenter) {
     updateField(m.property, 'cityCenter', numbeoData.pricePerSqmCenter, 'property.center');
 
-    // Estimate apartment buy prices (1bed=50sqm, 2bed=75sqm, 3bed=110sqm)
     if (!m.property.buyCityCenter) {
       m.property.buyCityCenter = {
         oneBedroom: { local: 0, usd: 0 },
@@ -335,7 +434,6 @@ function updateCityMetrics(city: any, numbeoData: NumbeoData): { updated: boolea
     updateField(m.property.buyOutside, 'threeBedroom', numbeoData.pricePerSqmOutside * 110, 'property.buyOut3bed');
   }
 
-  // Food
   const groceries = estimateMonthlyGroceries(numbeoData);
   if (groceries > 0) {
     updateField(m.food, 'groceries', groceries, 'food.groceries');
@@ -347,7 +445,6 @@ function updateCityMetrics(city: any, numbeoData: NumbeoData): { updated: boolea
     updateField(m.food, 'fastFood', numbeoData.mcdonalds, 'food.fastfood');
   }
 
-  // Transport
   if (numbeoData.monthlyPass) {
     updateField(m.transport, 'monthlyPass', numbeoData.monthlyPass, 'transport.pass');
   }
@@ -358,7 +455,6 @@ function updateCityMetrics(city: any, numbeoData: NumbeoData): { updated: boolea
     updateField(m.transport, 'gasoline', numbeoData.gasoline, 'transport.gas');
   }
 
-  // Utilities
   if (numbeoData.basicUtilities) {
     updateField(m.utilities, 'basic', numbeoData.basicUtilities, 'utilities.basic');
   }
@@ -369,7 +465,6 @@ function updateCityMetrics(city: any, numbeoData: NumbeoData): { updated: boolea
     updateField(m.utilities, 'mobile', numbeoData.mobile, 'utilities.mobile');
   }
 
-  // Lifestyle
   if (numbeoData.gym) {
     updateField(m.lifestyle, 'gymMembership', numbeoData.gym, 'lifestyle.gym');
   }
@@ -380,7 +475,6 @@ function updateCityMetrics(city: any, numbeoData: NumbeoData): { updated: boolea
     updateField(m.lifestyle, 'cappuccino', numbeoData.cappuccino, 'lifestyle.cappuccino');
   }
 
-  // Education
   if (numbeoData.preschool) {
     if (!m.education) m.education = {};
     updateField(m.education, 'preschool', numbeoData.preschool, 'education.preschool');
@@ -407,7 +501,6 @@ async function fetchIMFInflation(countryCodes: string[]): Promise<Record<string,
 
   const results: Record<string, Record<string, number>> = {};
 
-  // IMF uses different country codes than ISO 2-letter
   const isoToImf: Record<string, string> = {
     'DE': 'DEU', 'PT': 'PRT', 'RU': 'RUS', 'GE': 'GEO', 'UA': 'UKR',
     'BY': 'BLR', 'KZ': 'KAZ', 'AZ': 'AZE', 'AM': 'ARM', 'UZ': 'UZB',
@@ -421,9 +514,7 @@ async function fetchIMFInflation(countryCodes: string[]): Promise<Record<string,
   };
 
   const uniqueCodes = [...new Set(countryCodes)];
-  const imfCodes = uniqueCodes.map(c => isoToImf[c] || c).filter(Boolean);
 
-  // Fetch each country individually (IMF API doesn't reliably support batch)
   for (const [iso2, imf3] of Object.entries(isoToImf)) {
     if (!uniqueCodes.includes(iso2)) continue;
     try {
@@ -462,7 +553,6 @@ function updateInflationFile(imfData: Record<string, Record<string, number>>, dr
       if (yearlyData['2026']) entry.inflation2026 = yearlyData['2026'];
       if (yearlyData['2027']) entry.inflation2027 = yearlyData['2027'];
       if (yearlyData['2024'] && yearlyData['2025'] && yearlyData['2026']) {
-        // Estimate property growth from inflation (rough: inflation * 1.5 for property)
         const avgInflation = (yearlyData['2024'] + yearlyData['2025'] + yearlyData['2026']) / 3;
         entry.propertyGrowth2026 = Math.round(avgInflation * 1.3 * 100) / 100;
       }
@@ -484,13 +574,17 @@ async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
   const inflationOnly = args.includes('--inflation');
+  const resumeMode = args.includes('--resume');
   const cityFlag = args.indexOf('--city');
   const targetCity = cityFlag >= 0 ? args[cityFlag + 1] : null;
 
   console.log('🏠 KABALA Data Updater');
   console.log(`   Mode: ${dryRun ? 'DRY RUN' : 'LIVE'}`);
   if (targetCity) console.log(`   Target city: ${targetCity}`);
+  if (resumeMode) console.log(`   Resume: skipping cities updated today (${todayStr()})`);
   if (inflationOnly) console.log('   Inflation only');
+  console.log(`   Rate limit: ${MIN_DELAY_MS/1000}-${MAX_DELAY_MS/1000}s delay, ${MAX_RETRIES} retries, ${INITIAL_BACKOFF_MS/1000}s initial backoff`);
+  console.log(`   User-Agent pool: ${USER_AGENTS.length} variants`);
 
   const cities = JSON.parse(fs.readFileSync(CITIES_PATH, 'utf8'));
 
@@ -520,28 +614,64 @@ async function main() {
 
   let successCount = 0;
   let skipCount = 0;
-  let failCount = 0;
+  let rateLimitCount = 0;
+  let resumeSkipCount = 0;
+  let consecutiveRateLimits = 0;
+  const startTime = Date.now();
 
   for (let i = 0; i < citiesToUpdate.length; i++) {
     const city = citiesToUpdate[i];
+
+    // --resume: skip cities already updated today
+    if (resumeMode && city.metrics?.updatedAt === todayStr()) {
+      process.stdout.write(`  [${i + 1}/${citiesToUpdate.length}] ${city.name}... `);
+      console.log('SKIP (already updated today)');
+      resumeSkipCount++;
+      continue;
+    }
+
     const slug = getCitySlug(city.id, city.name);
     const url = `https://www.numbeo.com/cost-of-living/in/${slug}?displayCurrency=USD`;
 
     process.stdout.write(`  [${i + 1}/${citiesToUpdate.length}] ${city.name}... `);
 
-    const html = await fetchPage(url);
+    const { html, gaveUp } = await fetchWithRetry(url, city.name);
+
     if (!html) {
-      console.log('SKIP (no page)');
-      skipCount++;
-      await sleep(DELAY_MS);
+      if (gaveUp) {
+        rateLimitCount++;
+        consecutiveRateLimits++;
+
+        // If we got 5+ consecutive rate limits even after retries, pause longer
+        if (consecutiveRateLimits >= 5) {
+          const pauseMs = 120_000; // 2 minutes
+          console.log(`\n  🛑 ${consecutiveRateLimits} consecutive rate limits — pausing ${formatDuration(pauseMs)}...`);
+
+          // Save progress before long pause
+          if (!dryRun && successCount > 0) {
+            fs.writeFileSync(CITIES_PATH, JSON.stringify(cities, null, 2) + '\n');
+            console.log(`  💾 Saved progress (${successCount} cities so far)`);
+          }
+
+          await sleep(pauseMs);
+          consecutiveRateLimits = 0;
+          console.log('  ▶️  Resuming...');
+        }
+      } else {
+        skipCount++;
+      }
+      await sleep(randomDelay());
       continue;
     }
+
+    // Reset consecutive counter on success
+    consecutiveRateLimits = 0;
 
     // Check if Numbeo returned a "no data" page
     if (html.includes('There are no enough data points') || html.includes('We don\'t have enough data')) {
       console.log('SKIP (no data on Numbeo)');
       skipCount++;
-      await sleep(DELAY_MS);
+      await sleep(randomDelay());
       continue;
     }
 
@@ -551,7 +681,7 @@ async function main() {
     if (fieldsFound < 3) {
       console.log(`SKIP (only ${fieldsFound} fields parsed)`);
       skipCount++;
-      await sleep(DELAY_MS);
+      await sleep(randomDelay());
       continue;
     }
 
@@ -565,18 +695,35 @@ async function main() {
       skipCount++;
     }
 
-    await sleep(DELAY_MS);
+    // Intermediate save every SAVE_INTERVAL successful cities
+    if (!dryRun && successCount > 0 && successCount % SAVE_INTERVAL === 0) {
+      fs.writeFileSync(CITIES_PATH, JSON.stringify(cities, null, 2) + '\n');
+      console.log(`  💾 Intermediate save (${successCount} cities updated so far)`);
+    }
+
+    await sleep(randomDelay());
   }
 
-  // ── Step 3: Write results ──
+  // ── Step 3: Write final results ──
+  const elapsed = Date.now() - startTime;
+  const summary = [];
+  summary.push(`${successCount} updated`);
+  if (skipCount > 0) summary.push(`${skipCount} skipped`);
+  if (rateLimitCount > 0) summary.push(`${rateLimitCount} rate-limited`);
+  if (resumeSkipCount > 0) summary.push(`${resumeSkipCount} already done today`);
+
   if (!dryRun && successCount > 0) {
     fs.writeFileSync(CITIES_PATH, JSON.stringify(cities, null, 2) + '\n');
-    console.log(`\n✅ Done! Updated ${successCount} cities, skipped ${skipCount}, failed ${failCount}`);
+    console.log(`\n✅ Done in ${formatDuration(elapsed)}! ${summary.join(', ')}`);
     console.log(`   Written to ${CITIES_PATH}`);
   } else if (dryRun) {
-    console.log(`\n✅ [DRY RUN] Would update ${successCount} cities, skip ${skipCount}, fail ${failCount}`);
+    console.log(`\n✅ [DRY RUN] ${summary.join(', ')} (${formatDuration(elapsed)})`);
   } else {
-    console.log(`\n✅ No changes to write`);
+    console.log(`\n✅ No changes to write (${formatDuration(elapsed)})`);
+  }
+
+  if (rateLimitCount > 0) {
+    console.log(`\n⚠️  ${rateLimitCount} cities were rate-limited. Run again with --resume to retry only those.`);
   }
 }
 
