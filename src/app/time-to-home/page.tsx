@@ -206,20 +206,29 @@ export default function TimeToHomePage() {
         </div>
       </div>
 
-      {/* Debug: State visibility - v3 */}
+      {/* Debug: State visibility - v4 */}
       <div className="max-w-5xl mx-auto px-4 py-4 text-sm bg-yellow-500 text-black font-bold">
-        🔧 DEBUG-V3: results={results ? `yes(${results.length})` : 'no'}, city={selectedCity?.name || 'none'}, tabs={tabs.length}
+        🔧 DEBUG-V4: results={results ? `yes(${results.length})` : 'no'}, city={selectedCity?.name || 'none'}, tabs={tabs.length}
         {calcError && <span className="text-red-600 ml-2">ERROR: {calcError}</span>}
       </div>
 
-      {/* Results Section with Tabs */}
-      {results && selectedCity && tabs.length > 0 && (
-        <div className="max-w-5xl mx-auto px-4 pb-16">
-          <div className="bg-gradient-to-br from-gray-950 to-black border border-red-900/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
+      {/* ALWAYS show results section - render tabs if we have data, otherwise show a message */}
+      <div className="max-w-5xl mx-auto px-4 pb-16">
+        <div className="bg-gradient-to-br from-gray-950 to-black border border-red-900/30 rounded-2xl p-6 sm:p-8 shadow-2xl">
+          {results && selectedCity && tabs.length > 0 ? (
             <Tabs tabs={tabs} defaultTab="results" />
-          </div>
+          ) : (
+            <div className="text-center py-8">
+              <p className="text-gray-400 text-lg">
+                {locale === 'ru' ? '⏳ Загрузка расчёта...' : '⏳ Loading calculation...'}
+              </p>
+              <p className="text-gray-600 text-sm mt-2">
+                results: {results ? 'yes' : 'no'} | city: {selectedCity?.name || 'none'} | tabs: {tabs.length}
+              </p>
+            </div>
+          )}
         </div>
-      )}
+      </div>
 
       {/* How It Works */}
       <div className="max-w-5xl mx-auto px-4 pb-16">
