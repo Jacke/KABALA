@@ -9616,8 +9616,8 @@
     "metrics": {
       "salary": {
         "average": {
-          "local": 4600,
-          "usd": 4600
+          "local": 4037.36,
+          "usd": 4037.36
         },
         "median": {
           "local": 4000,
@@ -9634,68 +9634,68 @@
           "usd": 1100
         },
         "oneBedroom": {
-          "local": 1450,
-          "usd": 1450
+          "local": 1717.1,
+          "usd": 1717.1
         },
         "twoBedroom": {
-          "local": 1900,
-          "usd": 1900
+          "local": 2184.97,
+          "usd": 2184.97
         },
         "threeBedroom": {
-          "local": 2500,
-          "usd": 2500
+          "local": 2756.82,
+          "usd": 2756.82
         }
       },
       "property": {
         "cityCenter": {
-          "local": 4500,
-          "usd": 4500
+          "local": 4574.11,
+          "usd": 4574.11
         },
         "outside": {
-          "local": 2800,
-          "usd": 2800
+          "local": 3152.11,
+          "usd": 3152.11
         },
         "buyCityCenter": {
           "oneBedroom": {
-            "local": 225000,
-            "usd": 225000
+            "local": 228705.5,
+            "usd": 228705.5
           },
           "twoBedroom": {
-            "local": 337500,
-            "usd": 337500
+            "local": 343058.25,
+            "usd": 343058.25
           },
           "threeBedroom": {
-            "local": 495000,
-            "usd": 495000
+            "local": 503152.1,
+            "usd": 503152.1
           }
         },
         "buyOutside": {
           "oneBedroom": {
-            "local": 140000,
-            "usd": 140000
+            "local": 157605.5,
+            "usd": 157605.5
           },
           "twoBedroom": {
-            "local": 210000,
-            "usd": 210000
+            "local": 236408.25,
+            "usd": 236408.25
           },
           "threeBedroom": {
-            "local": 308000,
-            "usd": 308000
+            "local": 346732.1,
+            "usd": 346732.1
           }
         }
       },
       "food": {
         "groceries": {
-          "local": 320,
-          "usd": 320
+          "local": 196,
+          "usd": 196
         },
         "restaurantMeal": {
-          "local": 18,
-          "usd": 18
+          "local": 20,
+          "usd": 20
         },
         "fastFood": {
-          "local": 10,
-          "usd": 10
+          "local": 12,
+          "usd": 12
         }
       },
       "transport": {
@@ -9704,50 +9704,50 @@
           "usd": 64
         },
         "taxiPerKm": {
-          "local": 2,
-          "usd": 2
+          "local": 1.38,
+          "usd": 1.38
         },
         "gasoline": {
-          "local": 1,
-          "usd": 1
+          "local": 0.92,
+          "usd": 0.92
         }
       },
       "utilities": {
         "basic": {
-          "local": 160,
-          "usd": 160
+          "local": 254.69,
+          "usd": 254.69
         },
         "internet": {
-          "local": 60,
-          "usd": 60
+          "local": 82,
+          "usd": 82
         },
         "mobile": {
-          "local": 45,
-          "usd": 45
+          "local": 69.27,
+          "usd": 69.27
         }
       },
       "lifestyle": {
         "gymMembership": {
-          "local": 35,
-          "usd": 35
+          "local": 46.75,
+          "usd": 46.75
         },
         "cinema": {
-          "local": 14,
-          "usd": 14
+          "local": 13.5,
+          "usd": 13.5
         },
         "cappuccino": {
-          "local": 4.5,
-          "usd": 4.5
+          "local": 6.29,
+          "usd": 6.29
         }
       },
       "education": {
         "preschool": {
-          "local": 1100,
-          "usd": 1100
+          "local": 1621.85,
+          "usd": 1621.85
         },
         "internationalSchool": {
-          "local": 20000,
-          "usd": 20000
+          "local": 25685.71,
+          "usd": 25685.71
         }
       },
       "healthcare": {
@@ -9803,7 +9803,7 @@
           "standard": 8.6
         }
       },
-      "updatedAt": "2026-01-01",
+      "updatedAt": "2026-01-27",
       "sources": [
         "Numbeo",
         "BLS",
@@ -9832,8 +9832,8 @@
     "metrics": {
       "salary": {
         "average": {
-          "local": 5600,
-          "usd": 5600
+          "local": 5522.54,
+          "usd": 5522.54
         },
         "median": {
           "local": 4800,
@@ -9850,68 +9850,68 @@
           "usd": 1800
         },
         "oneBedroom": {
-          "local": 2400,
-          "usd": 2400
+          "local": 3170.5,
+          "usd": 3170.5
         },
         "twoBedroom": {
-          "local": 3200,
-          "usd": 3200
+          "local": 4076.95,
+          "usd": 4076.95
         },
         "threeBedroom": {
-          "local": 4100,
-          "usd": 4100
+          "local": 5184.83,
+          "usd": 5184.83
         }
       },
       "property": {
         "cityCenter": {
-          "local": 10000,
-          "usd": 10000
+          "local": 8612.98,
+          "usd": 8612.98
         },
         "outside": {
-          "local": 6500,
-          "usd": 6500
+          "local": 6819.28,
+          "usd": 6819.28
         },
         "buyCityCenter": {
           "oneBedroom": {
-            "local": 500000,
-            "usd": 500000
+            "local": 430649,
+            "usd": 430649
           },
           "twoBedroom": {
-            "local": 750000,
-            "usd": 750000
+            "local": 645973.5,
+            "usd": 645973.5
           },
           "threeBedroom": {
-            "local": 1100000,
-            "usd": 1100000
+            "local": 947427.8,
+            "usd": 947427.8
           }
         },
         "buyOutside": {
           "oneBedroom": {
-            "local": 325000,
-            "usd": 325000
+            "local": 340964,
+            "usd": 340964
           },
           "twoBedroom": {
-            "local": 487500,
-            "usd": 487500
+            "local": 511446,
+            "usd": 511446
           },
           "threeBedroom": {
-            "local": 715000,
-            "usd": 715000
+            "local": 750120.8,
+            "usd": 750120.8
           }
         }
       },
       "food": {
         "groceries": {
-          "local": 420,
-          "usd": 420
+          "local": 215,
+          "usd": 215
         },
         "restaurantMeal": {
-          "local": 24,
-          "usd": 24
+          "local": 25,
+          "usd": 25
         },
         "fastFood": {
-          "local": 12,
-          "usd": 12
+          "local": 15,
+          "usd": 15
         }
       },
       "transport": {
@@ -9920,50 +9920,50 @@
           "usd": 72
         },
         "taxiPerKm": {
-          "local": 2.5,
-          "usd": 2.5
+          "local": 2.06,
+          "usd": 2.06
         },
         "gasoline": {
-          "local": 1.35,
-          "usd": 1.35
+          "local": 1.24,
+          "usd": 1.24
         }
       },
       "utilities": {
         "basic": {
-          "local": 140,
-          "usd": 140
+          "local": 239.46,
+          "usd": 239.46
         },
         "internet": {
-          "local": 70,
-          "usd": 70
+          "local": 83.45,
+          "usd": 83.45
         },
         "mobile": {
-          "local": 50,
-          "usd": 50
+          "local": 75.62,
+          "usd": 75.62
         }
       },
       "lifestyle": {
         "gymMembership": {
-          "local": 45,
-          "usd": 45
+          "local": 67.71,
+          "usd": 67.71
         },
         "cinema": {
-          "local": 17,
-          "usd": 17
+          "local": 17.75,
+          "usd": 17.75
         },
         "cappuccino": {
-          "local": 5.5,
-          "usd": 5.5
+          "local": 5.9,
+          "usd": 5.9
         }
       },
       "education": {
         "preschool": {
-          "local": 1700,
-          "usd": 1700
+          "local": 2008.09,
+          "usd": 2008.09
         },
         "internationalSchool": {
-          "local": 28000,
-          "usd": 28000
+          "local": 36280.62,
+          "usd": 36280.62
         }
       },
       "healthcare": {
@@ -10019,7 +10019,7 @@
           "standard": 7.75
         }
       },
-      "updatedAt": "2026-01-01",
+      "updatedAt": "2026-01-27",
       "sources": [
         "Numbeo",
         "BLS",
@@ -10048,8 +10048,8 @@
     "metrics": {
       "salary": {
         "average": {
-          "local": 450000,
-          "usd": 3015
+          "local": 392620.9,
+          "usd": 2630.56
         },
         "median": {
           "local": 380000,
@@ -10066,120 +10066,120 @@
           "usd": 603
         },
         "oneBedroom": {
-          "local": 130000,
-          "usd": 871
+          "local": 175029.85,
+          "usd": 1172.7
         },
         "twoBedroom": {
-          "local": 200000,
-          "usd": 1340
+          "local": 240295.3,
+          "usd": 1609.98
         },
         "threeBedroom": {
-          "local": 300000,
-          "usd": 2010
+          "local": 320064.18,
+          "usd": 2144.43
         }
       },
       "property": {
         "cityCenter": {
-          "local": 1500000,
-          "usd": 10050
+          "local": 1620491.06,
+          "usd": 10857.29
         },
         "outside": {
-          "local": 800000,
-          "usd": 5360
+          "local": 733723.89,
+          "usd": 4915.95
         },
         "buyCityCenter": {
           "oneBedroom": {
-            "local": 75000000,
-            "usd": 502500
+            "local": 81024553.16,
+            "usd": 542864.5
           },
           "twoBedroom": {
-            "local": 112500000,
-            "usd": 753750
+            "local": 121536829.74,
+            "usd": 814296.75
           },
           "threeBedroom": {
-            "local": 165000000,
-            "usd": 1105500
+            "local": 178254016.96,
+            "usd": 1194301.9
           }
         },
         "buyOutside": {
           "oneBedroom": {
-            "local": 40000000,
-            "usd": 268000
+            "local": 36686194.45,
+            "usd": 245797.5
           },
           "twoBedroom": {
-            "local": 60000000,
-            "usd": 402000
+            "local": 55029291.67,
+            "usd": 368696.25
           },
           "threeBedroom": {
-            "local": 88000000,
-            "usd": 589600
+            "local": 80709627.79,
+            "usd": 540754.5
           }
         }
       },
       "food": {
         "groceries": {
-          "local": 50000,
-          "usd": 335
+          "local": 24328.36,
+          "usd": 163
         },
         "restaurantMeal": {
-          "local": 1200,
-          "usd": 8
+          "local": 1159.7,
+          "usd": 7.77
         },
         "fastFood": {
-          "local": 800,
-          "usd": 5
+          "local": 773.13,
+          "usd": 5.18
         }
       },
       "transport": {
         "monthlyPass": {
-          "local": 10000,
-          "usd": 67
+          "local": 9658.21,
+          "usd": 64.71
         },
         "taxiPerKm": {
-          "local": 400,
-          "usd": 2.68
+          "local": 477.61,
+          "usd": 3.2
         },
         "gasoline": {
-          "local": 175,
-          "usd": 1.17
+          "local": 170.15,
+          "usd": 1.14
         }
       },
       "utilities": {
         "basic": {
-          "local": 15000,
-          "usd": 101
+          "local": 23947.76,
+          "usd": 160.45
         },
         "internet": {
-          "local": 5000,
-          "usd": 34
+          "local": 4544.78,
+          "usd": 30.45
         },
         "mobile": {
-          "local": 6000,
-          "usd": 40
+          "local": 3582.09,
+          "usd": 24
         }
       },
       "lifestyle": {
         "gymMembership": {
-          "local": 8000,
-          "usd": 54
+          "local": 10150.75,
+          "usd": 68.01
         },
         "cinema": {
-          "local": 1900,
-          "usd": 13
+          "local": 1931.34,
+          "usd": 12.94
         },
         "cappuccino": {
-          "local": 450,
-          "usd": 3
+          "local": 492.54,
+          "usd": 3.3
         }
       },
       "education": {
         "preschool": {
-          "local": 50000,
-          "usd": 335
+          "local": 158788.06,
+          "usd": 1063.88
         },
         "internationalSchool": {
-          "local": 2000000,
-          "usd": 13400
+          "local": 2397847.79,
+          "usd": 16065.58
         }
       },
       "healthcare": {
@@ -10235,7 +10235,7 @@
           "standard": 10
         }
       },
-      "updatedAt": "2026-01-01",
+      "updatedAt": "2026-01-27",
       "sources": [
         "Numbeo",
         "Local statistics",
@@ -10263,8 +10263,8 @@
     "metrics": {
       "salary": {
         "average": {
-          "local": 6500,
-          "usd": 4810
+          "local": 6066.34,
+          "usd": 4489.09
         },
         "median": {
           "local": 5500,
@@ -10281,120 +10281,120 @@
           "usd": 1628
         },
         "oneBedroom": {
-          "local": 3000,
-          "usd": 2220
+          "local": 3841.33,
+          "usd": 2842.58
         },
         "twoBedroom": {
-          "local": 4500,
-          "usd": 3330
+          "local": 5723.82,
+          "usd": 4235.63
         },
         "threeBedroom": {
-          "local": 6500,
-          "usd": 4810
+          "local": 8024.65,
+          "usd": 5938.24
         }
       },
       "property": {
         "cityCenter": {
-          "local": 25000,
-          "usd": 18500
+          "local": 32133.42,
+          "usd": 23778.72
         },
         "outside": {
-          "local": 15000,
-          "usd": 11100
+          "local": 22562.25,
+          "usd": 16696.06
         },
         "buyCityCenter": {
           "oneBedroom": {
-            "local": 1250000,
-            "usd": 925000
+            "local": 1606670.84,
+            "usd": 1188936
           },
           "twoBedroom": {
-            "local": 1875000,
-            "usd": 1387500
+            "local": 2410006.26,
+            "usd": 1783404
           },
           "threeBedroom": {
-            "local": 2750000,
-            "usd": 2035000
+            "local": 3534675.85,
+            "usd": 2615659.2
           }
         },
         "buyOutside": {
           "oneBedroom": {
-            "local": 750000,
-            "usd": 555000
+            "local": 1128112.56,
+            "usd": 834803
           },
           "twoBedroom": {
-            "local": 1125000,
-            "usd": 832500
+            "local": 1692168.85,
+            "usd": 1252204.5
           },
           "threeBedroom": {
-            "local": 1650000,
-            "usd": 1221000
+            "local": 2481847.64,
+            "usd": 1836566.6
           }
         }
       },
       "food": {
         "groceries": {
-          "local": 400,
-          "usd": 296
+          "local": 263.51,
+          "usd": 195
         },
         "restaurantMeal": {
-          "local": 25,
-          "usd": 19
+          "local": 13.26,
+          "usd": 9.81
         },
         "fastFood": {
-          "local": 8,
-          "usd": 6
+          "local": 10.65,
+          "usd": 7.88
         }
       },
       "transport": {
         "monthlyPass": {
-          "local": 120,
-          "usd": 89
+          "local": 136.34,
+          "usd": 100.89
         },
         "taxiPerKm": {
-          "local": 0.75,
-          "usd": 0.55
+          "local": 1.07,
+          "usd": 0.79
         },
         "gasoline": {
-          "local": 2.5,
-          "usd": 1.85
+          "local": 2.92,
+          "usd": 2.16
         }
       },
       "utilities": {
         "basic": {
-          "local": 150,
-          "usd": 111
+          "local": 217.74,
+          "usd": 161.13
         },
         "internet": {
-          "local": 40,
-          "usd": 30
+          "local": 42.92,
+          "usd": 31.76
         },
         "mobile": {
-          "local": 30,
-          "usd": 22
+          "local": 20.51,
+          "usd": 15.18
         }
       },
       "lifestyle": {
         "gymMembership": {
-          "local": 120,
-          "usd": 89
+          "local": 151.04,
+          "usd": 111.77
         },
         "cinema": {
-          "local": 13,
-          "usd": 10
+          "local": 15.97,
+          "usd": 11.82
         },
         "cappuccino": {
-          "local": 6,
-          "usd": 4.4
+          "local": 6.53,
+          "usd": 4.83
         }
       },
       "education": {
         "preschool": {
-          "local": 1200,
-          "usd": 888
+          "local": 1889.5,
+          "usd": 1398.23
         },
         "internationalSchool": {
-          "local": 35000,
-          "usd": 25900
+          "local": 41102.8,
+          "usd": 30416.06
         }
       },
       "healthcare": {
@@ -10466,7 +10466,7 @@
           "standard": 9
         }
       },
-      "updatedAt": "2026-01-01",
+      "updatedAt": "2026-01-27",
       "sources": [
         "Numbeo",
         "Local statistics",
