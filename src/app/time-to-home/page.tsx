@@ -11,6 +11,7 @@ import {
   CoupleMode,
 } from '@/components/TimeToHome';
 import { calculateTimeToHome, convertToUsd, getInflationSource } from '@/lib/inflation';
+import { getAllCities } from '@/lib/data';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { TimeToHomeResult } from '@/types/inflation';
 import type { CityWithMetrics } from '@/types/city';
@@ -36,6 +37,23 @@ export default function TimeToHomePage() {
       document.documentElement.style.backgroundColor = '';
       document.body.style.backgroundColor = '';
     };
+  }, []);
+
+  // Initial calculation on mount with default values
+  useEffect(() => {
+    console.log('[Page] Initial mount calculation');
+    const cities = getAllCities();
+    const defaultCity = cities.find(c => c.id === 'berlin');
+    if (defaultCity && !results) {
+      console.log('[Page] Running initial calculation for', defaultCity.name);
+      const savingsUsd = convertToUsd(50000, 'USD');
+      const contributionUsd = convertToUsd(3000, 'USD');
+      const initialResults = calculateTimeToHome(defaultCity, savingsUsd, contributionUsd, 25);
+      console.log('[Page] Initial results:', initialResults.length);
+      setResults(initialResults);
+      setSelectedCity(defaultCity);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleCalculate = useCallback((data: {
