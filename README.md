@@ -17,6 +17,10 @@
   <a href="#tech-stack">Tech Stack</a>
 </p>
 
+<p align="center">
+  <a href="https://kabala-production.up.railway.app/"><strong>🚀 Live Demo</strong></a>
+</p>
+
 ---
 
 ## Features
