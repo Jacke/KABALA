@@ -220,6 +220,11 @@ export function convertToUsd(amount: number, currency: string): number {
   return amount * rate;
 }
 
+export function convertFromUsd(amountUsd: number, currency: string): number {
+  const rate = currencyRates[currency] || 1;
+  return amountUsd / rate;
+}
+
 export function getSupportedCurrencies(): { code: string; name: string }[] {
   return [
     { code: 'USD', name: 'US Dollar' },

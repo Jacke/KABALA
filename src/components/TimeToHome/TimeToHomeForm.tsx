@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { getAllCities } from '@/lib/data';
-import { getSupportedCurrencies, convertToUsd, getAverageInflation, getPropertyGrowth, calculateMinimumMonthlySavings } from '@/lib/inflation';
+import { getSupportedCurrencies, convertToUsd, convertFromUsd, getAverageInflation, getPropertyGrowth, calculateMinimumMonthlySavings } from '@/lib/inflation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { CityWithMetrics } from '@/types/city';
 
@@ -145,11 +145,25 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
     other: t.regions.other,
   };
 
+  // Slider range based on currency (USD equivalents: 100-20000)
+  const sliderRange = useMemo(() => {
+    const minUsd = 100;
+    const maxUsd = 20000;
+    const stepUsd = 100;
+    return {
+      min: Math.round(convertFromUsd(minUsd, currency)),
+      max: Math.round(convertFromUsd(maxUsd, currency)),
+      step: Math.max(1, Math.round(convertFromUsd(stepUsd, currency))),
+    };
+  }, [currency]);
+
   // Slider gradient based on zones
   const sliderBackground = useMemo(() => {
-    const max = 20000;
-    const redEnd = Math.min((minimumMonthlySavings / max) * 100, 100);
-    const yellowEnd = Math.min((cityMonthlyExpenses.good / max) * 100, 100);
+    const max = sliderRange.max;
+    const minSavingsInCurrency = Math.round(convertFromUsd(minimumMonthlySavings, currency));
+    const goodInCurrency = Math.round(convertFromUsd(cityMonthlyExpenses.good, currency));
+    const redEnd = Math.min((minSavingsInCurrency / max) * 100, 100);
+    const yellowEnd = Math.min((goodInCurrency / max) * 100, 100);
 
     return `linear-gradient(to right,
       #dc2626 0%,
@@ -158,7 +172,7 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
       #eab308 ${yellowEnd}%,
       #22c55e ${yellowEnd}%,
       #22c55e 100%)`;
-  }, [minimumMonthlySavings, cityMonthlyExpenses.good]);
+  }, [minimumMonthlySavings, cityMonthlyExpenses.good, currency, sliderRange.max]);
 
   return (
     <div className="space-y-6">
@@ -254,9 +268,9 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
             <div className="flex-1 relative">
               <input
                 type="range"
-                min={100}
-                max={20000}
-                step={100}
+                min={sliderRange.min}
+                max={sliderRange.max}
+                step={sliderRange.step}
                 value={monthlyContribution}
                 onChange={(e) => setMonthlyContribution(Number(e.target.value))}
                 className="w-full h-3 rounded-lg appearance-none cursor-pointer"
@@ -264,9 +278,9 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
               />
               {/* Zone markers */}
               <div className="flex justify-between text-xs mt-1 text-gray-500">
-                <span className="text-red-500">$100</span>
-                <span className="text-yellow-500">${cityMonthlyExpenses.comfortable.toLocaleString()}</span>
-                <span className="text-green-500">${cityMonthlyExpenses.good.toLocaleString()}+</span>
+                <span className="text-red-500">{sliderRange.min.toLocaleString()} {currency}</span>
+                <span className="text-yellow-500">{Math.round(convertFromUsd(cityMonthlyExpenses.comfortable, currency)).toLocaleString()} {currency}</span>
+                <span className="text-green-500">{Math.round(convertFromUsd(cityMonthlyExpenses.good, currency)).toLocaleString()}+ {currency}</span>
               </div>
             </div>
           </div>
@@ -287,7 +301,7 @@ export function TimeToHomeForm({ onCalculate }: TimeToHomeFormProps) {
                 {sliderZone === 'red' && (
                   <>
                     {isBelowMinimum
-                      ? `⚠️ ${locale === 'ru' ? 'Минимум' : 'Minimum'} ~$${minimumMonthlySavings.toLocaleString()}/мес ${locale === 'ru' ? 'нужно чтобы угнаться за ростом цен' : 'needed to keep up with price growth'}`
+                      ? `⚠️ ${locale === 'ru' ? 'Минимум' : 'Minimum'} ~${Math.round(convertFromUsd(minimumMonthlySavings, currency)).toLocaleString()} ${currency}/${locale === 'ru' ? 'мес' : 'mo'} ${locale === 'ru' ? 'нужно чтобы угнаться за ростом цен' : 'needed to keep up with price growth'}`
                       : locale === 'ru' ? 'Низкие сбережения — копить придётся очень долго' : 'Low savings — will take a very long time'
                     }
                   </>
