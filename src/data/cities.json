@@ -604,39 +604,39 @@
       },
       "property": {
         "cityCenter": {
-          "local": 1027328.15,
-          "usd": 11300.61
+          "local": 350000,
+          "usd": 3850
         },
         "outside": {
-          "local": 411628.17,
-          "usd": 4527.91
+          "local": 197500,
+          "usd": 2172.5
         },
         "buyCityCenter": {
           "oneBedroom": {
-            "local": 51366407.64,
-            "usd": 565030.5
+            "local": 15500000,
+            "usd": 170500
           },
           "twoBedroom": {
-            "local": 77049611.47,
-            "usd": 847545.75
+            "local": 23000000,
+            "usd": 253000
           },
           "threeBedroom": {
-            "local": 113006096.82,
-            "usd": 1243067.1
+            "local": 33000000,
+            "usd": 363000
           }
         },
         "buyOutside": {
           "oneBedroom": {
-            "local": 20581408.51,
-            "usd": 226395.5
+            "local": 8270000,
+            "usd": 90970
           },
           "twoBedroom": {
-            "local": 30872112.77,
-            "usd": 339593.25
+            "local": 11620000,
+            "usd": 127820
           },
           "threeBedroom": {
-            "local": 45279098.72,
-            "usd": 498070.1
+            "local": 17800000,
+            "usd": 195800
           }
         }
       },

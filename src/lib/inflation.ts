@@ -143,8 +143,14 @@ export function calculateTimeToHome(
     const yearsNoInflationNorm = yearsNoInflation > 200 ? Infinity : yearsNoInflation;
 
     // Calculate inflated price at time of purchase (only for reachable cases)
+    const inflationMultiplier = isFinite(yearsWithInflation)
+      ? Math.pow(1 + propertyGrowthRate / 100, yearsWithInflation)
+      : 1;
     const priceWithInflationUsd = isFinite(yearsWithInflation)
-      ? Math.round(priceUsd * Math.pow(1 + propertyGrowthRate / 100, yearsWithInflation))
+      ? Math.round(priceUsd * inflationMultiplier)
+      : 0;
+    const priceWithInflationLocal = isFinite(yearsWithInflation)
+      ? Math.round(priceLocal * inflationMultiplier)
       : 0;
 
     const affordable = isFinite(yearsWithInflation) && yearsWithInflation < 50;
@@ -154,6 +160,7 @@ export function calculateTimeToHome(
       propertyLabel: prop.label,
       priceLocal,
       priceUsd,
+      priceWithInflationLocal,
       priceWithInflationUsd,
       yearsWithoutInflation: isFinite(yearsNoInflationNorm) ? Math.round(yearsNoInflationNorm * 10) / 10 : Infinity,
       yearsWithInflation: isFinite(yearsWithInflation) ? Math.round(yearsWithInflation * 10) / 10 : Infinity,

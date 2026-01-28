@@ -5,6 +5,14 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import type { TimeToHomeResult } from '@/types/inflation';
 import type { CityWithMetrics } from '@/types/city';
 
+// Format price in local currency
+function formatLocalPrice(amount: number, currencySymbol: string): string {
+  const formatted = amount >= 1000
+    ? Math.round(amount).toLocaleString()
+    : amount.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  return `${currencySymbol}${formatted}`;
+}
+
 interface RentVsBuyProps {
   results: TimeToHomeResult[];
   city: CityWithMetrics;
@@ -170,7 +178,7 @@ export function RentVsBuy({ results, city, age }: RentVsBuyProps) {
                     {data.apartmentEquivalent.toFixed(1)} {t.apartments}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    {t.propertyPrice}: {formatMoney(data.priceUsd)}
+                    {t.propertyPrice}: {formatLocalPrice(data.priceLocal, city.currency.symbol)}
                   </p>
                 </div>
               </div>
